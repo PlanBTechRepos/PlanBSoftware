@@ -9,9 +9,8 @@ CREATE TABLE cargos(
 );
 
 CREATE TABLE telefones(
-	id_Telefones INTEGER PRIMARY KEY AUTO_INCREMENT,
-    id_Pessoa INTEGER NOT NULL UNIQUE,
-    numero LONG NOT NULL UNIQUE
+	Numero BIGINT NOT NULL PRIMARY KEY,
+    id_Pessoa INTEGER NOT NULL
 );
 
 CREATE TABLE pessoa(
@@ -32,13 +31,14 @@ CREATE TABLE funcionario(
 
 CREATE TABLE sessao(
 	id_Sessao INTEGER PRIMARY KEY AUTO_INCREMENT,
-    Funcionario INTEGER NOT NULL,
+    id_Funcionario INTEGER NOT NULL,
     Ativa BOOLEAN NOT NULL
 );
 
 CREATE TABLE ingredientes(
 	id_Ingrediente INTEGER PRIMARY KEY AUTO_INCREMENT,
-    Nome VARCHAR(30) NOT NULL
+    Nome VARCHAR(30) NOT NULL,
+    id_Produto INTEGER NOT NULL
 );
 
 CREATE TABLE receita(
@@ -49,7 +49,8 @@ CREATE TABLE receita(
 CREATE TABLE pedido(
 	id_Pedido INTEGER PRIMARY KEY,
     id_Pessoa INTEGER NOT NULL,
-    id_Receita INTEGER NOT NULL
+    id_Receita INTEGER NOT NULL,
+    pedido_Estado INTEGER NOT NULL DEFAULT 0
 );
 
 CREATE TABLE estado (
@@ -85,5 +86,5 @@ CREATE TABLE estoque(
     Quantidade FLOAT(8,4) NOT NULL,
     Vencimento DATETIME,
     Marca VARCHAR(40),
-    Valor_de_Compra float(6,2)
+    Valor_de_Compra FLOAT(6,2)
 );
