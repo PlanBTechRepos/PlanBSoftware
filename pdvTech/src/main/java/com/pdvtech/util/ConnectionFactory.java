@@ -1,8 +1,11 @@
 
 package com.pdvtech.util;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+
 public class ConnectionFactory {
-    /*
+    
     public static final String DRIVER = "com.mysql.cj.jdbc.Driver";
     public static final String URL = "jdbc:mysql://localhost:3306/pdvTech";
     public static final String USER = "root";
@@ -26,5 +29,5 @@ public class ConnectionFactory {
             throw new RuntimeException("Erro ao fechar a conexão com bando de dados", e);
         }
     }
-    */
+    
 }

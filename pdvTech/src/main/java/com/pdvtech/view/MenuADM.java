@@ -134,7 +134,7 @@ public class MenuADM extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        new Login_old().setVisible(true);
+        new Login().setVisible(true);
         MenuADM.this.dispose();
     }//GEN-LAST:event_jButton5ActionPerformed
 
