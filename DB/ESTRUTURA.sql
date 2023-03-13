@@ -38,7 +38,8 @@ CREATE TABLE sessao(
 CREATE TABLE ingredientes(
 	id_Ingrediente INTEGER PRIMARY KEY AUTO_INCREMENT,
     Nome VARCHAR(30) NOT NULL,
-    id_Produto INTEGER NOT NULL
+    id_Produto INTEGER NOT NULL,
+    Valor_Ingrediente FLOAT(8,2)
 );
 
 CREATE TABLE receita(
@@ -50,7 +51,8 @@ CREATE TABLE pedido(
 	id_Pedido INTEGER PRIMARY KEY,
     id_Pessoa INTEGER NOT NULL,
     id_Receita INTEGER NOT NULL,
-    pedido_Estado INTEGER NOT NULL DEFAULT 0
+    pedido_Estado INTEGER NOT NULL DEFAULT 0,
+    Valor_Total FLOAT(8,2)
 );
 
 CREATE TABLE estado (
