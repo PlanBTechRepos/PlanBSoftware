@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.pdvtech.view;
+import com.pdvtech.util.ConnectionFactory;
 import com.pdvtech.util.MySQL;
 import com.pdvtech.model.Usuario;
 import javax.swing.JOptionPane;
@@ -14,6 +15,7 @@ public class Login extends javax.swing.JFrame {
     Usuario usuarioLogin = new Usuario ();
     Usuario novoUsuario = new Usuario();
     MySQL conectar = new MySQL();
+    ConnectionFactory conn = new ConnectionFactory();
     /**
      * Creates new form Login
      */
@@ -57,6 +59,12 @@ public class Login extends javax.swing.JFrame {
         );
 
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        txtLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtLoginActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Login:");
 
@@ -151,45 +159,14 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-        this.conectar.conectaBanco();
-        boolean sucesso = false;
+        this.conn.getConnection();
         try{
-            String query = "SELECT "
-            + "id, "
-            + "login, "
-            + "senha "
-            + "FROM usuario "
-            + "WHERE usuario = '" + this.txtLogin.getText() + "' "
-            + "AND senha = '" + this.pwdSenha.getText() + "';";
-            this.conectar.executarSQL(query);
-
-            while (this.conectar.getResultSet().next()) {
-                novoUsuario.setId(this.conectar.getResultSet().getInt(1));
-                novoUsuario.setLogin(this.conectar.getResultSet().getString(2));
-                novoUsuario.setAdm(this.conectar.getResultSet().getBoolean(3));
-            }
-            if (novoUsuario.getLogin().equals("")){
-                JOptionPane.showMessageDialog(null, "Usuário ou senha incorretos!");
-            } else {
-                sucesso = true;
-            }
-        } catch (Exception e) {
-            System.out.println("Erro ao efetuar login! " + e.getMessage());
-            JOptionPane.showMessageDialog(null, "Erro ao efetuar login!");
-
-        } finally {
-            //linha comentada pq esta com erro
-            
-            //setLoginUsuario(this.usuarioLogin);
-            this.conectar.fechaBanco();
-            if(sucesso){
-                if(this.usuarioLogin.getAdm()){
-                    new MenuFunci().setVisible(true);
-                } else {
-                    new MenuADM().setVisible(true);
-                }
-                Login.this.dispose();
-            }
+           String query = "Select "
+                    + "Login "
+                    + "Senha"
+                    + "id_Funcionario";
+                    
+            conn.view(query);
         }
     }//GEN-LAST:event_btnEntrarActionPerformed
 
@@ -198,6 +175,10 @@ public class Login extends javax.swing.JFrame {
         this.txtLogin.setText("");
         this.pwdSenha.setText("");
     }//GEN-LAST:event_btnLimparActionPerformed
+
+    private void txtLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLoginActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtLoginActionPerformed
 
     /**
      * @param args the command line arguments

@@ -1,89 +1,42 @@
-DROP DATABASE IF EXISTS pdvPlanBTech;
 CREATE DATABASE pdvPlanBTech;
 USE pdvPlanBTech;
 
-CREATE TABLE cargos(
+CREATE TABLE if not exists cargos(
 	id_Cargo INTEGER PRIMARY KEY AUTO_INCREMENT,
     Nome VARCHAR(30) NOT NULL UNIQUE,
 	Permissoes INTEGER NOT NULL
 );
 
-CREATE TABLE telefones(
-	id_Telefones INTEGER PRIMARY KEY AUTO_INCREMENT,
-    id_Pessoa INTEGER NOT NULL UNIQUE,
-    numero Integer NOT NULL UNIQUE
-);
-
-CREATE TABLE pessoa(
-	id_Pessoa INTEGER PRIMARY KEY AUTO_INCREMENT,
-    Nome VARCHAR(20) NOT NULL,
-    Sobrenome VARCHAR(20) NOT NULL
-);
-
-CREATE TABLE funcionario(
+CREATE TABLE if not exists funcionario(
 	id_Funcionario INTEGER PRIMARY KEY AUTO_INCREMENT,
-    id_Pessoa INTEGER NOT NULL UNIQUE,
-    id_Cargo INTEGER NOT NULL,
-    Salario FLOAT(6,2),
-    Subordinado INTEGER NOT NULL,
-    Login VARCHAR(20) NOT NULL,
-    Senha VARCHAR(20) NOT NULL
+    id_Cargo INTEGER NOT NULL
 );
 
-CREATE TABLE sessao(
-	id_Sessao INTEGER PRIMARY KEY AUTO_INCREMENT,
-    Funcionario INTEGER NOT NULL,
-    Ativa BOOLEAN NOT NULL
+create table if not exists usuario(
+id_usuario		int 		auto_increment primary key,
+login 			varchar(50),
+senha			varchar(50)
 );
 
-CREATE TABLE ingredientes(
+create table if not exists receita(
+id 		int 	auto_increment primary key
+);
+
+CREATE TABLE if not exists ingredientes(
 	id_Ingrediente INTEGER PRIMARY KEY AUTO_INCREMENT,
-    Nome VARCHAR(30) NOT NULL
+    Nome VARCHAR(30) NOT NULL,
+    id_Produto INTEGER NOT NULL
 );
 
-CREATE TABLE receita(
-	id_Receita INTEGER PRIMARY KEY,
-    id_Ingrediente INTEGER NOT NULL
-);
 
-CREATE TABLE pedido(
+CREATE TABLE if not exists pedido(
 	id_Pedido INTEGER PRIMARY KEY,
-    id_Pessoa INTEGER NOT NULL,
-    id_Receita INTEGER NOT NULL
+    id_Pessoa INTEGER NOT NULL
 );
 
-CREATE TABLE estado (
-  id_Estado INT(11) NOT NULL PRIMARY KEY,
-  nome VARCHAR(75) DEFAULT NULL,
-  uf VARCHAR(2) DEFAULT NULL,
-  ibge INT(2) DEFAULT NULL,
-  pais INT(3) DEFAULT NULL,
-  ddd VARCHAR(50) DEFAULT NULL
-);
-
-CREATE TABLE cidade (
-  id_Cidade INT(11) NOT NULL PRIMARY KEY,
-  nome VARCHAR(120) DEFAULT NULL,
-  uf INT(2) DEFAULT NULL,
-  ibge INT(7) DEFAULT NULL
-);
-
-CREATE TABLE endereco(
-	id_Endereco INTEGER PRIMARY KEY AUTO_INCREMENT,
-    id_Pessoa INTEGER NOT NULL,
-    id_Estado INTEGER NOT NULL,
-    id_Cidade INTEGER NOT NULL,
-    Bairro VARCHAR(40) NOT NULL,
-    Logradouro VARCHAR(40) NOT NULL,
-    Numero INTEGER NOT NULL,
-    Complemento VARCHAR(40) NOT NULL
-);
-
-CREATE TABLE estoque(
+CREATE TABLE if not exists estoque(
 	id_Produto INTEGER PRIMARY KEY AUTO_INCREMENT,
-    Nome VARCHAR(40) NOT NULL,
     Quantidade FLOAT(8,4) NOT NULL,
     Vencimento DATETIME,
-    Marca VARCHAR(40),
-    Valor_de_Compra float(6,2)
+    Valor_de_Compra FLOAT(6,2)
 );
