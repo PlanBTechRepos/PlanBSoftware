@@ -2,91 +2,50 @@ DROP DATABASE IF EXISTS pdvPlanBTech;
 CREATE DATABASE pdvPlanBTech;
 USE pdvPlanBTech;
 
-CREATE TABLE cargos(
+CREATE TABLE IF NOT EXISTS cargos(
 	id_Cargo INTEGER PRIMARY KEY AUTO_INCREMENT,
-    Nome VARCHAR(30) NOT NULL UNIQUE,
-	Permissoes INTEGER NOT NULL
+    Nome VARCHAR(30) NOT NULL UNIQUE
 );
 
-CREATE TABLE telefones(
-	Numero BIGINT NOT NULL PRIMARY KEY,
-    id_Pessoa INTEGER NOT NULL
-);
-
-CREATE TABLE pessoa(
-	id_Pessoa INTEGER PRIMARY KEY AUTO_INCREMENT,
-    Nome VARCHAR(20) NOT NULL,
-    Sobrenome VARCHAR(20) NOT NULL
-);
-
-CREATE TABLE funcionario(
+CREATE TABLE IF NOT EXISTS funcionario(
 	id_Funcionario INTEGER PRIMARY KEY AUTO_INCREMENT,
-    id_Pessoa INTEGER NOT NULL UNIQUE,
     id_Cargo INTEGER NOT NULL,
-    Salario FLOAT(6,2),
-    Subordinado INTEGER NOT NULL,
-    Login VARCHAR(20) NOT NULL,
-    Senha VARCHAR(20) NOT NULL
+    nome VARCHAR(50) NOT NULL,
+    sobrenome VARCHAR(50) NOT NULL
 );
 
-CREATE TABLE sessao(
-	id_Sessao INTEGER PRIMARY KEY AUTO_INCREMENT,
-    id_Funcionario INTEGER NOT NULL,
-    Ativa BOOLEAN NOT NULL
+CREATE TABLE IF NOT EXISTS usuario(
+	id_Funcionario		INTEGER	PRIMARY KEY,
+	usuario 			VARCHAR(50),
+	senha			VARCHAR(50),
+	permissao INTEGER NOT NULL DEFAULT 0
 );
 
-CREATE TABLE ingredientes(
+CREATE TABLE IF NOT EXISTS receita(
+	id_Receita 		INTEGER		AUTO_INCREMENT PRIMARY KEY,
+	id_Ingrediente  INTEGER NOT NULL,
+	nome_receita VARCHAR(50)
+);
+
+CREATE TABLE IF NOT EXISTS ingredientes(
 	id_Ingrediente INTEGER PRIMARY KEY AUTO_INCREMENT,
-    Nome VARCHAR(30) NOT NULL,
-    id_Produto INTEGER NOT NULL,
-    Valor_Ingrediente FLOAT(8,2)
+    Nome VARCHAR(30) NOT NULL
 );
 
-CREATE TABLE receita(
-	id_Receita INTEGER PRIMARY KEY,
-    id_Ingrediente INTEGER NOT NULL
-);
 
-CREATE TABLE pedido(
+CREATE TABLE IF NOT EXISTS pedido(
 	id_Pedido INTEGER PRIMARY KEY,
     id_Pessoa INTEGER NOT NULL,
     id_Receita INTEGER NOT NULL,
-    pedido_Estado INTEGER NOT NULL DEFAULT 0,
-    Valor_Total FLOAT(8,2)
+    cliente VARCHAR(50),
+    Valor_Total FLOAT(8,2),
+    status_pedido INTEGER NOT NULL DEFAULT 0
 );
 
-CREATE TABLE estado (
-  id_Estado INT(11) NOT NULL PRIMARY KEY,
-  nome VARCHAR(75) DEFAULT NULL,
-  uf VARCHAR(2) DEFAULT NULL,
-  ibge INT(2) DEFAULT NULL,
-  pais INT(3) DEFAULT NULL,
-  ddd VARCHAR(50) DEFAULT NULL
-);
-
-CREATE TABLE cidade (
-  id_Cidade INT(11) NOT NULL PRIMARY KEY,
-  nome VARCHAR(120) DEFAULT NULL,
-  uf INT(2) DEFAULT NULL,
-  ibge INT(7) DEFAULT NULL
-);
-
-CREATE TABLE endereco(
-	id_Endereco INTEGER PRIMARY KEY AUTO_INCREMENT,
-    id_Pessoa INTEGER NOT NULL,
-    id_Estado INTEGER NOT NULL,
-    id_Cidade INTEGER NOT NULL,
-    Bairro VARCHAR(40) NOT NULL,
-    Logradouro VARCHAR(40) NOT NULL,
-    Numero INTEGER NOT NULL,
-    Complemento VARCHAR(40) NOT NULL
-);
-
-CREATE TABLE estoque(
+CREATE TABLE IF NOT EXISTS estoque(
 	id_Produto INTEGER PRIMARY KEY AUTO_INCREMENT,
-    Nome VARCHAR(40) NOT NULL,
     Quantidade FLOAT(8,4) NOT NULL,
     Vencimento DATETIME,
-    Marca VARCHAR(40),
+    tipo_Ingrediente INTEGER, #mussarela, refri
     Valor_de_Compra FLOAT(6,2)
 );
