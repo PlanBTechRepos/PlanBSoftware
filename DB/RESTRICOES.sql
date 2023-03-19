@@ -20,7 +20,8 @@ ADD CONSTRAINT FK_Ingrediente_Receita FOREIGN KEY (id_Ingrediente) REFERENCES in
 
 ALTER TABLE pedido
 ADD CONSTRAINT FK_PessoaP FOREIGN KEY (id_Pessoa) REFERENCES pessoa(id_Pessoa),
-ADD CONSTRAINT FK_Receita FOREIGN kEY (id_Receita) REFERENCES receita(id_Receita);
+ADD CONSTRAINT FK_Receita FOREIGN kEY (id_Receita) REFERENCES receita(id_Receita),
+ADD CHECK (Valor_Total > 0.00);
 
 ALTER TABLE cidade
 ADD CONSTRAINT FK_EstadoUF FOREIGN KEY (uf) REFERENCES estado(Id_Estado);

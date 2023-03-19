@@ -29,8 +29,8 @@ public class Gerenciador {
     }
     
     //public static void setUsuarioLogado(Usuario usuario){
-        //gerenciador.usuarioLogado = usuario;
-       // gerenciador.setIdLogado(usuario.getId());
+        //.usuarioLogado = usuario;
+       // gerenciadogerenciadorr.setIdLogado(usuario.getId());
     //}
     
 }
