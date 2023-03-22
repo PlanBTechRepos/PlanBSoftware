@@ -14,7 +14,19 @@ public class Pizza {
     private String selecaoBorda;
     private int qtdPizza;
     private String nome_pizza;
+    private float valor;
 
+    public float getValor() {
+        return valor;
+    }
+
+    public void setValor(float valor) {
+        this.valor = valor;
+    }
+
+    
+    
+    
     public String getSelecaoBorda() {
         return selecaoBorda;
     }

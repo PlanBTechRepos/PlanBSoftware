@@ -815,7 +815,7 @@ public class Pedido extends javax.swing.JFrame {
     private void btnCarrinhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarrinhoActionPerformed
        if(radMussarela.isSelected()){
            this.pizza.setNome_pizza("Mussarela");
-           this.pizza.setValor(35.00);
+           this.pizza.setValor(35.00f);
        }
     }//GEN-LAST:event_btnCarrinhoActionPerformed
 
