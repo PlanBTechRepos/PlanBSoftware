@@ -813,9 +813,62 @@ public class Pedido extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnCarrinhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarrinhoActionPerformed
-       if(radMussarela.isSelected()){
+       //condição de objeto selecionado
+        if(radMussarela.isSelected()){
            this.pizza.setNome_pizza("Mussarela");
            this.pizza.setValor(35.00f);
+           
+       } else if (radAlho.isSelected()){
+           this.pizza.setNome_pizza("Alho");
+           this.pizza.setValor(35.00f);
+           
+       } else if(radFrandoCatupiry.isSelected()) {
+           this.pizza.setNome_pizza("Frango Catupiry");
+           this.pizza.setValor(35.00f);
+           
+       } else if (radPortuguesa.isSelected()){
+           this.pizza.setNome_pizza("Portuguesa");
+           this.pizza.setValor(40.00f);
+           
+       }else if (radBrocolis.isSelected()){
+           this.pizza.setNome_pizza ("Brócolis");
+           this.pizza.setValor(40.00f);
+           
+       } else if (radVegetariana.isSelected()){
+           this.pizza.setNome_pizza("Vegetariana");
+           this.pizza.setValor(40.00f);
+           
+       } else if (radCalabresa.isSelected()){
+           this.pizza.setNome_pizza("Calabresa");
+           this.pizza.setValor(40.00f);
+           
+       } else if (radBacon.isSelected()){
+           this.pizza.setNome_pizza("Bacon");
+           this.pizza.setValor(40.00f);
+           
+       } else if (radModaCasa.isSelected()){
+           this.pizza.setNome_pizza("Moda da casa");
+           this.pizza.setValor(45.00f);
+           
+       } else if (radBolonhesa.isSelected()){
+           this.pizza.setNome_pizza("Bolonhesa");
+           this.pizza.setValor(45.00f);
+           
+       } else if (rad4Queijos.isSelected()) {
+           this.pizza.setNome_pizza("4 Queijo");
+           this.pizza.setValor(45.00f);
+           
+       } else if (radBanana.isSelected()){
+           this.pizza.setNome_pizza("Banana");
+           this.pizza.setValor(35.00f);
+           
+       } else if (radNutellaMorango.isSelected()) {
+           this.pizza.setNome_pizza("Nutella com morango");
+           this.pizza.setValor(40.00f);
+           
+       } else if (radKinder.isSelected()) {
+           this.pizza.setNome_pizza("Kinder bueno");
+           this.pizza.setValor(45.00f);
        }
     }//GEN-LAST:event_btnCarrinhoActionPerformed
 
