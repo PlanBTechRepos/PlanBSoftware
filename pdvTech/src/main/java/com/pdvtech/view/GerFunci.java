@@ -3,16 +3,31 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.pdvtech.view;
-
+import com.pdvtech.util.MySQL;
 /**
  *
  * @author limal
  */
 public class GerFunci extends javax.swing.JFrame {
-
+    MySQL conn = new MySQL();
     /**
      * Creates new form GerFunci
      */
+    
+    public void cadastraFuncionsrio(){
+        try{
+           var query = "insert (usuario, senha) into usuario values ("
+                   + this.txtUsuario.getText() + ", "
+                   + this.pswSenha.getText() + ");"
+                   + "insert (nome) into funcionario values ("
+                   + this.txtNome.getText();
+           
+           conn.insertSQL(query);
+        }
+        catch(Exception e){
+            
+        }
+    }
     public GerFunci() {
         initComponents();
     }
@@ -56,6 +71,11 @@ public class GerFunci extends javax.swing.JFrame {
         jLabel3.setText("Senha");
 
         btnSalvar.setText("Salvar");
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvarActionPerformed(evt);
+            }
+        });
 
         btnLimpar.setText("Limpar");
 
@@ -141,6 +161,15 @@ public class GerFunci extends javax.swing.JFrame {
         new ListarFunci().setVisible(true);
         GerFunci.this.dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
+
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+        if(this.txtUsuario.getText() == ""){
+            
+        }
+        else{
+            
+        }
+    }//GEN-LAST:event_btnSalvarActionPerformed
 
     /**
      * @param args the command line arguments
