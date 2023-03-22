@@ -5,6 +5,7 @@ import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class ConnectionFactory {
     Statement statement;
@@ -18,18 +19,23 @@ public class ConnectionFactory {
         this.resultset = resultset;
     }
     
-    public static final String DRIVER = "com.mysql.cj.jdbc.Driver";
-    public static final String URL = "jdbc:mysql://localhost:3306/pdvTech";
-    public static final String USER = "root";
-    public static final String PASS = "root";
+    public  final String DRIVER = "com.mysql.cj.jdbc.Driver";
+    public  final String URL = "jdbc:mysql://localhost:3306/pdvPlanBTech";
+    public  final String USER = "root";
+    public  final String PASS = "1234";
     
-    public static Connection getConnection() {
+    public void getConnection() {
         try {
             Class.forName(DRIVER);
-            return DriverManager.getConnection(URL, USER, PASS);
+            Connection conn = DriverManager.getConnection(URL, USER, PASS);
+            statement = conn.createStatement();
+
+                    
+            
         } catch (Exception e) {
             throw new RuntimeException("Erro na conexão com o bando de dados", e);
         }
+        
     }
     
     public static void closeConnection(Connection connection) {
@@ -42,24 +48,24 @@ public class ConnectionFactory {
         }
     }
     
-    public void insert(String insertString){
+    public void insert(String insertString) throws SQLException{
         try{
             getConnection();
             statement.executeUpdate(insertString);
             System.out.println("Dado inserido com sucesso");
         }
-        catch(Exception e){
+        catch(SQLException e){
             System.out.println("Não foi possivel inserir os dados");
         }
         finally{
-            closeConnection(getConnection());
+            closeConnection(statement.getConnection());
         }
     }
     public void update(String updateString){
         try{
             getConnection();
             statement.executeUpdate(updateString);
-            System.out.println("Dado ayualizado com sucesso");
+            System.out.println("Dado atualizado com sucesso");
         }
         catch(Exception e){
             System.out.println("Não foi possivel atualizar os dados");
@@ -83,15 +89,12 @@ public class ConnectionFactory {
     }
     public void view(String viewString){
         try{
-            getConnection();
+            statement.getConnection();
             resultset = statement.executeQuery(viewString);
-            while(resultset.next()){
-                
-            }
             System.out.println("Dado Visualizados com sucesso");
         }
-        catch(Exception e){
-            System.out.println("Não foi possivel visualizar os dados");
+        catch(SQLException e){
+            e.printStackTrace();
         }
         finally{
             closeConnection(getConnection());

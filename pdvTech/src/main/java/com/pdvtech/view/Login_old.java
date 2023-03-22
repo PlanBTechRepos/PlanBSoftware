@@ -144,18 +144,19 @@ public class Login_old extends javax.swing.JFrame {
         boolean sucesso = false;
         try{
             String query = "SELECT "
-                    + "id, "
+                    + "id_funcionario, "
                     + "login, "
-                    + "senha "
+                    + "senha,"
+                    + "permissao "
                     + "FROM usuario "
-                    + "WHERE usuario = '" + this.input_User.getText() + "' "
+                    + "WHERE login = '" + this.input_User.getText() + "' "
                     + "AND senha = '" + this.input_Pass.getText() + "';";
             this.conectar.executarSQL(query);
             
             while (this.conectar.getResultSet().next()) {
                 novoUsuario.setId(this.conectar.getResultSet().getInt(1));
                 novoUsuario.setLogin(this.conectar.getResultSet().getString(2));
-                novoUsuario.setAdm(this.conectar.getResultSet().getBoolean(3));
+                novoUsuario.setAdm(this.conectar.getResultSet().getBoolean(4));
             }
             if (novoUsuario.getLogin().equals("")){
                 JOptionPane.showMessageDialog(null, "Usuário ou senha incorretos!");

@@ -159,14 +159,47 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-        this.conn.getConnection();
+        boolean sucesso = false;
         try{
            String query = "Select "
-                    + "Login "
-                    + "Senha"
-                    + "id_Funcionario";
+                    + "Login, "
+                    + "Senha, "
+                    + "permissao "
+                   + "from "
+                   + "usuario "
+                   + "where '"
+                   + this.txtLogin.getText() + "' = "
+                   + "Login";
                     
             conn.view(query);
+           
+            while(conn.getResultset().next()){
+                this.usuarioLogin.setLogin(this.conn.getResultset().getString(1));
+                this.usuarioLogin.setSenha(this.conn.getResultset().getString(2));
+                this.usuarioLogin.setAdm(this.conn.getResultset().getBoolean(3));
+                
+            }
+            if(this.txtLogin.getText().equals("")){
+                JOptionPane.showMessageDialog(rootPane, "Erro ao efetuar login");
+            }
+            else{
+             sucesso = true;
+            }
+        }
+        catch(Exception e){
+            System.out.println("Erro ao logar");
+            JOptionPane.showMessageDialog(null, "Erro ao efetuar login!");
+        }
+        finally{
+            if(sucesso){
+            if(usuarioLogin.getAdm()){
+                new MenuADM().setVisible(true);
+            }
+            else{
+                new MenuFunci().setVisible(true);
+            }
+            Login.this.dispose();
+        }
         }
     }//GEN-LAST:event_btnEntrarActionPerformed
 

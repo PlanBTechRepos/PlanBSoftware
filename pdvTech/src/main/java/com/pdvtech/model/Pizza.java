@@ -11,36 +11,15 @@ import java.util.ArrayList;
  * @author Yago_
  */
 public class Pizza {
-    ArrayList <String> ingredientes = new ArrayList(); 
-    private int selecaoMolho;
-    private int selecaoBorda;
+    private String selecaoBorda;
     private int qtdPizza;
+    private String nome_pizza;
 
-    public ArrayList<String> getIngredientes() {
-        return ingredientes;
-    }
-
-    public void setIngredientes(ArrayList<String> ingredientes) {
-        this.ingredientes = ingredientes;
-    }
-
-  
-
-    
-
-    public int getSelecaoMolho() {
-        return selecaoMolho;
-    }
-
-    public void setSelecaoMolho(int selecaoMolho) {
-        this.selecaoMolho = selecaoMolho;
-    }
-
-    public int getSelecaoBorda() {
+    public String getSelecaoBorda() {
         return selecaoBorda;
     }
 
-    public void setSelecaoBorda(int selecaoBorda) {
+    public void setSelecaoBorda(String selecaoBorda) {
         this.selecaoBorda = selecaoBorda;
     }
 
@@ -51,12 +30,15 @@ public class Pizza {
     public void setQtdPizza(int qtdPizza) {
         this.qtdPizza = qtdPizza;
     }
-    
-    public void AdicionarIngrediente(String ingrediente){
-        this.ingredientes.add(ingrediente);
+
+    public String getNome_pizza() {
+        return nome_pizza;
+    }
+
+    public void setNome_pizza(String nome_pizza) {
+        this.nome_pizza = nome_pizza;
     }
     
-    public void RetirarIngrediente(String ingrediente){
-      this.ingredientes.remove(ingrediente);
-    }
+    
+   
 }

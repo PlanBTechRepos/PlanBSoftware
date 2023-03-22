@@ -3,13 +3,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.pdvtech.view;
-
+import com.pdvtech.util.MySQL;
+import com.pdvtech.model.Pizza;
 /**
  *
  * @author 016580631
  */
 public class Pedido extends javax.swing.JFrame {
-
+    MySQL conn = new MySQL();
+    Pizza pizza = new Pizza();
     /**
      * Creates new form Pedido
      */
@@ -26,6 +28,8 @@ public class Pedido extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        groupPizza = new javax.swing.ButtonGroup();
+        groupBorda = new javax.swing.ButtonGroup();
         Login_Panel = new javax.swing.JPanel();
         btnMaximize = new javax.swing.JLabel();
         btnMinimize = new javax.swing.JLabel();
@@ -41,33 +45,33 @@ public class Pedido extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
+        radBordaMussarela = new javax.swing.JRadioButton();
+        radCatupiry = new javax.swing.JRadioButton();
+        radCheddar = new javax.swing.JRadioButton();
+        radNao = new javax.swing.JRadioButton();
+        radCreamCheese = new javax.swing.JRadioButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        jRadioButton6 = new javax.swing.JRadioButton();
+        radMussarela = new javax.swing.JRadioButton();
         jLabel8 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jRadioButton9 = new javax.swing.JRadioButton();
+        radPortuguesa = new javax.swing.JRadioButton();
         jLabel12 = new javax.swing.JLabel();
-        jRadioButton10 = new javax.swing.JRadioButton();
+        radFrandoCatupiry = new javax.swing.JRadioButton();
         jLabel13 = new javax.swing.JLabel();
-        jRadioButton11 = new javax.swing.JRadioButton();
+        radModaCasa = new javax.swing.JRadioButton();
         jLabel14 = new javax.swing.JLabel();
-        jRadioButton12 = new javax.swing.JRadioButton();
+        radBolonhesa = new javax.swing.JRadioButton();
         jLabel15 = new javax.swing.JLabel();
-        jRadioButton13 = new javax.swing.JRadioButton();
+        radBrocolis = new javax.swing.JRadioButton();
         jLabel17 = new javax.swing.JLabel();
-        jRadioButton15 = new javax.swing.JRadioButton();
+        radVegetariana = new javax.swing.JRadioButton();
         jLabel18 = new javax.swing.JLabel();
-        jRadioButton16 = new javax.swing.JRadioButton();
+        radAlho = new javax.swing.JRadioButton();
         jLabel19 = new javax.swing.JLabel();
-        jRadioButton17 = new javax.swing.JRadioButton();
+        radNutellaMorango = new javax.swing.JRadioButton();
         jLabel21 = new javax.swing.JLabel();
-        jRadioButton19 = new javax.swing.JRadioButton();
+        radKinder = new javax.swing.JRadioButton();
         jLabel22 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
@@ -83,19 +87,19 @@ public class Pedido extends javax.swing.JFrame {
         jLabel36 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jRadioButton7 = new javax.swing.JRadioButton();
-        jRadioButton8 = new javax.swing.JRadioButton();
+        radCalabresa = new javax.swing.JRadioButton();
+        radBacon = new javax.swing.JRadioButton();
         jLabel10 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         jLabel38 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        jRadioButton14 = new javax.swing.JRadioButton();
+        rad4Queijos = new javax.swing.JRadioButton();
         jLabel27 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        jRadioButton18 = new javax.swing.JRadioButton();
+        radBanana = new javax.swing.JRadioButton();
         jRadioButton20 = new javax.swing.JRadioButton();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnCarrinho = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
 
@@ -176,19 +180,24 @@ public class Pedido extends javax.swing.JFrame {
 
         jLabel6.setText("Borda Recheada");
 
-        jRadioButton1.setText("Mussarela");
+        groupBorda.add(radBordaMussarela);
+        radBordaMussarela.setText("Mussarela");
 
-        jRadioButton2.setText("Catupity");
-        jRadioButton2.setActionCommand("");
+        groupBorda.add(radCatupiry);
+        radCatupiry.setText("Catupity");
+        radCatupiry.setActionCommand("");
 
-        jRadioButton3.setText("Cheddar");
+        groupBorda.add(radCheddar);
+        radCheddar.setText("Cheddar");
 
-        jRadioButton4.setText("Não");
+        groupBorda.add(radNao);
+        radNao.setText("Não");
 
-        jRadioButton5.setText("Cream Cheese");
-        jRadioButton5.addActionListener(new java.awt.event.ActionListener() {
+        groupBorda.add(radCreamCheese);
+        radCreamCheese.setText("Cream Cheese");
+        radCreamCheese.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton5ActionPerformed(evt);
+                radCreamCheeseActionPerformed(evt);
             }
         });
 
@@ -201,11 +210,11 @@ public class Pedido extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton4)
-                            .addComponent(jRadioButton2)
-                            .addComponent(jRadioButton1)
-                            .addComponent(jRadioButton5)
-                            .addComponent(jRadioButton3)))
+                            .addComponent(radNao)
+                            .addComponent(radCatupiry)
+                            .addComponent(radBordaMussarela)
+                            .addComponent(radCreamCheese)
+                            .addComponent(radCheddar)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(78, 78, 78)
                         .addComponent(jLabel6)))
@@ -217,24 +226,30 @@ public class Pedido extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jRadioButton4)
+                .addComponent(radNao)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton5)
+                .addComponent(radCreamCheese)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton1)
+                .addComponent(radBordaMussarela)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton2)
+                .addComponent(radCatupiry)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton3)
+                .addComponent(radCheddar)
                 .addGap(26, 26, 26))
         );
 
         jLabel7.setText("Sabores");
 
-        jRadioButton6.setText("Mussarela");
-        jRadioButton6.addActionListener(new java.awt.event.ActionListener() {
+        groupPizza.add(radMussarela);
+        radMussarela.setText("Mussarela");
+        radMussarela.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                radMussarelaStateChanged(evt);
+            }
+        });
+        radMussarela.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton6ActionPerformed(evt);
+                radMussarelaActionPerformed(evt);
             }
         });
 
@@ -242,82 +257,91 @@ public class Pedido extends javax.swing.JFrame {
 
         jLabel11.setText("Ingredientes: presunto, ovo, mussarela, cebola");
 
-        jRadioButton9.setText("Portuguesa");
-        jRadioButton9.addActionListener(new java.awt.event.ActionListener() {
+        groupPizza.add(radPortuguesa);
+        radPortuguesa.setText("Portuguesa");
+        radPortuguesa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton9ActionPerformed(evt);
+                radPortuguesaActionPerformed(evt);
             }
         });
 
         jLabel12.setText("Ingredientes: frango, catupiry, milho, cebola");
 
-        jRadioButton10.setText("Frango Catupity");
-        jRadioButton10.addActionListener(new java.awt.event.ActionListener() {
+        groupPizza.add(radFrandoCatupiry);
+        radFrandoCatupiry.setText("Frango Catupiry");
+        radFrandoCatupiry.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton10ActionPerformed(evt);
+                radFrandoCatupiryActionPerformed(evt);
             }
         });
 
         jLabel13.setText("Ingredientes: calabresa, bacon, frango, mussarela");
 
-        jRadioButton11.setText("Moda da casa");
-        jRadioButton11.addActionListener(new java.awt.event.ActionListener() {
+        groupPizza.add(radModaCasa);
+        radModaCasa.setText("Moda da casa");
+        radModaCasa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton11ActionPerformed(evt);
+                radModaCasaActionPerformed(evt);
             }
         });
 
         jLabel14.setText("Ingredientes: carne moída, pimentão, cebola");
 
-        jRadioButton12.setText("Bolonhesa");
-        jRadioButton12.addActionListener(new java.awt.event.ActionListener() {
+        groupPizza.add(radBolonhesa);
+        radBolonhesa.setText("Bolonhesa");
+        radBolonhesa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton12ActionPerformed(evt);
+                radBolonhesaActionPerformed(evt);
             }
         });
 
         jLabel15.setText("Ingredientes: bacon, brócolis, mussarela");
 
-        jRadioButton13.setText("Brócolis");
-        jRadioButton13.addActionListener(new java.awt.event.ActionListener() {
+        groupPizza.add(radBrocolis);
+        radBrocolis.setText("Brócolis");
+        radBrocolis.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton13ActionPerformed(evt);
+                radBrocolisActionPerformed(evt);
             }
         });
 
         jLabel17.setText("Ingredientes: champignon, palmito, brócolis, mussarela");
 
-        jRadioButton15.setText("Vegetariana");
-        jRadioButton15.addActionListener(new java.awt.event.ActionListener() {
+        groupPizza.add(radVegetariana);
+        radVegetariana.setText("Vegetariana");
+        radVegetariana.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton15ActionPerformed(evt);
+                radVegetarianaActionPerformed(evt);
             }
         });
 
         jLabel18.setText("Ingredientes: alho frito, mussarelha, cebola");
 
-        jRadioButton16.setText("Alho");
-        jRadioButton16.addActionListener(new java.awt.event.ActionListener() {
+        groupPizza.add(radAlho);
+        radAlho.setText("Alho");
+        radAlho.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton16ActionPerformed(evt);
+                radAlhoActionPerformed(evt);
             }
         });
 
         jLabel19.setText("Ingredientes: nutella, morango, granulado");
 
-        jRadioButton17.setText("Nutella com morango");
-        jRadioButton17.addActionListener(new java.awt.event.ActionListener() {
+        groupPizza.add(radNutellaMorango);
+        radNutellaMorango.setText("Nutella com morango");
+        radNutellaMorango.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton17ActionPerformed(evt);
+                radNutellaMorangoActionPerformed(evt);
             }
         });
 
         jLabel21.setText("Ingredientes: Kinder bueno, creme branco");
 
-        jRadioButton19.setText("Kinder Bueno");
-        jRadioButton19.addActionListener(new java.awt.event.ActionListener() {
+        groupPizza.add(radKinder);
+        radKinder.setText("Kinder Bueno");
+        radKinder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton19ActionPerformed(evt);
+                radKinderActionPerformed(evt);
             }
         });
 
@@ -351,17 +375,19 @@ public class Pedido extends javax.swing.JFrame {
 
         jLabel9.setText("Ingredientes: calabresa, cebola e mussarela");
 
-        jRadioButton7.setText("Calabresa");
-        jRadioButton7.addActionListener(new java.awt.event.ActionListener() {
+        groupPizza.add(radCalabresa);
+        radCalabresa.setText("Calabresa");
+        radCalabresa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton7ActionPerformed(evt);
+                radCalabresaActionPerformed(evt);
             }
         });
 
-        jRadioButton8.setText("Bacon");
-        jRadioButton8.addActionListener(new java.awt.event.ActionListener() {
+        groupPizza.add(radBacon);
+        radBacon.setText("Bacon");
+        radBacon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton8ActionPerformed(evt);
+                radBaconActionPerformed(evt);
             }
         });
 
@@ -373,10 +399,11 @@ public class Pedido extends javax.swing.JFrame {
 
         jLabel16.setText("Ingredientes: mussarela, catupiry, parmesão, gorgonzola");
 
-        jRadioButton14.setText("4 Queijos");
-        jRadioButton14.addActionListener(new java.awt.event.ActionListener() {
+        groupPizza.add(rad4Queijos);
+        rad4Queijos.setText("4 Queijos");
+        rad4Queijos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton14ActionPerformed(evt);
+                rad4QueijosActionPerformed(evt);
             }
         });
 
@@ -384,10 +411,11 @@ public class Pedido extends javax.swing.JFrame {
 
         jLabel20.setText("Ingredientes: banana, doce de leite, canela");
 
-        jRadioButton18.setText("Banana");
-        jRadioButton18.addActionListener(new java.awt.event.ActionListener() {
+        groupPizza.add(radBanana);
+        radBanana.setText("Banana");
+        radBanana.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton18ActionPerformed(evt);
+                radBananaActionPerformed(evt);
             }
         });
 
@@ -413,8 +441,8 @@ public class Pedido extends javax.swing.JFrame {
                             .addComponent(jRadioButton20, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jRadioButton16)
-                                    .addComponent(jRadioButton6)
+                                    .addComponent(radAlho)
+                                    .addComponent(radMussarela)
                                     .addGroup(jPanel3Layout.createSequentialGroup()
                                         .addComponent(jLabel8)
                                         .addGap(18, 18, 18)
@@ -427,8 +455,8 @@ public class Pedido extends javax.swing.JFrame {
                                         .addComponent(jLabel11)
                                         .addGap(18, 18, 18)
                                         .addComponent(jLabel32))
-                                    .addComponent(jRadioButton9)
-                                    .addComponent(jRadioButton15)
+                                    .addComponent(radPortuguesa)
+                                    .addComponent(radVegetariana)
                                     .addGroup(jPanel3Layout.createSequentialGroup()
                                         .addComponent(jLabel18)
                                         .addGap(18, 18, 18)
@@ -437,29 +465,29 @@ public class Pedido extends javax.swing.JFrame {
                                         .addComponent(jLabel9)
                                         .addGap(18, 18, 18)
                                         .addComponent(jLabel37))
-                                    .addComponent(jRadioButton7)
+                                    .addComponent(radCalabresa)
                                     .addGroup(jPanel3Layout.createSequentialGroup()
                                         .addComponent(jLabel12)
                                         .addGap(18, 18, 18)
                                         .addComponent(jLabel28))
-                                    .addComponent(jRadioButton10)
+                                    .addComponent(radFrandoCatupiry)
                                     .addGroup(jPanel3Layout.createSequentialGroup()
                                         .addComponent(jLabel15)
                                         .addGap(18, 18, 18)
                                         .addComponent(jLabel33))
-                                    .addComponent(jRadioButton13))
+                                    .addComponent(radBrocolis))
                                 .addGap(40, 40, 40)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel3Layout.createSequentialGroup()
                                         .addGap(1, 1, 1)
                                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jRadioButton12)
-                                            .addComponent(jRadioButton11)
+                                            .addComponent(radBolonhesa)
+                                            .addComponent(radModaCasa)
                                             .addGroup(jPanel3Layout.createSequentialGroup()
                                                 .addComponent(jLabel21)
                                                 .addGap(18, 18, 18)
                                                 .addComponent(jLabel36))
-                                            .addComponent(jRadioButton19)
+                                            .addComponent(radKinder)
                                             .addGroup(jPanel3Layout.createSequentialGroup()
                                                 .addComponent(jLabel14)
                                                 .addGap(18, 18, 18)
@@ -472,8 +500,8 @@ public class Pedido extends javax.swing.JFrame {
                                                 .addComponent(jLabel10)
                                                 .addGap(18, 18, 18)
                                                 .addComponent(jLabel29))
-                                            .addComponent(jRadioButton8)
-                                            .addComponent(jRadioButton14)
+                                            .addComponent(radBacon)
+                                            .addComponent(rad4Queijos)
                                             .addGroup(jPanel3Layout.createSequentialGroup()
                                                 .addComponent(jLabel16)
                                                 .addGap(18, 18, 18)
@@ -482,12 +510,12 @@ public class Pedido extends javax.swing.JFrame {
                                                 .addComponent(jLabel20)
                                                 .addGap(18, 18, 18)
                                                 .addComponent(jLabel27))
-                                            .addComponent(jRadioButton18)))
+                                            .addComponent(radBanana)))
                                     .addGroup(jPanel3Layout.createSequentialGroup()
                                         .addComponent(jLabel19)
                                         .addGap(18, 18, 18)
                                         .addComponent(jLabel31))
-                                    .addComponent(jRadioButton17)))))
+                                    .addComponent(radNutellaMorango)))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(381, 381, 381)
                         .addComponent(jLabel7)))
@@ -501,13 +529,13 @@ public class Pedido extends javax.swing.JFrame {
                 .addGap(12, 12, 12)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jRadioButton6)
+                        .addComponent(radMussarela)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
                             .addComponent(jLabel25)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jRadioButton8)
+                        .addComponent(radBacon)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel10)
@@ -515,13 +543,13 @@ public class Pedido extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jRadioButton11)
+                        .addComponent(radModaCasa)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel13)
                             .addComponent(jLabel35))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioButton12)
+                        .addComponent(radBolonhesa)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel14)
@@ -532,23 +560,23 @@ public class Pedido extends javax.swing.JFrame {
                                 .addGap(27, 27, 27)
                                 .addComponent(jLabel38))
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jRadioButton14)
+                                .addComponent(rad4Queijos)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel16))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jRadioButton16)
+                        .addComponent(radAlho)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel18)
                             .addComponent(jLabel26))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioButton10)
+                        .addComponent(radFrandoCatupiry)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel12)
                             .addComponent(jLabel28))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioButton9)
+                        .addComponent(radPortuguesa)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel11)
@@ -556,25 +584,25 @@ public class Pedido extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jRadioButton13)
+                        .addComponent(radBrocolis)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel15)
                             .addComponent(jLabel33))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioButton15)
+                        .addComponent(radVegetariana)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel17)
                             .addComponent(jLabel30)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jRadioButton18)
+                        .addComponent(radBanana)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel20)
                             .addComponent(jLabel27))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jRadioButton17)
+                        .addComponent(radNutellaMorango)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel19)
@@ -582,13 +610,13 @@ public class Pedido extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jRadioButton19)
+                        .addComponent(radKinder)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel21)
                             .addComponent(jLabel36)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jRadioButton7)
+                        .addComponent(radCalabresa)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel9)
@@ -611,10 +639,10 @@ public class Pedido extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Carrinho");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnCarrinho.setText("Carrinho");
+        btnCarrinho.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnCarrinhoActionPerformed(evt);
             }
         });
 
@@ -642,13 +670,13 @@ public class Pedido extends javax.swing.JFrame {
                     .addGroup(Login_PanelLayout.createSequentialGroup()
                         .addComponent(jButton1)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnCarrinho, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButton3)
                         .addGap(18, 18, 18)
                         .addComponent(jButton4))
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 21, Short.MAX_VALUE))
+                .addGap(0, 35, Short.MAX_VALUE))
             .addGroup(Login_PanelLayout.createSequentialGroup()
                 .addGroup(Login_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Login_PanelLayout.createSequentialGroup()
@@ -692,7 +720,7 @@ public class Pedido extends javax.swing.JFrame {
                 .addGap(36, 36, 36)
                 .addGroup(Login_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton4)
-                    .addComponent(jButton2)
+                    .addComponent(btnCarrinho)
                     .addComponent(jButton1)
                     .addComponent(jButton3))
                 .addGap(15, 15, 15))
@@ -702,7 +730,7 @@ public class Pedido extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Login_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, 894, Short.MAX_VALUE)
+            .addComponent(Login_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, 901, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -712,9 +740,9 @@ public class Pedido extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jRadioButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton5ActionPerformed
+    private void radCreamCheeseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radCreamCheeseActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton5ActionPerformed
+    }//GEN-LAST:event_radCreamCheeseActionPerformed
 
     private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
         // TODO add your handling code here:
@@ -724,69 +752,72 @@ public class Pedido extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField5ActionPerformed
 
-    private void jRadioButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton6ActionPerformed
+    private void radMussarelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radMussarelaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton6ActionPerformed
+    }//GEN-LAST:event_radMussarelaActionPerformed
 
-    private void jRadioButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton7ActionPerformed
+    private void radCalabresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radCalabresaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton7ActionPerformed
+    }//GEN-LAST:event_radCalabresaActionPerformed
 
-    private void jRadioButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton8ActionPerformed
+    private void radBaconActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radBaconActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton8ActionPerformed
+    }//GEN-LAST:event_radBaconActionPerformed
 
-    private void jRadioButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton9ActionPerformed
+    private void radPortuguesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radPortuguesaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton9ActionPerformed
+    }//GEN-LAST:event_radPortuguesaActionPerformed
 
-    private void jRadioButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton10ActionPerformed
+    private void radFrandoCatupiryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radFrandoCatupiryActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton10ActionPerformed
+    }//GEN-LAST:event_radFrandoCatupiryActionPerformed
 
-    private void jRadioButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton11ActionPerformed
+    private void radModaCasaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radModaCasaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton11ActionPerformed
+    }//GEN-LAST:event_radModaCasaActionPerformed
 
-    private void jRadioButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton12ActionPerformed
+    private void radBolonhesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radBolonhesaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton12ActionPerformed
+    }//GEN-LAST:event_radBolonhesaActionPerformed
 
-    private void jRadioButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton13ActionPerformed
+    private void radBrocolisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radBrocolisActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton13ActionPerformed
+    }//GEN-LAST:event_radBrocolisActionPerformed
 
-    private void jRadioButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton14ActionPerformed
+    private void rad4QueijosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rad4QueijosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton14ActionPerformed
+    }//GEN-LAST:event_rad4QueijosActionPerformed
 
-    private void jRadioButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton15ActionPerformed
+    private void radVegetarianaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radVegetarianaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton15ActionPerformed
+    }//GEN-LAST:event_radVegetarianaActionPerformed
 
-    private void jRadioButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton16ActionPerformed
+    private void radAlhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radAlhoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton16ActionPerformed
+    }//GEN-LAST:event_radAlhoActionPerformed
 
-    private void jRadioButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton17ActionPerformed
+    private void radNutellaMorangoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radNutellaMorangoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton17ActionPerformed
+    }//GEN-LAST:event_radNutellaMorangoActionPerformed
 
-    private void jRadioButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton18ActionPerformed
+    private void radBananaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radBananaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton18ActionPerformed
+    }//GEN-LAST:event_radBananaActionPerformed
 
-    private void jRadioButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton19ActionPerformed
+    private void radKinderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radKinderActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton19ActionPerformed
+    }//GEN-LAST:event_radKinderActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void btnCarrinhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarrinhoActionPerformed
+       if(radMussarela.isSelected()){
+           this.pizza.setNome_pizza("Mussarela");
+           this.pizza.setValor(35.00);
+       }
+    }//GEN-LAST:event_btnCarrinhoActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
@@ -799,6 +830,10 @@ public class Pedido extends javax.swing.JFrame {
     private void jRadioButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton20ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton20ActionPerformed
+
+    private void radMussarelaStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_radMussarelaStateChanged
+        
+    }//GEN-LAST:event_radMussarelaStateChanged
 
     /**
      * @param args the command line arguments
@@ -837,11 +872,13 @@ public class Pedido extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Login_Panel;
+    private javax.swing.JButton btnCarrinho;
     private javax.swing.JLabel btnExit;
     private javax.swing.JLabel btnMaximize;
     private javax.swing.JLabel btnMinimize;
+    private javax.swing.ButtonGroup groupBorda;
+    private javax.swing.ButtonGroup groupPizza;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
@@ -884,29 +921,29 @@ public class Pedido extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton10;
-    private javax.swing.JRadioButton jRadioButton11;
-    private javax.swing.JRadioButton jRadioButton12;
-    private javax.swing.JRadioButton jRadioButton13;
-    private javax.swing.JRadioButton jRadioButton14;
-    private javax.swing.JRadioButton jRadioButton15;
-    private javax.swing.JRadioButton jRadioButton16;
-    private javax.swing.JRadioButton jRadioButton17;
-    private javax.swing.JRadioButton jRadioButton18;
-    private javax.swing.JRadioButton jRadioButton19;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton20;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
-    private javax.swing.JRadioButton jRadioButton6;
-    private javax.swing.JRadioButton jRadioButton7;
-    private javax.swing.JRadioButton jRadioButton8;
-    private javax.swing.JRadioButton jRadioButton9;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
+    private javax.swing.JRadioButton rad4Queijos;
+    private javax.swing.JRadioButton radAlho;
+    private javax.swing.JRadioButton radBacon;
+    private javax.swing.JRadioButton radBanana;
+    private javax.swing.JRadioButton radBolonhesa;
+    private javax.swing.JRadioButton radBordaMussarela;
+    private javax.swing.JRadioButton radBrocolis;
+    private javax.swing.JRadioButton radCalabresa;
+    private javax.swing.JRadioButton radCatupiry;
+    private javax.swing.JRadioButton radCheddar;
+    private javax.swing.JRadioButton radCreamCheese;
+    private javax.swing.JRadioButton radFrandoCatupiry;
+    private javax.swing.JRadioButton radKinder;
+    private javax.swing.JRadioButton radModaCasa;
+    private javax.swing.JRadioButton radMussarela;
+    private javax.swing.JRadioButton radNao;
+    private javax.swing.JRadioButton radNutellaMorango;
+    private javax.swing.JRadioButton radPortuguesa;
+    private javax.swing.JRadioButton radVegetariana;
     // End of variables declaration//GEN-END:variables
 }
