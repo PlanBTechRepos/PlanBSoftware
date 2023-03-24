@@ -71,7 +71,7 @@ public class ConnectionFactory {
             System.out.println("Não foi possivel atualizar os dados");
         }
         finally{
-            closeConnection(getConnection());
+            //closeConnection(getConnection());
         }
     }
     public void delete(String deleteString){
@@ -84,7 +84,7 @@ public class ConnectionFactory {
             System.out.println("Não foi possivel deletar os dados");
         }
         finally{
-            closeConnection(getConnection());
+            //closeConnection(getConnection());
         }
     }
     public void view(String viewString){
@@ -97,7 +97,7 @@ public class ConnectionFactory {
             e.printStackTrace();
         }
         finally{
-            closeConnection(getConnection());
+            //closeConnection(getConnection());
         }
     }
 }
