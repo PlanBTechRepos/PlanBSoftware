@@ -182,6 +182,12 @@ public class Login extends javax.swing.JFrame {
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         // TODO: FAZER LOGIN E CASO LOGIN/SENHA INCORRETO APRESENTAR ERRO EM ERROR_PASS E ERROR_USER
+        MenuAdmin menuA = new MenuAdmin();
+        MenuEmployer menuE = new MenuEmployer();
+        if(input_User.getText().equals("admin"))
+            menuA.setVisible(true);
+        else
+            menuE.setVisible(true);
     }//GEN-LAST:event_btnSubmitActionPerformed
 
     private void btn_showPassMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_showPassMousePressed

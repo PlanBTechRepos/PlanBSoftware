@@ -5,9 +5,9 @@ import com.pdvtech.view.component.util.PdvColors;
 
 import javax.swing.JFrame;
 
-public class MenuEmployee extends javax.swing.JFrame {
+public class MenuEmployer extends javax.swing.JFrame {
 
-    public MenuEmployee() {
+    public MenuEmployer() {
         initComponents();
         setExtendedState(MAXIMIZED_BOTH);
     }
@@ -59,7 +59,6 @@ public class MenuEmployee extends javax.swing.JFrame {
         btnReturn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/voltar.png"))); // NOI18N
 
         pageLocation_Name.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        pageLocation_Name.setForeground(new java.awt.Color(0, 0, 0));
         pageLocation_Name.setText("INÍCIO");
 
         Order_Panel.setBackground(new java.awt.Color(102, 102, 102));
@@ -249,7 +248,7 @@ public class MenuEmployee extends javax.swing.JFrame {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MenuEmployee().setVisible(true);
+                new MenuEmployer().setVisible(true);
             }
         });
     }

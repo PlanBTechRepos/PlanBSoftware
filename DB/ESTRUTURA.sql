@@ -1,13 +1,11 @@
-drop database pdvPlanBTech;
+DROP DATABASE IF EXISTS pdvPlanBTech;
 CREATE DATABASE pdvPlanBTech;
 USE pdvPlanBTech;
 
-
-CREATE TABLE if not exists cargos(
+CREATE TABLE IF NOT EXISTS cargos(
 	id_Cargo INTEGER PRIMARY KEY AUTO_INCREMENT,
     Nome VARCHAR(30) NOT NULL UNIQUE
 );
-
 
 CREATE TABLE IF NOT EXISTS funcionario(
 	id_Funcionario INTEGER PRIMARY KEY AUTO_INCREMENT,
@@ -16,17 +14,18 @@ CREATE TABLE IF NOT EXISTS funcionario(
     sobrenome VARCHAR(50) NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS usuario(
-	id_funcionario	INTEGER		PRIMARY KEY,
-	usuario 			VARCHAR(50),
-	senha				VARCHAR(50),
-	permissao 			boolean 	NOT NULL 	DEFAULT false
+create table IF NOT EXISTS usuario(
+id_usuario	INTEGER PRIMARY KEY AUTO_INCREMENT,
+id_Funcionario	INTEGER NOT NULL,
+usuario 			VARCHAR(50),
+senha			VARCHAR(50),
+permissao INTEGER NOT NULL DEFAULT 0
 );
 
-CREATE TABLE IF NOT EXISTS receita(
-	id_Receita 		INTEGER		AUTO_INCREMENT PRIMARY KEY,
-	id_Ingrediente  INTEGER NOT NULL,
-	nome_receita VARCHAR(50)
+create table IF NOT EXISTS receita(
+id_Receita 		INTEGER PRIMARY KEY AUTO_INCREMENT,
+id_Ingrediente  INTEGER NOT NULL,
+nome_receita VARCHAR(50)
 );
 
 CREATE TABLE IF NOT EXISTS ingredientes(
@@ -35,18 +34,19 @@ CREATE TABLE IF NOT EXISTS ingredientes(
 );
 
 
-
 CREATE TABLE IF NOT EXISTS pedido(
 	id_Pedido INTEGER PRIMARY KEY,
     id_Pessoa INTEGER NOT NULL,
     id_Receita INTEGER NOT NULL,
-    Valor_Total decimal(8,2)
+    cliente VARCHAR(50),
+    Valor_Total FLOAT(8,2),
+    status_pedido INTEGER NOT NULL DEFAULT 0
 );
 
 CREATE TABLE IF NOT EXISTS estoque(
 	id_Produto INTEGER PRIMARY KEY AUTO_INCREMENT,
-    Quantidade decimal(8,4) NOT NULL,
+    Quantidade FLOAT(8,4) NOT NULL,
     Vencimento DATETIME,
     tipo_Ingrediente INTEGER, #mussarela, refri
-    Valor_de_Compra decimal(6,2)
+    Valor_de_Compra FLOAT(6,2)
 );
