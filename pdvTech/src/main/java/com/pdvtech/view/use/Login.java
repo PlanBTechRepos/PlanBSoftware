@@ -1,8 +1,13 @@
 
 package com.pdvtech.view.use;
 
+import com.pdvtech.controller.UsuarioController;
 import java.awt.Color;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import com.pdvtech.model.Usuario;
 
 public class Login extends javax.swing.JFrame {
 
@@ -76,6 +81,11 @@ public class Login extends javax.swing.JFrame {
         input_User.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         input_User.setToolTipText("Digite aqui seu usuário");
         input_User.setBorder(null);
+        input_User.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                input_UserActionPerformed(evt);
+            }
+        });
         Form_Panel.add(input_User, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 220, 40));
 
         input_Pass.setBackground(new java.awt.Color(102, 102, 102));
@@ -184,10 +194,22 @@ public class Login extends javax.swing.JFrame {
         // TODO: FAZER LOGIN E CASO LOGIN/SENHA INCORRETO APRESENTAR ERRO EM ERROR_PASS E ERROR_USER
         MenuAdmin menuA = new MenuAdmin();
         MenuEmployer menuE = new MenuEmployer();
-        if(input_User.getText().equals("admin"))
-            menuA.setVisible(true);
-        else
-            menuE.setVisible(true);
+        try {
+            System.out.println("Teste");
+            System.out.println(this.input_Pass.getText() + " " + this.input_User.getText());
+            UsuarioController.user.Login(this.input_User.getText(), this.input_Pass.getText());
+            if(UsuarioController.user.getAdm()){
+                menuA.setVisible(true);
+            }
+            else{
+                menuE.setVisible(true);
+            }
+            Login.this.dispose();
+        } catch (Exception ex) {
+            System.out.println(UsuarioController.user.getAdm());
+            JOptionPane.showMessageDialog(rootPane, "Não foi possivel verificar Usuario", "Usario invalido", 1);
+        }
+        
     }//GEN-LAST:event_btnSubmitActionPerformed
 
     private void btn_showPassMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_showPassMousePressed
@@ -213,6 +235,10 @@ public class Login extends javax.swing.JFrame {
     private void btnExitMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMousePressed
         System.exit(0);
     }//GEN-LAST:event_btnExitMousePressed
+
+    private void input_UserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_UserActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_input_UserActionPerformed
 
     public static void main(String args[]) {
 

@@ -57,6 +57,11 @@ public class MenuEmployer extends javax.swing.JFrame {
         });
 
         btnReturn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/voltar.png"))); // NOI18N
+        btnReturn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnReturnMouseClicked(evt);
+            }
+        });
 
         pageLocation_Name.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         pageLocation_Name.setText("INÍCIO");
@@ -243,6 +248,12 @@ public class MenuEmployer extends javax.swing.JFrame {
     private void Employee_PanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Employee_PanelMouseExited
         PdvColors.resetColor(Employee_Panel);
     }//GEN-LAST:event_Employee_PanelMouseExited
+
+    private void btnReturnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReturnMouseClicked
+      
+       new Login().setVisible(true);
+       MenuEmployer.this.dispose();
+    }//GEN-LAST:event_btnReturnMouseClicked
 
     public static void main(String args[]) {
 

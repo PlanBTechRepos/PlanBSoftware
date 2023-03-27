@@ -1,18 +1,22 @@
 
 package com.pdvtech.model;
+import com.pdvtech.util.MySQL;
+import java.sql.SQLException;
 
 public class Usuario {
- private int Id;
+    MySQL conn = new MySQL();
+    
+ private int id;
  private String senha;
  private String login;
  private boolean adm;
 
     public int getId() {
-        return Id;
+        return id;
     }
 
     public void setId(int Id) {
-        this.Id = Id;
+        this.id = Id;
     }
 
     public String getSenha() {
@@ -40,7 +44,7 @@ public class Usuario {
     }
     
     public Usuario(){
-        this.Id = 0;
+        this.id = 0;
         this.login = "";
         this.senha = "";
     }
@@ -50,4 +54,37 @@ public class Usuario {
         this.setLogin("");
         this.setSenha("");
 }
+    
+    public void Login(String user, String senha) throws SQLException{
+        System.out.println("teste2");
+        this.conn.conectaBanco();
+        try{
+            String query =  "Select "
+                            + "id_usuario, "
+                            + "usuario, "
+                            + "senha, "
+                            + "permissao "
+                            + "from "
+                            + " usuario "
+                            + "where usuario = '" + user + "' "
+                            + "and senha = '" + senha + "';";
+            this.conn.executarSQL(query);
+            
+            while (this.conn.getResultSet().next()){
+                this.setId(this.conn.getResultSet().getInt(1));
+                this.setLogin(this.conn.getResultSet().getString(2));
+                this.setSenha(this.conn.getResultSet().getString(3));
+                this.setAdm(this.conn.getResultSet().getBoolean(4));
+                
+            }
+        }
+            
+            catch(SQLException ex){
+                    ex.getStackTrace();
+                    }
+                            
+                            
+                            
+        
+    }
 }
