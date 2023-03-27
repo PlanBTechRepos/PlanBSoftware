@@ -3,9 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.pdvtech.view;
-import com.pdvtech.util.ConnectionFactory;
 import com.pdvtech.util.MySQL;
 import com.pdvtech.model.Usuario;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 /**
  *
@@ -14,8 +14,8 @@ import javax.swing.JOptionPane;
 public class Login extends javax.swing.JFrame {
     Usuario usuarioLogin = new Usuario ();
     Usuario novoUsuario = new Usuario();
-    MySQL conectar = new MySQL();
-    ConnectionFactory conn = new ConnectionFactory();
+    MySQL conn = new MySQL();
+    
     /**
      * Creates new form Login
      */
@@ -159,24 +159,25 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
+        this.conn.conectaBanco();
         boolean sucesso = false;
         try{
            String query = "Select "
-                    + "Login, "
+                    + "usuario, "
                     + "Senha, "
                     + "permissao "
                    + "from "
                    + "usuario "
                    + "where '"
                    + this.txtLogin.getText() + "' = "
-                   + "Login";
+                   + "usuario";
                     
-            conn.view(query);
+            this.conn.executarSQL(query);
            
-            while(conn.getResultset().next()){
-                this.usuarioLogin.setLogin(this.conn.getResultset().getString(1));
-                this.usuarioLogin.setSenha(this.conn.getResultset().getString(2));
-                this.usuarioLogin.setAdm(this.conn.getResultset().getBoolean(3));
+            while(this.conn.getResultSet().next()){
+                this.usuarioLogin.setLogin(this.conn.getResultSet().getString(1));
+                this.usuarioLogin.setSenha(this.conn.getResultSet().getString(2));
+                this.usuarioLogin.setAdm(this.conn.getResultSet().getBoolean(3));
                 
             }
             if(this.txtLogin.getText().equals("")){
@@ -186,8 +187,8 @@ public class Login extends javax.swing.JFrame {
              sucesso = true;
             }
         }
-        catch(Exception e){
-            System.out.println("Erro ao logar");
+        catch(SQLException e){
+            e.getNextException();
             JOptionPane.showMessageDialog(null, "Erro ao efetuar login!");
         }
         finally{

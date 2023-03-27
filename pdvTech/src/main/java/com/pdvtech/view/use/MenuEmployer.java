@@ -5,9 +5,9 @@ import com.pdvtech.view.component.util.PdvColors;
 
 import javax.swing.JFrame;
 
-public class MenuEmployee extends javax.swing.JFrame {
+public class MenuEmployer extends javax.swing.JFrame {
 
-    public MenuEmployee() {
+    public MenuEmployer() {
         initComponents();
         setExtendedState(MAXIMIZED_BOTH);
     }
@@ -57,9 +57,13 @@ public class MenuEmployee extends javax.swing.JFrame {
         });
 
         btnReturn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/voltar.png"))); // NOI18N
+        btnReturn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnReturnMouseClicked(evt);
+            }
+        });
 
         pageLocation_Name.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        pageLocation_Name.setForeground(new java.awt.Color(0, 0, 0));
         pageLocation_Name.setText("INÍCIO");
 
         Order_Panel.setBackground(new java.awt.Color(102, 102, 102));
@@ -245,11 +249,17 @@ public class MenuEmployee extends javax.swing.JFrame {
         PdvColors.resetColor(Employee_Panel);
     }//GEN-LAST:event_Employee_PanelMouseExited
 
+    private void btnReturnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReturnMouseClicked
+      
+       new Login().setVisible(true);
+       MenuEmployer.this.dispose();
+    }//GEN-LAST:event_btnReturnMouseClicked
+
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MenuEmployee().setVisible(true);
+                new MenuEmployer().setVisible(true);
             }
         });
     }

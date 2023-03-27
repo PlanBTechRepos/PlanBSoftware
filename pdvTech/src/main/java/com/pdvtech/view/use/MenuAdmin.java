@@ -39,7 +39,6 @@ public class MenuAdmin extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1000, 600));
 
         Menu_Panel.setBackground(new java.awt.Color(153, 153, 153));
 
@@ -65,9 +64,13 @@ public class MenuAdmin extends javax.swing.JFrame {
         });
 
         btnReturn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/voltar.png"))); // NOI18N
+        btnReturn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnReturnMouseClicked(evt);
+            }
+        });
 
         pageLocation_Name.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        pageLocation_Name.setForeground(new java.awt.Color(0, 0, 0));
         pageLocation_Name.setText("INÍCIO");
 
         Order_Panel.setBackground(new java.awt.Color(102, 102, 102));
@@ -367,6 +370,12 @@ public class MenuAdmin extends javax.swing.JFrame {
     private void Storage_PanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Storage_PanelMouseExited
         PdvColors.resetColor(Storage_Panel);
     }//GEN-LAST:event_Storage_PanelMouseExited
+
+    private void btnReturnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReturnMouseClicked
+        Login MenuL = new Login();
+        MenuL.setVisible(true);
+        MenuAdmin.this.dispose();
+    }//GEN-LAST:event_btnReturnMouseClicked
 
     public static void main(String args[]) {
         try {

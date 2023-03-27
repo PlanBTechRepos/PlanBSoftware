@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ConnectionFactory {
-    Statement statement;
+  /*  Statement statement;
     private ResultSet resultset;
 
     public ResultSet getResultset() {
