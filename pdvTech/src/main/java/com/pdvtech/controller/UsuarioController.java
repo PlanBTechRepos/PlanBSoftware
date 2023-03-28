@@ -3,10 +3,10 @@ package com.pdvtech.controller;
 
 import com.pdvtech.util.MySQL;
 import com.pdvtech.model.Usuario;
-import java.sql.SQLException;
+
 public class UsuarioController {
-    
-    public  MySQL conn;
+    static MySQL conn = new MySQL();
+ 
     public static Usuario user = new Usuario();
 
     public static Usuario getUser() {
@@ -17,10 +17,7 @@ public class UsuarioController {
         UsuarioController.user = user;
     }
     
-   
-    public static void Login(String user, String senha){
-        
-    }
+  
     /*
     Métodos:
     */
@@ -29,6 +26,30 @@ public class UsuarioController {
     
     /*
     save
+    */
+    public static void  salvarUsuario(String nome,String user, String senha, int permissao){
+        String[] nomeSeparado = nome.split(" ");
+        conn.conectaBanco();
+        try{
+            String query =    "call cadUsuario ('"
+                            + nomeSeparado[0] + "', '"
+                            + nomeSeparado[nomeSeparado.length -1] + "', '"
+                            + user + "', '"
+                            + senha + "', "
+                            + permissao + ");";
+            conn.insertSQL(query);
+        }
+        catch(Exception e){
+            e.getMessage();
+        }
+        finally {
+            conn.fechaBanco();
+        }
+    }
+    
+    
+    
+    /*
     update
     getAll
     removeById

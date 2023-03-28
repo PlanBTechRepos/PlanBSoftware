@@ -195,8 +195,7 @@ public class Login extends javax.swing.JFrame {
         MenuAdmin menuA = new MenuAdmin();
         MenuEmployer menuE = new MenuEmployer();
         try {
-            System.out.println("Teste");
-            System.out.println(this.input_Pass.getText() + " " + this.input_User.getText());
+         
             UsuarioController.user.Login(this.input_User.getText(), this.input_Pass.getText());
             if(UsuarioController.user.getAdm()){
                 menuA.setVisible(true);

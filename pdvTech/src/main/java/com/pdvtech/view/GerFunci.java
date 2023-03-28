@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.pdvtech.view;
+import com.pdvtech.controller.FuncionarioController;
+import com.pdvtech.controller.UsuarioController;
 import com.pdvtech.util.MySQL;
 /**
  *
@@ -62,7 +64,12 @@ public class GerFunci extends javax.swing.JFrame {
         Cargo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Cargo.setText("Cargo");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Funcionario", "Administrador" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Atendente", "Gerente" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel2.setText("Usuario");
@@ -78,6 +85,11 @@ public class GerFunci extends javax.swing.JFrame {
         });
 
         btnLimpar.setText("Limpar");
+        btnLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimparActionPerformed(evt);
+            }
+        });
 
         btnVoltar.setText("Voltar");
         btnVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -163,13 +175,17 @@ public class GerFunci extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        if(this.txtUsuario.getText() == ""){
-            
-        }
-        else{
-            
-        }
+        FuncionarioController.salvarFunc(this.txtNome.getText(), this.jComboBox1.getSelectedItem().toString());
+        UsuarioController.salvarUsuario(this.txtNome.getText(), this.txtUsuario.getText(), this.pswSenha.getText(), this.jComboBox1.getSelectedIndex());
     }//GEN-LAST:event_btnSalvarActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
+        System.out.println(this.jComboBox1.getSelectedIndex());
+    }//GEN-LAST:event_btnLimparActionPerformed
 
     /**
      * @param args the command line arguments

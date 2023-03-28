@@ -56,7 +56,6 @@ public class Usuario {
 }
     
     public void Login(String user, String senha) throws SQLException{
-        System.out.println("teste2");
         this.conn.conectaBanco();
         try{
             String query =  "Select "
@@ -82,6 +81,9 @@ public class Usuario {
             catch(SQLException ex){
                     ex.getStackTrace();
                     }
+        finally{
+            this.conn.fechaBanco();
+        }
                             
                             
                             
