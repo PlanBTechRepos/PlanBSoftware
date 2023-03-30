@@ -55,7 +55,23 @@ public class EstoqueController {
         }
     }
     
-    public static DefaultTableModel ListaEstoque (){
+    public static void deletaProduto(int id){
+        conn.conectaBanco();
+        try{
+            String query = 
+                    "delete from estoque "
+                    + "where id_Produto = " + id + ";";
+            conn.updateSQL(query);
+        }
+        catch(Exception e){
+            e.getMessage();
+        }
+        finally{
+            conn.fechaBanco();
+        }
+    }
+    
+    public static DefaultTableModel listaEstoque (){
         String columNames[] = {"Codigo", "Nome", "Quantidade", "Data de Entreda", "Vencimento", "Valor"};
         DefaultTableModel model = new DefaultTableModel(columNames, 0);
         conn.conectaBanco();

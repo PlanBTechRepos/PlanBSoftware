@@ -59,5 +59,11 @@ public class Estoque {
         this.quantidade = quantidade;
     }
     
-    
+    public void limpaDados(){
+        this.id = Integer.parseInt("");
+        this.nome = "";
+        this.quantidade = Integer.parseInt("");
+        this.valor = 0;
+        this.vencimento = "";
+    }
 }
