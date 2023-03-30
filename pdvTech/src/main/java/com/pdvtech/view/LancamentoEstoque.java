@@ -235,11 +235,10 @@ public class LancamentoEstoque extends javax.swing.JFrame {
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
        produto = EstoqueController.view(this.txtNomeEstoque.getText());
-       String validade = produto.getVencimento().format(formart);
        this.txtCodigo.setText(Integer.toString(produto.getId()));
        this.txtValor.setText(Float.toString(produto.getValor()));
        this.txtQuantidade.setText(Integer.toString(produto.getQuantidade()));
-       this.txtVencimento.setText(validade);
+       this.txtVencimento.setText(produto.getVencimento());
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     /**

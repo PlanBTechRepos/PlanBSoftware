@@ -14,7 +14,7 @@ public class Estoque {
     private int id;
     private String nome;
     private float valor;
-    private LocalDate vencimento;
+    private String vencimento;
     private int quantidade;
 
     public int getId() {
@@ -41,13 +41,15 @@ public class Estoque {
         this.valor = valor;
     }
 
-    public LocalDate getVencimento() {
+    public String getVencimento() {
         return vencimento;
     }
 
-    public void setVencimento(LocalDate vencimento) {
+    public void setVencimento(String vencimento) {
         this.vencimento = vencimento;
     }
+
+  
 
     public int getQuantidade() {
         return quantidade;

@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.pdvtech.view;
-
+import com.pdvtech.controller.EstoqueController;
 /**
  *
  * @author limal
@@ -50,22 +50,7 @@ public class ListagemEstoque extends javax.swing.JFrame {
         );
 
         tConsulta.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        tConsulta.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Codigo", "Nome", "Quantidade", "Data de Entrada", "Vencimento", "Valor"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Float.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
+        tConsulta.setModel(EstoqueController.ListaEstoque());
         tConsulta.setToolTipText("");
         tConsulta.setEnabled(false);
         tConsulta.setRowHeight(25);
@@ -181,7 +166,7 @@ public class ListagemEstoque extends javax.swing.JFrame {
     private javax.swing.JButton btnLancamento;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTable tConsulta;
+    private static javax.swing.JTable tConsulta;
     private javax.swing.JButton txtVoltar;
     // End of variables declaration//GEN-END:variables
 }

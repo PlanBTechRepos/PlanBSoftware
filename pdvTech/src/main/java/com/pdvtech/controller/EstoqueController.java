@@ -5,7 +5,7 @@
 package com.pdvtech.controller;
 import com.pdvtech.model.Estoque;
 import com.pdvtech.util.MySQL;
-import java.time.LocalDate;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -55,6 +55,47 @@ public class EstoqueController {
         }
     }
     
+    public static DefaultTableModel ListaEstoque (){
+        String columNames[] = {"Codigo", "Nome", "Quantidade", "Data de Entreda", "Vencimento", "Valor"};
+        DefaultTableModel model = new DefaultTableModel(columNames, 0);
+        conn.conectaBanco();
+        try{
+            String query = 
+                    "Select id_Produto, "
+                    + "ingredientes.nome, "
+                    + "Quantidade, "
+                    + "Recebimento, "
+                    + "Vencimento, "
+                    + "Valor_de_Compra "
+                    + "from "
+                    + "estoque "
+                    + "join ingredientes on ingredientes.id_ingrediente = estoque.tipo_Ingrediente;";
+            conn.executarSQL(query);
+            while(conn.getResultSet().next()){
+                model.addRow( new String[]{
+                    Integer.toString(conn.getResultSet().getInt(1)),
+                    conn.getResultSet().getString(2),
+                    Integer.toString(conn.getResultSet().getInt(3)),
+                    conn.getResultSet().getString(4),
+                    conn.getResultSet().getString(5),
+                    String.valueOf(conn.getResultSet().getFloat(6))
+                    
+                 
+            });
+                
+            }
+            
+                    
+        }
+        catch(Exception e){
+            e.getMessage();
+        }
+        finally{
+            conn.fechaBanco();
+        }
+        return model; 
+    }
+    
     public static Estoque view(String nome){
         conn.conectaBanco();
         try{
@@ -73,7 +114,7 @@ public class EstoqueController {
                 estoque.setId(conn.getResultSet().getInt(1));
                 estoque.setValor(conn.getResultSet().getFloat(2));
                 estoque.setQuantidade(conn.getResultSet().getInt(3));
-                estoque.setVencimento(conn.getResultSet().getDate(4).toLocalDate());              
+                estoque.setVencimento(conn.getResultSet().getString(4));              
             }
         }
         catch(Exception e){
