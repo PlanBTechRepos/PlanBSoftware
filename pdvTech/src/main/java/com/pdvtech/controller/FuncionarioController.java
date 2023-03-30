@@ -52,6 +52,7 @@ public class FuncionarioController {
             e.getMessage();
         }
     }
+   
     
     public static void viewFuncionario(String nome){
         String[] nomeSeparado = nome.split(" ");
@@ -70,6 +71,10 @@ public class FuncionarioController {
                     + nomeSeparado[nomeSeparado.length - 1] + "';";
             
             conn.executarSQL(query);
+            while(conn.getResultSet().next()){
+                funcionario.setId_funcionario(conn.getResultSet().getInt(1));
+                funcionario.setCargo(conn.getResultSet().getString(2));
+            }
         }
         catch(Exception e){
             e.getMessage();
@@ -78,5 +83,13 @@ public class FuncionarioController {
             conn.fechaBanco();
         }
         
+        
+        
+        
+        
     }
+    
+   
+
 }
+

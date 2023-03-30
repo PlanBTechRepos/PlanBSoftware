@@ -2,10 +2,21 @@
 package com.pdvtech.model;
 import com.pdvtech.util.MySQL;
 import java.sql.SQLException;
-
+import com.pdvtech.model.Funcionario;
 public class Usuario {
     MySQL conn = new MySQL();
-    
+
+    public Funcionario getFunc() {
+        return func;
+    }
+
+    public void setFunc(String nome, String cargo, int id) {
+        this.func.setNome(nome);
+        this.func.setCargo(cargo);
+        this.func.setId_funcionario(id);
+    }
+ 
+    Funcionario func = new Funcionario();
  private int id;
  private String senha;
  private String login;
