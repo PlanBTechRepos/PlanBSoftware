@@ -77,7 +77,7 @@ valor decimal(10,2)
 )
 begin
 	set @buscatipo = (select id_ingrediente from ingredientes where nome = ingredientes.nome);
-	insert into estoque (tipo_ingrediente, quantidade, Valor_de_Compra, vencimento) values(@buscatipo, qtd, valor, sysdate());
+	insert into estoque (tipo_ingrediente, quantidade, Valor_de_Compra, vencimento) values(@buscatipo, qtd, valor, date_add(sysdate(), interval 1 month));
 end$
 delimiter ;
 

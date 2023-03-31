@@ -50,7 +50,7 @@ public class ListagemEstoque extends javax.swing.JFrame {
         );
 
         tConsulta.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        tConsulta.setModel(EstoqueController.ListaEstoque());
+        tConsulta.setModel(EstoqueController.listaEstoque());
         tConsulta.setToolTipText("");
         tConsulta.setEnabled(false);
         tConsulta.setRowHeight(25);

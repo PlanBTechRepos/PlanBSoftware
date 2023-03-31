@@ -20,3 +20,7 @@ call cadUsuario("Yago", "Henrique", "hfa", "root", false);
 
 call insertEstoque(3, 'queijo', 4.50);
 call insertEstoque(4, 'calabresa', 7);
+
+delete from estoque where id_Produto = 2;
+
+delete from estoque where id_Produto =  id ;
