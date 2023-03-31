@@ -25,7 +25,7 @@ public class MySQL {
     private String servidor = "localhost:3306";
     private String nomeDoBanco = "pdvPlanBTech";
     private String usuario = "root";
-    private String senha = "1234";
+    private String senha = "root";
     
     //Construtor    
     public MySQL(){
@@ -106,7 +106,9 @@ public class MySQL {
     }
     
     public void executarSQL(String sql) {
+      
         try {
+            
             this.statement = conn.createStatement(
                     ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
             this.resultSet = this.statement.executeQuery(sql);
@@ -117,6 +119,7 @@ public class MySQL {
         } catch (SQLException sqlex) {
             sqlex.printStackTrace();
         }
+      
     }
     
     public boolean updateSQL(String pSQL){

@@ -25,12 +25,12 @@ public class MenuEmployer extends javax.swing.JFrame {
         Order_Panel = new com.pdvtech.view.component.customPanel();
         order_img = new javax.swing.JLabel();
         order_title = new javax.swing.JLabel();
-        Employee_Panel = new com.pdvtech.view.component.customPanel();
-        emp_img = new javax.swing.JLabel();
-        emp_title1 = new javax.swing.JLabel();
-        emp_title2 = new javax.swing.JLabel();
+        Storage_Panel = new com.pdvtech.view.component.customPanel();
+        storage_img = new javax.swing.JLabel();
+        storage_title1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(1000, 600));
         setUndecorated(true);
 
         Menu_Panel.setBackground(new java.awt.Color(153, 153, 153));
@@ -57,6 +57,11 @@ public class MenuEmployer extends javax.swing.JFrame {
         });
 
         btnReturn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/voltar.png"))); // NOI18N
+        btnReturn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnReturnMouseClicked(evt);
+            }
+        });
 
         pageLocation_Name.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         pageLocation_Name.setText("INÍCIO");
@@ -106,58 +111,49 @@ public class MenuEmployer extends javax.swing.JFrame {
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
-        Employee_Panel.setBackground(new java.awt.Color(102, 102, 102));
-        Employee_Panel.setPreferredSize(new java.awt.Dimension(152, 134));
-        Employee_Panel.setRoundBottomLeft(130);
-        Employee_Panel.setRoundBottomRight(130);
-        Employee_Panel.setRoundTopLeft(50);
-        Employee_Panel.setRoundTopRight(500);
-        Employee_Panel.addMouseListener(new java.awt.event.MouseAdapter() {
+        Storage_Panel.setBackground(new java.awt.Color(102, 102, 102));
+        Storage_Panel.setPreferredSize(new java.awt.Dimension(152, 134));
+        Storage_Panel.setRoundBottomLeft(130);
+        Storage_Panel.setRoundBottomRight(130);
+        Storage_Panel.setRoundTopLeft(50);
+        Storage_Panel.setRoundTopRight(500);
+        Storage_Panel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                Employee_PanelMouseEntered(evt);
+                Storage_PanelMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                Employee_PanelMouseExited(evt);
+                Storage_PanelMouseExited(evt);
             }
         });
 
-        emp_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/cracha.png"))); // NOI18N
+        storage_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/estoque-60.png"))); // NOI18N
 
-        emp_title1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        emp_title1.setForeground(new java.awt.Color(255, 255, 255));
-        emp_title1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        emp_title1.setText("GERIR");
+        storage_title1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        storage_title1.setForeground(new java.awt.Color(255, 255, 255));
+        storage_title1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        storage_title1.setText("ESTOQUE");
 
-        emp_title2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        emp_title2.setForeground(new java.awt.Color(255, 255, 255));
-        emp_title2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        emp_title2.setText("FUNCIONÁRIO");
-
-        javax.swing.GroupLayout Employee_PanelLayout = new javax.swing.GroupLayout(Employee_Panel);
-        Employee_Panel.setLayout(Employee_PanelLayout);
-        Employee_PanelLayout.setHorizontalGroup(
-            Employee_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Employee_PanelLayout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addComponent(emp_img)
-                .addContainerGap(47, Short.MAX_VALUE))
-            .addGroup(Employee_PanelLayout.createSequentialGroup()
+        javax.swing.GroupLayout Storage_PanelLayout = new javax.swing.GroupLayout(Storage_Panel);
+        Storage_Panel.setLayout(Storage_PanelLayout);
+        Storage_PanelLayout.setHorizontalGroup(
+            Storage_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Storage_PanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(Employee_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(emp_title2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(emp_title1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(storage_title1, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(Storage_PanelLayout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addComponent(storage_img)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        Employee_PanelLayout.setVerticalGroup(
-            Employee_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Employee_PanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(emp_img)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(emp_title1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(emp_title2)
-                .addContainerGap(14, Short.MAX_VALUE))
+        Storage_PanelLayout.setVerticalGroup(
+            Storage_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Storage_PanelLayout.createSequentialGroup()
+                .addContainerGap(20, Short.MAX_VALUE)
+                .addComponent(storage_img)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(storage_title1)
+                .addGap(20, 20, 20))
         );
 
         javax.swing.GroupLayout Menu_PanelLayout = new javax.swing.GroupLayout(Menu_Panel);
@@ -180,7 +176,7 @@ public class MenuEmployer extends javax.swing.JFrame {
                     .addGroup(Menu_PanelLayout.createSequentialGroup()
                         .addComponent(Order_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(70, 70, 70)
-                        .addComponent(Employee_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Storage_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -197,7 +193,7 @@ public class MenuEmployer extends javax.swing.JFrame {
                 .addGap(90, 90, 90)
                 .addGroup(Menu_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Order_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Employee_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Storage_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(344, 344, 344))
         );
 
@@ -236,13 +232,19 @@ public class MenuEmployer extends javax.swing.JFrame {
         PdvColors.resetColor(Order_Panel);
     }//GEN-LAST:event_Order_PanelMouseExited
 
-    private void Employee_PanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Employee_PanelMouseEntered
-        PdvColors.setColor(Employee_Panel);
-    }//GEN-LAST:event_Employee_PanelMouseEntered
+    private void Storage_PanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Storage_PanelMouseEntered
+        PdvColors.setColor(Storage_Panel);
+    }//GEN-LAST:event_Storage_PanelMouseEntered
 
-    private void Employee_PanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Employee_PanelMouseExited
-        PdvColors.resetColor(Employee_Panel);
-    }//GEN-LAST:event_Employee_PanelMouseExited
+    private void Storage_PanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Storage_PanelMouseExited
+        PdvColors.resetColor(Storage_Panel);
+    }//GEN-LAST:event_Storage_PanelMouseExited
+
+    private void btnReturnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReturnMouseClicked
+      
+       new Login().setVisible(true);
+       MenuEmployer.this.dispose();
+    }//GEN-LAST:event_btnReturnMouseClicked
 
     public static void main(String args[]) {
 
@@ -254,18 +256,17 @@ public class MenuEmployer extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.pdvtech.view.component.customPanel Employee_Panel;
     private javax.swing.JPanel Menu_Panel;
     private com.pdvtech.view.component.customPanel Order_Panel;
+    private com.pdvtech.view.component.customPanel Storage_Panel;
     private javax.swing.JLabel btnExit;
     private javax.swing.JLabel btnMaximize;
     private javax.swing.JLabel btnMinimize;
     private javax.swing.JLabel btnReturn;
-    private javax.swing.JLabel emp_img;
-    private javax.swing.JLabel emp_title1;
-    private javax.swing.JLabel emp_title2;
     private javax.swing.JLabel order_img;
     private javax.swing.JLabel order_title;
     private javax.swing.JLabel pageLocation_Name;
+    private javax.swing.JLabel storage_img;
+    private javax.swing.JLabel storage_title1;
     // End of variables declaration//GEN-END:variables
 }

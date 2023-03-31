@@ -4,6 +4,10 @@
  */
 package com.pdvtech.view;
 
+import com.pdvtech.controller.FuncionarioController;
+import com.pdvtech.controller.UsuarioController;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author limal
@@ -46,22 +50,7 @@ public class ListarFunci extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         tConsulta.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        tConsulta.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Nome", "Cargo", "Usuario", "Senha"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
+        tConsulta.setModel(UsuarioController.viewAllFunc());
         tConsulta.setToolTipText("");
         tConsulta.setEnabled(false);
         tConsulta.setRowHeight(25);
@@ -105,7 +94,8 @@ public class ListarFunci extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(btnVoltar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnCadastrar))
+                        .addComponent(btnCadastrar)
+                        .addGap(67, 67, 67))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 12, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -120,10 +110,13 @@ public class ListarFunci extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addComponent(SPConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCadastrar)
-                    .addComponent(btnVoltar))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(btnVoltar))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(btnCadastrar)))
                 .addContainerGap())
         );
 
@@ -142,7 +135,7 @@ public class ListarFunci extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
        new GerFunci().setVisible(true);
         ListarFunci.this.dispose();
@@ -152,7 +145,7 @@ public class ListarFunci extends javax.swing.JFrame {
        new MenuADM().setVisible(true);
        ListarFunci.this.dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
-
+    DefaultTableModel model = UsuarioController.viewAllFunc();
     /**
      * @param args the command line arguments
      */
@@ -180,7 +173,9 @@ public class ListarFunci extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-
+        
+        
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -199,6 +194,6 @@ public class ListarFunci extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JTable tConsulta;
+    private static javax.swing.JTable tConsulta;
     // End of variables declaration//GEN-END:variables
 }
