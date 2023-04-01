@@ -92,6 +92,11 @@ public class LancamentoEstoque extends javax.swing.JFrame {
         });
 
         btnLimpar.setText("Limpar");
+        btnLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimparActionPerformed(evt);
+            }
+        });
 
         btnExcluir.setText("Excluir");
         btnExcluir.addActionListener(new java.awt.event.ActionListener() {
@@ -226,7 +231,16 @@ public class LancamentoEstoque extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
-      
+        EstoqueController.deletaProduto(Integer.parseInt(this.txtCodigo.getText()));
+        produto.limpaDados();
+       
+        
+        
+        this.txtCodigo.setText("");
+        this.txtNomeEstoque.setText("");
+        this.txtQuantidade.setText("");
+        this.txtValor.setText("");
+        this.txtVencimento.setText("");
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void txtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoActionPerformed
@@ -235,12 +249,19 @@ public class LancamentoEstoque extends javax.swing.JFrame {
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
        produto = EstoqueController.view(this.txtNomeEstoque.getText());
-       String validade = produto.getVencimento().format(formart);
        this.txtCodigo.setText(Integer.toString(produto.getId()));
        this.txtValor.setText(Float.toString(produto.getValor()));
        this.txtQuantidade.setText(Integer.toString(produto.getQuantidade()));
-       this.txtVencimento.setText(validade);
+       this.txtVencimento.setText(produto.getVencimento());
     }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
+        this.txtCodigo.setText("");
+        this.txtNomeEstoque.setText("");
+        this.txtQuantidade.setText("");
+        this.txtValor.setText("");
+        this.txtVencimento.setText("");
+    }//GEN-LAST:event_btnLimparActionPerformed
 
     /**
      * @param args the command line arguments

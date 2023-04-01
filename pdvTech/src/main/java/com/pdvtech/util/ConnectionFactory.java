@@ -99,5 +99,7 @@ public class ConnectionFactory {
         finally{
             //closeConnection(getConnection());
         }
+<<<<<<< HEAD
     }*/
+
 }

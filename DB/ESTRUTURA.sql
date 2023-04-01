@@ -30,7 +30,7 @@ nome_receita VARCHAR(50)
 
 CREATE TABLE IF NOT EXISTS ingredientes(
 	id_Ingrediente INTEGER PRIMARY KEY AUTO_INCREMENT,
-    Nome VARCHAR(30) NOT NULL
+    Nome VARCHAR(30) NOT NULL unique
 );
 
 
@@ -39,14 +39,14 @@ CREATE TABLE IF NOT EXISTS pedido(
     id_Pessoa INTEGER NOT NULL,
     id_Receita INTEGER NOT NULL,
     cliente VARCHAR(50),
-    Valor_Total FLOAT(8,2),
+    Valor_Total decimal(8,2),
     status_pedido INTEGER NOT NULL DEFAULT 0
 );
-
 CREATE TABLE IF NOT EXISTS estoque(
 	id_Produto INTEGER PRIMARY KEY AUTO_INCREMENT,
-    Quantidade FLOAT(8,4) NOT NULL,
-    Vencimento DATETIME,
-    tipo_Ingrediente INTEGER, #mussarela, refri
-    Valor_de_Compra FLOAT(6,2)
+    Quantidade int NOT NULL,
+    Recebimento date default( sysdate()),
+    Vencimento DATE ,
+    tipo_Ingrediente INTEGER unique, #mussarela, refri
+    Valor_de_Compra decimal(10,2)
 );
