@@ -1,13 +1,15 @@
 
 package com.pdvtech.view.use;
 
-import java.awt.Color;
+import com.pdvtech.model.TableActionEvent;
+import com.pdvtech.view.component.util.TableCellActionEditor;
+import com.pdvtech.view.component.util.TableCellActionRenderer;
 import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 
-public class Estoque extends javax.swing.JFrame {
+public class Storage extends javax.swing.JFrame {
 
-    public Estoque() {
+    public Storage() {
         initComponents();
         initTable();
     }
@@ -27,6 +29,7 @@ public class Estoque extends javax.swing.JFrame {
         Product_Table = new com.pdvtech.view.component.customTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAlwaysOnTop(true);
         setMinimumSize(new java.awt.Dimension(1000, 600));
         setUndecorated(true);
 
@@ -77,24 +80,34 @@ public class Estoque extends javax.swing.JFrame {
         btnAddProduct.setMinimumSize(new java.awt.Dimension(110, 40));
         btnAddProduct.setPreferredSize(new java.awt.Dimension(140, 40));
         btnAddProduct.setRadius(10);
+        btnAddProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddProductActionPerformed(evt);
+            }
+        });
 
         Product_Table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Ações"
+                "Teste", "Mais um", "Ações"
             }
         ) {
-            Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class, java.lang.Object.class
+            boolean[] canEdit = new boolean [] {
+                false, false, true
             };
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
         Scrollpane_Table.setViewportView(Product_Table);
+        if (Product_Table.getColumnModel().getColumnCount() > 0) {
+            Product_Table.getColumnModel().getColumn(2).setMinWidth(120);
+            Product_Table.getColumnModel().getColumn(2).setPreferredWidth(120);
+            Product_Table.getColumnModel().getColumn(2).setMaxWidth(150);
+        }
 
         javax.swing.GroupLayout Storage_PanelLayout = new javax.swing.GroupLayout(Storage_Panel);
         Storage_Panel.setLayout(Storage_PanelLayout);
@@ -155,7 +168,7 @@ public class Estoque extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnReturnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReturnMouseClicked
-        //TODO: Voltar página
+        //TODO: VOLTAR PÁGINA
     }//GEN-LAST:event_btnReturnMouseClicked
 
     private void btnMinimizeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMinimizeMousePressed
@@ -170,11 +183,21 @@ public class Estoque extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_btnExitMousePressed
 
+    private void btnAddProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddProductActionPerformed
+        //TODO: ABRIR ADDPRODUCT_DIALOG E ATUALIZAR TABELA QUANDO DIALOG FECHAR, EXEMPLO COD. ABAIXO   
+        /*
+        addProduct_dialog.addWindowListener(new WindowAdapter() {
+            public void windowClosed(WindowEvent e) {
+                loadProjects();
+        }
+        */
+    }//GEN-LAST:event_btnAddProductActionPerformed
+
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Estoque().setVisible(true);
+                new Storage().setVisible(true);
             }
         });
     }
@@ -192,11 +215,39 @@ public class Estoque extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     public void initTable() {
-
+        
         Product_Table.fixTable(Scrollpane_Table);
         DefaultTableModel model = (DefaultTableModel) Product_Table.getModel();
         
-        //TESTE: Dados na tabela
+        TableActionEvent ev = new TableActionEvent() {
+            @Override
+            public void onEdit(int row) {
+                //TODO: ABRIR EDITPRODUCT_DIALOG E ATUALIZAR TABELA QUANDO DIALOG FECHAR, EXEMPLO COD. ABAIXO   
+                /*
+                editProduct_dialog.addWindowListener(new WindowAdapter() {
+                    public void windowClosed(WindowEvent e) {
+                        loadProjects();
+                }
+                */
+            }
+
+            @Override
+            public void onDelete(int row) {
+                if (Product_Table.isEditing()) {
+                    Product_Table.getCellEditor().stopCellEditing();
+                }
+                
+                DefaultTableModel m = (DefaultTableModel) Product_Table.getModel();
+                m.removeRow(row);
+                
+                //TODO: MÉTODO 'DELETE' PRODUTO
+            }
+        };    
+      
+        Product_Table.getColumnModel().getColumn(2).setCellRenderer(new TableCellActionRenderer());
+        Product_Table.getColumnModel().getColumn(2).setCellEditor(new TableCellActionEditor(ev));
+        
+        //TESTE: Dados teste na tabela
         for (int i = 1; i <= 20; i++) {
             model.addRow(new Object[] {"Teste", 50, false});
         }

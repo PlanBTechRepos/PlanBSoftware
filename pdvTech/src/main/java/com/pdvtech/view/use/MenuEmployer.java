@@ -30,6 +30,7 @@ public class MenuEmployer extends javax.swing.JFrame {
         storage_title1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAlwaysOnTop(true);
         setMinimumSize(new java.awt.Dimension(1000, 600));
         setUndecorated(true);
 

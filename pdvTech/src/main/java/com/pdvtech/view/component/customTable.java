@@ -29,7 +29,7 @@ public class customTable extends JTable {
         getTableHeader().setDefaultRenderer(header);
         getTableHeader().setPreferredSize(new Dimension(0, 30));
         setDefaultRenderer(Object.class, cell);
-        setRowHeight(40);
+        setRowHeight(60);
     }
     
     private class TableHeader extends DefaultTableCellRenderer {
@@ -107,7 +107,7 @@ public class customTable extends JTable {
         //Alterações visuais: background fundo atrás das células, canto de scrollbar e borda do panel
         panel.setBackground(new Color(70, 70, 70));     
         scroll.getViewport().setBackground(new Color(70, 70, 70));
-        scroll.setBorder(BorderFactory.createLineBorder(new Color(120, 120, 120), 1));
+        scroll.setBorder(BorderFactory.createLineBorder(new Color(153, 153, 153), 1));
         
         scroll.setCorner(JScrollPane.UPPER_RIGHT_CORNER, panel);
     }
