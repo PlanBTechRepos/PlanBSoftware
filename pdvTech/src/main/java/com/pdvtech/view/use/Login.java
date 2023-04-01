@@ -2,6 +2,8 @@
 package com.pdvtech.view.use;
 
 import com.pdvtech.controller.UsuarioController;
+import com.pdvtech.util.ConnectionFactory;
+
 import java.awt.Color;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -186,21 +188,37 @@ public class Login extends javax.swing.JFrame {
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         MenuAdmin menuA = new MenuAdmin();
         MenuEmployer menuE = new MenuEmployer();
-        try {
-         
-            UsuarioController.user.Login(this.input_User.getText(), this.input_Pass.getText());
-            if(UsuarioController.user.getAdm()){
-                menuA.setVisible(true);
-            }
-            else{
-                menuE.setVisible(true);
-            }
-            Login.this.dispose();
-        } catch (Exception ex) {
-            System.out.println(UsuarioController.user.getAdm());
-            JOptionPane.showMessageDialog(rootPane, "Não foi possivel verificar Usuario", "Usario invalido", 1);
-        }
+        ConnectionFactory conn = new ConnectionFactory();
+
+        if (input_User.getText().equals("criar db") && input_Pass.getText().equals("")) {
+            conn.criaDB("");
+            if(conn.getLineError().contains("ERROR 1045"))
+                JOptionPane.showMessageDialog(rootPane, "Banco de dados com senha");
+            else
+                JOptionPane.showMessageDialog(rootPane, "O banco de dados foi criado");
         
+        } else if (input_User.getText().equals("criar db") && input_Pass.getText().length()>0) {
+            conn.criaDB(input_Pass.getText());
+            if(conn.getLineError().contains("ERROR 1045"))
+                JOptionPane.showMessageDialog(rootPane, "Senha errada");
+            else
+                JOptionPane.showMessageDialog(rootPane, "O banco de dados foi criado");
+        
+        }
+        else {
+            try {
+                UsuarioController.user.Login(this.input_User.getText(), this.input_Pass.getText());
+                if (UsuarioController.user.getAdm()) {
+                    menuA.setVisible(true);
+                } else {
+                    menuE.setVisible(true);
+                }
+                Login.this.dispose();
+            } catch (Exception ex) {
+                System.out.println(UsuarioController.user.getAdm());
+                JOptionPane.showMessageDialog(rootPane, "Não foi possivel verificar Usuario", "Usario invalido", 1);
+            }
+        }
     }//GEN-LAST:event_btnSubmitActionPerformed
 
     private void btn_showPassMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_showPassMousePressed

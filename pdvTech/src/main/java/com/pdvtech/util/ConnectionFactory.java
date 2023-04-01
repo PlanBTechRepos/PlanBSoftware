@@ -2,6 +2,10 @@
 package com.pdvtech.util;
 
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -101,5 +105,45 @@ public class ConnectionFactory {
         }
 <<<<<<< HEAD
     }*/
+
+    
+    private String line = "";
+    private String lineError = "";
+
+    public String getLineError() {
+        return this.lineError;
+    }
+
+    public void criaDB(String senha) {
+        try {
+            List<String> command = new ArrayList<String>();
+            command.add("powershell");
+            if (senha.equals("")) {
+                command.add("Get-Content ../DB/*.sql | C:/xampp/mysql/bin/mysql -u root");
+            } else {
+                command.add("Get-Content ../DB/*.sql | C:/xampp/mysql/bin/mysql -u root -p" + senha);
+            }
+
+            ProcessBuilder builder = new ProcessBuilder(command);
+            builder.redirectErrorStream(true);
+            Process process = builder.start();
+
+            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+            
+            while ((this.line = reader.readLine()) != null) {
+                if(line.contains("ERROR 1045"))
+                    lineError = line;
+                    
+                System.out.println(this.line);
+            }
+            process.waitFor();
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        } finally {
+            System.out.println("DB criada");
+        }
+    }
+
+
 
 }
