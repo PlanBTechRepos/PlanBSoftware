@@ -80,9 +80,9 @@ BEGIN
 	INSERT INTO estoque (tipo_ingrediente, quantidade, Valor_de_Compra, vencimento) VALUES (@buscatipo, qtd, valor, date_add(SYSDATE(), interval 1 month));
 END$
 DELIMITER ;
-/*
-DELIMITER $
+
 DROP PROCEDURE IF EXISTS buscaUsuario;
+DELIMITER $
 CREATE PROCEDURE buscaUsuario(
 usuarioProc VARCHAR(40)
 )
@@ -92,9 +92,4 @@ BEGIN
 		JOIN funcionario AS f ON f.id_Funcionario = u.id_Funcionario 
 			WHERE u.usuario LIKE usuarioProc;
 END$
-DELIMITER ;*/
-#Por enquanto use esse select para fazer a busca ou reexecute a procedure logo acima.
-SELECT u.id_Funcionario , u.id_usuario, u.usuario, u.senha, u.permissao, f.id_Cargo, f.id_Funcionario, f.nome, f.sobrenome
-		FROM usuario AS u
-		JOIN funcionario AS f ON f.id_Funcionario = u.id_Funcionario 
-			WHERE u.usuario LIKE "test";
+DELIMITER ;
