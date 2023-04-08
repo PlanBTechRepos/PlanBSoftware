@@ -12,6 +12,7 @@ ADD CONSTRAINT FK_Ingrediente_Receita FOREIGN KEY (id_Ingrediente) REFERENCES in
 
 ALTER TABLE pedido
 ADD CONSTRAINT FK_Receita FOREIGN KEY (id_Receita) REFERENCES receita(id_Receita),
+ADD CONSTRAINT FK_Funcionario FOREIGN KEY (id_Funcionario) REFERENCES funcionario(id_Funcionario),
 ADD CHECK (Valor_Total > 0.00);
 
 ALTER TABLE estoque

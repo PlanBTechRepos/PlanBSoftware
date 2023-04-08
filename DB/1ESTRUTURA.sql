@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS ingredientes(
 
 CREATE TABLE IF NOT EXISTS pedido(
 	id_Pedido INTEGER PRIMARY KEY,
-    id_Pessoa INTEGER NOT NULL,
+    id_Funcionario INTEGER NOT NULL,
     id_Receita INTEGER NOT NULL,
     cliente VARCHAR(50),
     Valor_Total DECIMAL(8,2),
@@ -44,6 +44,7 @@ CREATE TABLE IF NOT EXISTS pedido(
 );
 CREATE TABLE IF NOT EXISTS estoque(
 	id_Produto INTEGER PRIMARY KEY AUTO_INCREMENT,
+    Nome VARCHAR(50) NOT NULL,
     Quantidade INTEGER NOT NULL,
     Recebimento DATETIME DEFAULT CURRENT_TIMESTAMP(),
     Vencimento DATETIME,

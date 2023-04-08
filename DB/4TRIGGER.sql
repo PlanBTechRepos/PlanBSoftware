@@ -1,7 +1,7 @@
 #TRIGGER
-
+/*
+DROP TRIGGER IF EXISTS atualiza_estoque;
 DELIMITER //
-
 CREATE TRIGGER atualiza_estoque AFTER INSERT ON pedido
 FOR EACH ROW
 BEGIN
@@ -13,4 +13,4 @@ BEGIN
   UPDATE estoque SET Quantidade = Quantidade - 1 WHERE id_Ingrediente = idIngrediente;
 END //
 
-DELIMITER ;
+DELIMITER ;*/
