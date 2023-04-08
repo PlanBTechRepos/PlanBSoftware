@@ -91,7 +91,7 @@ public class Storage extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Teste", "Mais um", "Ações"
+                "Teste", "Mais um", ""
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -214,7 +214,7 @@ public class Storage extends javax.swing.JFrame {
     private javax.swing.JLabel pageLocation_Name;
     // End of variables declaration//GEN-END:variables
 
-    public void initTable() {
+    private void initTable() {
         
         Product_Table.fixTable(Scrollpane_Table);
         DefaultTableModel model = (DefaultTableModel) Product_Table.getModel();
@@ -249,7 +249,7 @@ public class Storage extends javax.swing.JFrame {
         
         //TESTE: Dados teste na tabela
         for (int i = 1; i <= 20; i++) {
-            model.addRow(new Object[] {"Teste", 50, false});
+            model.addRow(new Object[] {"Teste", i, false});
         }
     }
 }
