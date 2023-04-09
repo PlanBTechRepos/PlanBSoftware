@@ -111,3 +111,16 @@ BEGIN
 					WHERE usuarioB LIKE u.usuario AND senhaB LIKE u.senha;
 END$
 DELIMITER ;
+
+DROP PROCEDURE IF EXISTS buscaReceita;
+DELIMITER $
+CREATE PROCEDURE buscaReceita(
+	receitaN VARCHAR(50)
+)
+BEGIN
+SELECT nome AS PIZZA FROM ingredientes
+	JOIN receita on 
+		receita.id_Ingrediente = ingredientes.id_Ingrediente 
+			WHERE nome_receita LIKE receitaN;
+END$
+DELIMITER ;
