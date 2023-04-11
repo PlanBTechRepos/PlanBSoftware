@@ -212,7 +212,7 @@ public class AddProduct_Dialog extends javax.swing.JDialog {
                Integer.parseInt(this.input_quantity.getText()), 
                this.input_description.getText(), 
                Float.parseFloat(this.input_price.getText()));
-       
+       this.dispose();
     }//GEN-LAST:event_btnConfirmActionPerformed
 
     public static void main(String args[]) {

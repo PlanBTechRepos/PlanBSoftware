@@ -242,6 +242,7 @@ public class EditProduct_Dialog extends javax.swing.JDialog {
                 this.input_description.getText(), 
                 Integer.parseInt(this.input_quantity.getText()), 
                 Float.parseFloat(this.input_price.getText()));
+        EstoqueController.view(this.input_description.getText());
         this.dispose();
     }//GEN-LAST:event_btnConfirmActionPerformed
 

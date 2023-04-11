@@ -39,6 +39,7 @@ public class EstoqueController {
     
     public static void editEstoque(int id, String nome, int qtd, float price){
         conn.conectaBanco();
+        System.out.println("Teste1");
         try{
             String query =
                     "call UPDATEEstoque("
