@@ -48,7 +48,7 @@ O mesmo permite que o atendente realize os pedidos dos clientes, assim como o co
 ✔️ Gerenciamento de estoque.
 
 ## Distribuição
-(https://github.com/PlanBTechRepos/PlanBSoftware)
+https://github.com/PlanBTechRepos/PlanBSoftware
 
 ## Pré-requisitos ⚠️    
 <p>XAMPP<p> 
