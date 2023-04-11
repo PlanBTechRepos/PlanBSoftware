@@ -3,6 +3,10 @@
 ## Status do Projeto: ⚠️ Em andamento
 
 ## Tópicos
+
+.a{
+color : white
+}
 🔹 <a href = "#Descrição">Descrição do projeto </a>
 
 🔹 <a href = "#Funcionalidade">Funcionalidades </a>
