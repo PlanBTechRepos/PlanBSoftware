@@ -23,27 +23,32 @@ permissao INTEGER NOT NULL DEFAULT 0
 );
 
 CREATE TABLE IF NOT EXISTS receita(
-id_Receita 		INTEGER PRIMARY KEY AUTO_INCREMENT,
+id_Receita 		INTEGER NOT NULL,
 id_Ingrediente  INTEGER NOT NULL,
 nome_receita VARCHAR(50)
 );
 
 CREATE TABLE IF NOT EXISTS ingredientes(
 	id_Ingrediente INTEGER PRIMARY KEY AUTO_INCREMENT,
-    Nome VARCHAR(30) NOT NULL UNIQUE
+    Nome VARCHAR(30) NOT NULL UNIQUE,
+    borda BOOLEAN DEFAULT FALSE
 );
 
 
 CREATE TABLE IF NOT EXISTS pedido(
 	id_Pedido INTEGER PRIMARY KEY,
-    id_Pessoa INTEGER NOT NULL,
+    id_Funcionario INTEGER NOT NULL,
     id_Receita INTEGER NOT NULL,
+    borda INTEGER NOT NULL,
     cliente VARCHAR(50),
+    observacao VARCHAR (100),
     Valor_Total DECIMAL(8,2),
     status_pedido INTEGER NOT NULL DEFAULT 0
 );
+
 CREATE TABLE IF NOT EXISTS estoque(
 	id_Produto INTEGER PRIMARY KEY AUTO_INCREMENT,
+    Nome VARCHAR(50) NOT NULL,
     Quantidade INTEGER NOT NULL,
     Recebimento DATETIME DEFAULT CURRENT_TIMESTAMP(),
     Vencimento DATETIME,

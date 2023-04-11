@@ -72,24 +72,55 @@ DROP PROCEDURE IF EXISTS insertEstoque;
 DELIMITER $
 CREATE PROCEDURE insertEstoque(
 qtd VARCHAR(50),
-nome VARCHAR(50),
+nomeProduto VARCHAR(50),
+nomeIngrediente VARCHAR(50),
 valor DECIMAL (10,2)
 )
 BEGIN
-	SET @buscatipo = (SELECT id_ingrediente FROM  ingredientes WHERE nome = ingredientes.nome);
-	INSERT INTO estoque (tipo_ingrediente, quantidade, Valor_de_Compra, vencimento) VALUES (@buscatipo, qtd, valor, date_add(SYSDATE(), interval 1 month));
+	SET @buscatipo = (SELECT id_ingrediente FROM  ingredientes WHERE nomeIngrediente = ingredientes.nome);
+	INSERT INTO estoque (nome, tipo_ingrediente, quantidade, Valor_de_Compra, vencimento) VALUES (nomeProduto ,@buscatipo, qtd, valor, date_add(SYSDATE(), interval 1 month));
 END$
 DELIMITER ;
 
 DROP PROCEDURE IF EXISTS buscaUsuario;
 DELIMITER $
 CREATE PROCEDURE buscaUsuario(
-usuarioProc VARCHAR(40)
+	usuarioProc VARCHAR(40)
 )
 BEGIN
 	SELECT u.id_Funcionario , u.id_usuario, u.usuario, u.senha, u.permissao, f.id_Cargo, f.id_Funcionario, f.nome, f.sobrenome
 		FROM usuario AS u
 		JOIN funcionario AS f ON f.id_Funcionario = u.id_Funcionario 
 			WHERE u.usuario LIKE usuarioProc;
+END$
+DELIMITER ;
+
+DROP PROCEDURE IF EXISTS buscarDadosUsuario;
+DELIMITER $
+CREATE PROCEDURE buscarDadosUsuario(
+	usuarioB VARCHAR(50),
+	senhaB VARCHAR(50)
+)
+BEGIN
+	SELECT f.nome, f.sobrenome, c.nome, u.usuario, u.senha, u.permissao 
+		FROM funcionario AS f
+			JOIN cargos AS c 
+				ON f.id_Cargo = c.id_Cargo
+			JOIN usuario AS u 
+				ON f.id_Funcionario = u.id_Funcionario
+					WHERE usuarioB LIKE u.usuario AND senhaB LIKE u.senha;
+END$
+DELIMITER ;
+
+DROP PROCEDURE IF EXISTS buscaReceita;
+DELIMITER $
+CREATE PROCEDURE buscaReceita(
+	receitaN VARCHAR(50)
+)
+BEGIN
+SELECT nome AS PIZZA FROM ingredientes
+	JOIN receita on 
+		receita.id_Ingrediente = ingredientes.id_Ingrediente 
+			WHERE nome_receita LIKE receitaN;
 END$
 DELIMITER ;

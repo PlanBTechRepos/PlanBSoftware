@@ -95,7 +95,18 @@ public class Storage extends javax.swing.JFrame {
 
         Product_Table.setModel(
 
+<<<<<<< HEAD
             EstoqueController.listaEstoque()
+=======
+            },
+            new String [] {
+                "Teste", "Mais um", ""
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, true
+            };
+>>>>>>> 6e2c301e52006c866217f7c64d2cfc9d57efd893
 
         );
         Scrollpane_Table.setViewportView(Product_Table);
@@ -213,7 +224,7 @@ public class Storage extends javax.swing.JFrame {
     private javax.swing.JLabel pageLocation_Name;
     // End of variables declaration//GEN-END:variables
 
-    public void initTable() {
+    private void initTable() {
         
         
         
@@ -278,6 +289,12 @@ public class Storage extends javax.swing.JFrame {
         Product_Table.getColumnModel().getColumn(6).setCellEditor(new TableCellActionEditor(ev));
         
         //TESTE: Dados teste na tabela
+<<<<<<< HEAD
         
+=======
+        for (int i = 1; i <= 20; i++) {
+            model.addRow(new Object[] {"Teste", i, false});
+        }
+>>>>>>> 6e2c301e52006c866217f7c64d2cfc9d57efd893
     }
 }
