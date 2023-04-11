@@ -3,7 +3,7 @@
 ## Status do Projeto: ⚠️ Em andamento
 
 ## Tópicos
-🔹 Descrição do projeto 
+🔹 <a href = "Descrição">Descrição do projeto </a>
 
 🔹 Funcionalidades
 
@@ -51,12 +51,12 @@ O mesmo permite que o atendente realize os pedidos dos clientes, assim como o co
 https://github.com/PlanBTechRepos/PlanBSoftware
 
 ## Pré-requisitos ⚠️    
-<p>XAMPP<p> 
-<p>Aparelho utilizado para testes<p>
-<p>JVM(Java Virtual Machine).<p>
+<p>XAMPP</p> 
+<p>Aparelho utilizado para testes</p>
+<p>JVM(Java Virtual Machine).</p>
 
 ## Como rodar a aplicação 
-<p>O programa deve ser executado em uma maquina capaz de surportar JVM, com um banco de dados local, para a realização das operações diárias.<p>
+<p>O programa deve ser executado em uma maquina capaz de surportar JVM, com um banco de dados local, para a realização das operações diárias.</p>
 
 ## Testes realizados
 <p>Utilização de imagens e descrição do que foi testado.<p>
@@ -69,8 +69,8 @@ https://github.com/PlanBTechRepos/PlanBSoftware
 ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
 ![MySQL](	https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white)
 
-<p>Maven<p>
-<p>Xampp<p>
+<p>Maven</p>
+<p>Xampp</p>
 
 ## Resolvendo Problemas 
 Em issues foram abertos alguns problemas gerados durante o desenvolvimento desse projeto e como foram resolvidos.
@@ -85,11 +85,11 @@ Se for o caso, liste tarefas/funcionalidades que ainda precisam ser implementada
 📝 Tarefa 3
 
 ## Desenvolvedores/Contribuintes:
-<p>Yago Almeida - BackEnd<p>
-<p>Leonardo Lima - FrontEnd/Documentação/Tester<p>
-<p>Nathaly Gomes - Documentação/FrontEnd/Gerenciamento de Equipe<p>
-<p>Douglas Machado - FullStack<p>
-<p>Alessandro Lemos - FullStack<p>
+<p>Yago Almeida - BackEnd</p>
+<p>Leonardo Lima - FrontEnd/Documentação/Tester</p>
+<p>Nathaly Gomes - Documentação/FrontEnd/Gerenciamento de Equipe</p>
+<p>Douglas Machado - FullStack</p>
+<p>Alessandro Lemos - FullStack</p>
 
 
 ## Licença
