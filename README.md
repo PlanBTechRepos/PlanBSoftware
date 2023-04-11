@@ -34,7 +34,7 @@
 
 Insira os tópicos do README em links para facilitar a navegação do leitor
 
-## Descrição do projeto
+<h1 id = "Descrição">Descrição do projeto</h1>
 O projeto consiste em um sistema PDV para restaurante.
 O mesmo permite que o atendente realize os pedidos dos clientes, assim como o controle de estoque e gerenciamento dos funcionários para o gerente/administrador.
 
