@@ -10,25 +10,25 @@
 
 🔹 <a href = "#Distribuição">Distribuição</a>
 
-🔹 <a href = "#>Pré-requisitos">Pré-requisitos</a>
+🔹 <a href = "#Pré-requisitos">Pré-requisitos</a>
 
-🔹 <a href = "Como rodar a aplicação">Como rodar a aplicação</a>
+🔹 <a href = "#Como rodar a aplicação">Como rodar a aplicação</a>
 
-🔹 <a href = "Testes realizados">Testes realizados</a>
+🔹 <a href = "#Testes realizados">Testes realizados</a>
 
-🔹 <a href = "Banco de Dados">Banco de Dados</a>
+🔹 <a href = "#Banco de Dados">Banco de Dados</a>
 
-🔹 <a href = "Linguagens, dependências e libs utilizadas">Linguagens, dependências e libs utilizadas</a>
+🔹 <a href = "#Linguagens, dependências e libs utilizadas">Linguagens, dependências e libs utilizadas</a>
 
-🔹 <a href = "Descrição">Novas Recursos</a>
+🔹 <a href = "#Descrição">Novas Recursos</a>
 
-🔹 <a href = "Resolvendo Problemas">Resolvendo problemas</a>
+🔹 <a href = "#Resolvendo Problemas">Resolvendo problemas</a>
 
-🔹 <a href = "Recursos de inseridos">Recursos inseridos </a>
+🔹 <a href = "#Recursos de inseridos">Recursos inseridos </a>
 
-🔹 <a href = "Desenvolvedores/Contribuintes:">Desenvolvedores/Contribuintes</a>
+🔹 <a href = "#Desenvolvedores/Contribuintes:">Desenvolvedores/Contribuintes</a>
 
-🔹 <a href = "Informações Extras">Informações Extras</a>
+🔹 <a href = "#Informações Extras">Informações Extras</a>
 
 
 ...
