@@ -94,7 +94,7 @@ Se for o caso, liste tarefas/funcionalidades que ainda precisam ser implementada
 
 
 <h2 id = "Informações Extras">Informações Extras</h2> 
-##Licença
+## Licença
 The MIT License (MIT)
 
-##Copyright ©️ Ano - pdvTech
+## Copyright ©️ Ano - pdvTech
