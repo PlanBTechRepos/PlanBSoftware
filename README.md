@@ -4,7 +4,7 @@
 
 ## Tópicos
 
-.a{
+a{
 color : white
 }
 🔹 <a href = "#Descrição">Descrição do projeto </a>
