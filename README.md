@@ -41,12 +41,14 @@ O mesmo permite que o atendente realize os pedidos dos clientes, assim como o co
 ## Funcionalidades ⚙️
 ✔️ Realização de pedidos de restaurante;
 
+✔️ Historico de pedido;
+
 ✔️ Gerenciamento de funcionários; 
 
 ✔️ Gerenciamento de estoque.
 
 ## Distribuição
-Link para teste da versão disponibilizada.
+(https://github.com/PlanBTechRepos/PlanBSoftware)
 
 ## Pré-requisitos ⚠️    
 NetBeans; 
@@ -66,6 +68,7 @@ Caso tenha acesso a uma base de dados, deixe a descrição do arquivo (json, csv
 
 ## Linguagens, dependencias e libs utilizadas 📚
 ![Android Studio](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)
+![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
 
 XML
 ...
