@@ -39,7 +39,7 @@ Insira os tópicos do README em links para facilitar a navegação do leitor
 O projeto consiste em um sistema PDV para restaurante.
 O mesmo permite que o atendente realize os pedidos dos clientes, assim como o controle de estoque e gerenciamento dos funcionários para o gerente/administrador.
 
-<h2 id = "Funcionalidade">Funcionalidades</h2> ⚙️
+<h2 id = "Funcionalidade">Funcionalidades ⚙️</h2> 
 ✔️ Realização de pedidos de restaurante;
 
 ✔️ Historico de pedido;
@@ -51,7 +51,7 @@ O mesmo permite que o atendente realize os pedidos dos clientes, assim como o co
 <h2 id = "Distribuição">Distribuição</h2>
 https://github.com/PlanBTechRepos/PlanBSoftware
 
-<h2 id = "Pré-requisitos">Pré-requisitoso</h2> ⚠️    
+<h2 id = "Pré-requisitos">Pré-requisitoso ⚠️ </h2>    
 <p>XAMPP</p> 
 <p>Aparelho utilizado para testes</p>
 <p>JVM(Java Virtual Machine).</p>
@@ -62,10 +62,10 @@ https://github.com/PlanBTechRepos/PlanBSoftware
 <h2 id = "Testes realizados">Testes realizados</h2>
 <p>Utilização de imagens e descrição do que foi testado.<p>
 
-<h2 id = "Banco de Dados">Banco de Dados</h2>  🗂️
+<h2 id = "Banco de Dados">Banco de Dados 🗂️</h2>  
 
 
-<h2 id = "Linguagens, dependencias e libs utilizadas"> Linguagens, dependencias e libs utilizadas</h2> 📚
+<h2 id = "Linguagens, dependencias e libs utilizadas"> Linguagens, dependencias e libs utilizadas 📚</h2> 
 
 ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
 ![MySQL](	https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white)
@@ -76,7 +76,7 @@ https://github.com/PlanBTechRepos/PlanBSoftware
 <h2 id = "Resolvendo Problemas">Resolvendo Problemas</h2>  
 Em issues foram abertos alguns problemas gerados durante o desenvolvimento desse projeto e como foram resolvidos.
 
-<h2 id = "Recursos de inseridos">Recursos de inseridos</h2>  🧰
+<h2 id = "Recursos de inseridos">Recursos de inseridos 🧰</h2>  
 Se for o caso, liste tarefas/funcionalidades que ainda precisam ser implementadas na sua aplicação, insira fotos da tela do app.
 
 📝 Tarefa 1
