@@ -1,4 +1,4 @@
-# Titulo ou Arte do Projeto
+# PdvTech
 ## Versão: 1.0 
 ## Status do Projeto: ⚠️ Em andamento
 
@@ -35,13 +35,11 @@
 Insira os tópicos do README em links para facilitar a navegação do leitor
 
 ## Descrição do projeto
-O projeto consiste em um sistema PDV para pizzaria.
+O projeto consiste em um sistema PDV para restaurante.
 O mesmo permite que o atendente realize os pedidos dos clientes, assim como o controle de estoque e gerenciamento dos funcionários para o gerente/administrador.
 
 ## Funcionalidades ⚙️
-✔️ Realização de pedidos de pizzas;
-
-✔️ Controle de estoque;
+✔️ Realização de pedidos de restaurante;
 
 ✔️ Gerenciamento de funcionários; 
 
@@ -86,7 +84,12 @@ Se for o caso, liste tarefas/funcionalidades que ainda precisam ser implementada
 📝 Tarefa 3
 
 ## Desenvolvedores/Contribuintes:
-Liste o time responsável pelo desenvolvimento do projeto
+Yago Almeida - BackEnd
+Leonardo Lima - FrontEnd/Documentação
+Nathaly Gomes - Documentação/FrontEnd/Gerenciamento de Equipe
+Douglas Machado - FullStack
+Alessandro Lemos - FullStack
+
 
 ## Licença
 The MIT License (MIT)
