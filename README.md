@@ -5,9 +5,9 @@
 ## Tópicos
 🔹 <a href = "#Descrição">Descrição do projeto </a>
 
-🔹 <a href = "Descrição">Funcionalidades </a>
+🔹 <a href = "Funcionalidade">Funcionalidades </a>
 
-🔹 <a href = "Descrição">Distribuição</a>
+🔹 <a href = "Distribuição">Distribuição</a>
 
 🔹 <a href = "Descrição">Pré-requisitos</a>
 
@@ -38,7 +38,7 @@ Insira os tópicos do README em links para facilitar a navegação do leitor
 O projeto consiste em um sistema PDV para restaurante.
 O mesmo permite que o atendente realize os pedidos dos clientes, assim como o controle de estoque e gerenciamento dos funcionários para o gerente/administrador.
 
-## Funcionalidades ⚙️
+<h1 id = "Funcionalidade">Funcionalidades</h1> ⚙️
 ✔️ Realização de pedidos de restaurante;
 
 ✔️ Historico de pedido;
@@ -47,7 +47,7 @@ O mesmo permite que o atendente realize os pedidos dos clientes, assim como o co
 
 ✔️ Gerenciamento de estoque.
 
-## Distribuição
+<h1 id = "Distribuição">Distribuição</h1>
 https://github.com/PlanBTechRepos/PlanBSoftware
 
 ## Pré-requisitos ⚠️    
