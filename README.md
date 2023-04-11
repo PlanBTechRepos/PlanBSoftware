@@ -5,29 +5,29 @@
 ## Tópicos
 🔹 <a href = "Descrição">Descrição do projeto </a>
 
-🔹 Funcionalidades
+🔹 <a href = "Descrição">Funcionalidades </a>
 
-🔹 Distribuição
+🔹 <a href = "Descrição">Distribuição</a>
 
-🔹 Pré-requisitos
+🔹 <a href = "Descrição">Pré-requisitos</a>
 
-🔹 Como rodar a aplicação
+🔹 <a href = "Descrição">Como rodar a aplicação</a>
 
-🔹 Testes realizados
+🔹 <a href = "Descrição">Testes realizados</a>
 
-🔹 Banco de Dados
+🔹 <a href = "Descrição">Banco de Dados</a>
 
-🔹 Linguagens, dependências e libs utilizadas
+🔹 <a href = "Descrição">Linguagens, dependências e libs utilizadas</a>
 
-🔹 Novas Recursos
+🔹 <a href = "Descrição">Novas Recursos</a>
 
-🔹 Resolvendo problemas
+🔹 <a href = "Descrição">Resolvendo problemas</a>
 
-🔹 Recursos inseridos 
+🔹 <a href = "Descrição">Recursos inseridos </a>
 
-🔹 Desenvolvedores/Contribuintes
+🔹 <a href = "Descrição">Desenvolvedores/Contribuintes</a>
 
-🔹 Informações Extras
+🔹 <a href = "Descrição">Informações Extras</a>
 
 
 ...
