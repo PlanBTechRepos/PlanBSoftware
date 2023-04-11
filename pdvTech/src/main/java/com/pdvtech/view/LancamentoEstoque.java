@@ -223,7 +223,7 @@ public class LancamentoEstoque extends javax.swing.JFrame {
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         
-        EstoqueController.salvaEstoque(this.txtCodigo.getText(),
+        EstoqueController.addEstoque(
                 Integer.parseInt(this.txtQuantidade.getText()), 
                 this.txtNomeEstoque.getText(), 
                 Float.parseFloat(this.txtValor.getText()));

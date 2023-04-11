@@ -1,15 +1,30 @@
 
 package com.pdvtech.view.use;
 
-public class EditProduct_Dialog extends javax.swing.JDialog {
-    
-    public EditProduct_Dialog() {
-        
-    }
+import com.pdvtech.controller.EstoqueController;
+import com.pdvtech.model.Estoque;
+import java.awt.event.WindowAdapter;
 
+public class EditProduct_Dialog extends javax.swing.JDialog {
+    Estoque produto;
+    
+    
+    
+    public void setView(String nome){
+        produto = EstoqueController.view(nome);
+        this.input_description.setText(produto.getNome());
+        this.input_price.setText(String.valueOf(produto.getValor()));
+        this.input_quantity.setText(String.valueOf(produto.getQuantidade()));
+        this.input_validity.setText(String.valueOf(produto.getVencimento()));
+        this.print_id.setText(String.valueOf(produto.getId()));
+    }
     public EditProduct_Dialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+    }
+    
+    public void open(){
+        this.addWindowListener(new WindowAdapter() {});
     }
 
     @SuppressWarnings("unchecked")
@@ -223,13 +238,19 @@ public class EditProduct_Dialog extends javax.swing.JDialog {
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
-        //TODO: INSERIR DADOS NO BD, ENCERRAR DIALOG
+        EstoqueController.editEstoque(Integer.parseInt(this.print_id.getText()), 
+                this.input_description.getText(), 
+                Integer.parseInt(this.input_quantity.getText()), 
+                Float.parseFloat(this.input_price.getText()));
+        this.dispose();
     }//GEN-LAST:event_btnConfirmActionPerformed
 
     public static void main(String args[]) {
+        
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                
                 EditProduct_Dialog dialog = new EditProduct_Dialog(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override

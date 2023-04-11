@@ -53,6 +53,9 @@
           <Image iconType="3" name="/icons/lapis-editar.png"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEditActionPerformed"/>
+      </Events>
     </Component>
     <Component class="com.pdvtech.view.component.ActionButton" name="btnDelete">
       <Properties>
@@ -63,6 +66,9 @@
           <Image iconType="3" name="/icons/deletar.png"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDeleteActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

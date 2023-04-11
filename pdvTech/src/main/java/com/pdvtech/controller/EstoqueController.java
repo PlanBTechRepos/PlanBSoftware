@@ -13,31 +13,12 @@ import javax.swing.table.DefaultTableModel;
  */
 public class EstoqueController {
    static MySQL conn = new MySQL();
-   static  Estoque estoque = new Estoque();
+   public static  Estoque estoque = new Estoque();
     
-    public static void salvaEstoque(String id, int qtd, String nome, float valor){
+    public static void addEstoque(int qtd, String nome, float valor){
         conn.conectaBanco();
-        if(!id.equals("")){
+        System.out.println("teste1");
         try{
-            String query = 
-                    "call updateEstoque("
-                    + id + ", "
-                    + qtd + ", '"
-                    + nome + "', "
-                    + valor 
-                    + ");";
-            conn.executarSQL(query);
-            
-        }
-        catch(Exception e){
-        e.getMessage();
-    }
-        finally{
-            conn.fechaBanco();
-        }
-        }
-        else{
-            try{
              String query = 
                      "call insertEstoque("
                      + qtd + ", '"
@@ -45,6 +26,7 @@ public class EstoqueController {
                      + valor + ");";
              
              conn.executarSQL(query);
+             System.out.println("Teste2");
             }
             catch(Exception e){
                 e.getMessage();
@@ -52,7 +34,28 @@ public class EstoqueController {
             finally{
                 conn.fechaBanco();
             }
+        
+    }
+    
+    public static void editEstoque(int id, String nome, int qtd, float price){
+        conn.conectaBanco();
+        try{
+            String query =
+                    "call UPDATEEstoque("
+                    + id + ", "
+                    + qtd + ", '"
+                    + nome + "', "
+                    + price
+                    + ");";
+            conn.executarSQL(query);
         }
+        catch(Exception e){
+            e.getMessage();
+        }
+        finally{
+            conn.fechaBanco();
+        }
+        
     }
     
     public static void deletaProduto(int id){
@@ -72,7 +75,7 @@ public class EstoqueController {
     }
     
     public static DefaultTableModel listaEstoque (){
-        String columNames[] = {"Codigo", "Nome", "Quantidade", "Data de Entreda", "Vencimento", "Valor"};
+        String columNames[] = {"Codigo", "Nome", "Quantidade", "Data de Entreda", "Vencimento", "Valor", "Ação"};
         DefaultTableModel model = new DefaultTableModel(columNames, 0);
         conn.conectaBanco();
         try{
@@ -127,6 +130,7 @@ public class EstoqueController {
             conn.executarSQL(query);
             
             while(conn.getResultSet().next()){
+                estoque.setNome(nome);
                 estoque.setId(conn.getResultSet().getInt(1));
                 estoque.setValor(conn.getResultSet().getFloat(2));
                 estoque.setQuantidade(conn.getResultSet().getInt(3));

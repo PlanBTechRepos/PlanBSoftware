@@ -1,11 +1,18 @@
 
 package com.pdvtech.view.use;
 
+import com.pdvtech.controller.EstoqueController;
+import static com.pdvtech.controller.EstoqueController.estoque;
 import com.pdvtech.model.TableActionEvent;
 import com.pdvtech.view.component.util.TableCellActionEditor;
 import com.pdvtech.view.component.util.TableCellActionRenderer;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import com.pdvtech.view.use.EditProduct_Dialog;
 import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
+import com.pdvtech.view.use.AddProduct_Dialog;
+import javax.swing.table.AbstractTableModel;
 
 public class Storage extends javax.swing.JFrame {
 
@@ -86,22 +93,11 @@ public class Storage extends javax.swing.JFrame {
             }
         });
 
-        Product_Table.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+        Product_Table.setModel(
 
-            },
-            new String [] {
-                "Teste", "Mais um", "Ações"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, true
-            };
+            EstoqueController.listaEstoque()
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
+        );
         Scrollpane_Table.setViewportView(Product_Table);
         if (Product_Table.getColumnModel().getColumnCount() > 0) {
             Product_Table.getColumnModel().getColumn(2).setMinWidth(120);
@@ -184,13 +180,16 @@ public class Storage extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExitMousePressed
 
     private void btnAddProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddProductActionPerformed
-        //TODO: ABRIR ADDPRODUCT_DIALOG E ATUALIZAR TABELA QUANDO DIALOG FECHAR, EXEMPLO COD. ABAIXO   
-        /*
-        addProduct_dialog.addWindowListener(new WindowAdapter() {
-            public void windowClosed(WindowEvent e) {
-                loadProjects();
-        }
-        */
+            AddProduct_Dialog add = new AddProduct_Dialog(Storage.this, true);
+                add.addWindowListener(new WindowAdapter(){
+                
+                @Override
+                public void windowClosed(WindowEvent e){
+                    EstoqueController.listaEstoque();
+                 
+                }
+            });
+                add.setVisible(true);
     }//GEN-LAST:event_btnAddProductActionPerformed
 
     public static void main(String args[]) {
@@ -203,7 +202,7 @@ public class Storage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.pdvtech.view.component.customTable Product_Table;
+    private static com.pdvtech.view.component.customTable Product_Table;
     private javax.swing.JScrollPane Scrollpane_Table;
     private javax.swing.JPanel Storage_Panel;
     private com.pdvtech.view.component.customButton btnAddProduct;
@@ -216,12 +215,39 @@ public class Storage extends javax.swing.JFrame {
 
     public void initTable() {
         
+        
+        
         Product_Table.fixTable(Scrollpane_Table);
         DefaultTableModel model = (DefaultTableModel) Product_Table.getModel();
         
         TableActionEvent ev = new TableActionEvent() {
+            
             @Override
             public void onEdit(int row) {
+                DefaultTableModel m = (DefaultTableModel) Product_Table.getModel();
+                EditProduct_Dialog edit = new EditProduct_Dialog(Storage.this, true);
+                edit.addWindowListener(new WindowAdapter(){
+                    
+                @Override
+                public void windowActivated(WindowEvent e){
+                    edit.setView(String.valueOf(m.getValueAt(row, 1)));
+                }
+                @Override
+                public void windowClosed(WindowEvent e){
+                    
+                    EstoqueController.view(String.valueOf(m.getValueAt(row, 1)));
+                    ((AbstractTableModel) Product_Table.getModel()).setValueAt(estoque.getNome(), row, 1);
+                    ((AbstractTableModel) Product_Table.getModel()).setValueAt(estoque.getQuantidade(), row, 2);
+                    ((AbstractTableModel) Product_Table.getModel()).setValueAt(estoque.getVencimento(), row, 4);
+                    ((AbstractTableModel) Product_Table.getModel()).setValueAt(estoque.getValor(), row, 5);
+                    estoque.limpaDados();
+                    
+                    
+                }
+            });
+                
+                edit.setVisible(true);
+                
                 //TODO: ABRIR EDITPRODUCT_DIALOG E ATUALIZAR TABELA QUANDO DIALOG FECHAR, EXEMPLO COD. ABAIXO   
                 /*
                 editProduct_dialog.addWindowListener(new WindowAdapter() {
@@ -238,18 +264,20 @@ public class Storage extends javax.swing.JFrame {
                 }
                 
                 DefaultTableModel m = (DefaultTableModel) Product_Table.getModel();
+                System.out.println(Integer.parseInt(String.valueOf(m.getValueAt(row, 0))));
+                EstoqueController.deletaProduto(Integer.parseInt(String.valueOf(m.getValueAt(row, 0))));
                 m.removeRow(row);
+                
+                
                 
                 //TODO: MÉTODO 'DELETE' PRODUTO
             }
         };    
       
-        Product_Table.getColumnModel().getColumn(2).setCellRenderer(new TableCellActionRenderer());
-        Product_Table.getColumnModel().getColumn(2).setCellEditor(new TableCellActionEditor(ev));
+        Product_Table.getColumnModel().getColumn(6).setCellRenderer(new TableCellActionRenderer());
+        Product_Table.getColumnModel().getColumn(6).setCellEditor(new TableCellActionEditor(ev));
         
         //TESTE: Dados teste na tabela
-        for (int i = 1; i <= 20; i++) {
-            model.addRow(new Object[] {"Teste", 50, false});
-        }
+        
     }
 }

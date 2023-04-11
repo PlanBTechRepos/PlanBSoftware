@@ -1,11 +1,18 @@
 
 package com.pdvtech.view.use;
 
+import com.pdvtech.controller.EstoqueController;
+import java.awt.event.WindowAdapter;
+
 public class AddProduct_Dialog extends javax.swing.JDialog {
 
     public AddProduct_Dialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+    }
+    
+    public void open(){
+        this.addWindowListener(new WindowAdapter() {});
     }
 
     @SuppressWarnings("unchecked")
@@ -200,7 +207,12 @@ public class AddProduct_Dialog extends javax.swing.JDialog {
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
-        //TODO: INSERIR DADOS NO BD, ENCERRAR DIALOG
+        System.out.println("Teste3");
+        EstoqueController.addEstoque(
+               Integer.parseInt(this.input_quantity.getText()), 
+               this.input_description.getText(), 
+               Float.parseFloat(this.input_price.getText()));
+       
     }//GEN-LAST:event_btnConfirmActionPerformed
 
     public static void main(String args[]) {
