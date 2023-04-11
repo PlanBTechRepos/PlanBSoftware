@@ -34,11 +34,11 @@
 
 Insira os tópicos do README em links para facilitar a navegação do leitor
 
-<h1 id = "Descrição">Descrição do projeto</h1>
+<h2 id = "Descrição">Descrição do projeto</h2>
 O projeto consiste em um sistema PDV para restaurante.
 O mesmo permite que o atendente realize os pedidos dos clientes, assim como o controle de estoque e gerenciamento dos funcionários para o gerente/administrador.
 
-<h1 id = "Funcionalidade">Funcionalidades</h1> ⚙️
+<h2 id = "Funcionalidade">Funcionalidades</h2> ⚙️
 ✔️ Realização de pedidos de restaurante;
 
 ✔️ Historico de pedido;
@@ -47,7 +47,7 @@ O mesmo permite que o atendente realize os pedidos dos clientes, assim como o co
 
 ✔️ Gerenciamento de estoque.
 
-<h1 id = "Distribuição">Distribuição</h1>
+<h2 id = "Distribuição">Distribuição</h2>
 https://github.com/PlanBTechRepos/PlanBSoftware
 
 ## Pré-requisitos ⚠️    
