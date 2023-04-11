@@ -22,7 +22,8 @@ public class Storage extends javax.swing.JFrame {
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         Storage_Panel = new javax.swing.JPanel();
@@ -95,20 +96,15 @@ public class Storage extends javax.swing.JFrame {
 
         Product_Table.setModel(
 
-<<<<<<< HEAD
-            EstoqueController.listaEstoque()
-=======
-            },
-            new String [] {
-                "Teste", "Mais um", ""
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, true
-            };
->>>>>>> 6e2c301e52006c866217f7c64d2cfc9d57efd893
+                EstoqueController.listaEstoque());
 
-        );
+        {
+            boolean[] canEdit = new boolean[] {
+                    false, false, true
+            };
+
+        }
+
         Scrollpane_Table.setViewportView(Product_Table);
         if (Product_Table.getColumnModel().getColumnCount() > 0) {
             Product_Table.getColumnModel().getColumn(2).setMinWidth(120);
@@ -119,89 +115,102 @@ public class Storage extends javax.swing.JFrame {
         javax.swing.GroupLayout Storage_PanelLayout = new javax.swing.GroupLayout(Storage_Panel);
         Storage_Panel.setLayout(Storage_PanelLayout);
         Storage_PanelLayout.setHorizontalGroup(
-            Storage_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Storage_PanelLayout.createSequentialGroup()
-                .addGroup(Storage_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(Storage_PanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(Scrollpane_Table))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, Storage_PanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(pageLocation_Name)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 740, Short.MAX_VALUE)
-                        .addComponent(btnMinimize)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnMaximize)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnExit))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, Storage_PanelLayout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addComponent(btnAddProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
+                Storage_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Storage_PanelLayout
+                                .createSequentialGroup()
+                                .addGroup(Storage_PanelLayout
+                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(Storage_PanelLayout.createSequentialGroup()
+                                                .addContainerGap()
+                                                .addComponent(Scrollpane_Table))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, Storage_PanelLayout
+                                                .createSequentialGroup()
+                                                .addContainerGap()
+                                                .addComponent(btnReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 40,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(pageLocation_Name)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED,
+                                                        740, Short.MAX_VALUE)
+                                                .addComponent(btnMinimize)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(btnMaximize)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(btnExit))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, Storage_PanelLayout
+                                                .createSequentialGroup()
+                                                .addGap(45, 45, 45)
+                                                .addComponent(btnAddProduct, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                        140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(0, 0, Short.MAX_VALUE)))
+                                .addContainerGap()));
         Storage_PanelLayout.setVerticalGroup(
-            Storage_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Storage_PanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(Storage_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnExit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnMinimize, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnMaximize, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(pageLocation_Name, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(btnAddProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(Scrollpane_Table, javax.swing.GroupLayout.DEFAULT_SIZE, 486, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+                Storage_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(Storage_PanelLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(Storage_PanelLayout
+                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(btnExit, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(btnMinimize, javax.swing.GroupLayout.PREFERRED_SIZE, 26,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnMaximize, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(btnReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 0,
+                                                Short.MAX_VALUE)
+                                        .addComponent(pageLocation_Name, javax.swing.GroupLayout.PREFERRED_SIZE, 26,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addComponent(btnAddProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 40,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(Scrollpane_Table, javax.swing.GroupLayout.DEFAULT_SIZE, 486,
+                                        Short.MAX_VALUE)
+                                .addContainerGap()));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Storage_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(Storage_Panel, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Storage_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(Storage_Panel, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnReturnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReturnMouseClicked
-        //TODO: VOLTAR PÁGINA
-    }//GEN-LAST:event_btnReturnMouseClicked
+    private void btnReturnMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_btnReturnMouseClicked
+        // TODO: VOLTAR PÁGINA
+    }// GEN-LAST:event_btnReturnMouseClicked
 
-    private void btnMinimizeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMinimizeMousePressed
+    private void btnMinimizeMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_btnMinimizeMousePressed
         this.setExtendedState(JFrame.ICONIFIED);
-    }//GEN-LAST:event_btnMinimizeMousePressed
+    }// GEN-LAST:event_btnMinimizeMousePressed
 
-    private void btnMaximizeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMaximizeMousePressed
+    private void btnMaximizeMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_btnMaximizeMousePressed
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-    }//GEN-LAST:event_btnMaximizeMousePressed
+    }// GEN-LAST:event_btnMaximizeMousePressed
 
-    private void btnExitMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMousePressed
+    private void btnExitMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_btnExitMousePressed
         System.exit(0);
-    }//GEN-LAST:event_btnExitMousePressed
+    }// GEN-LAST:event_btnExitMousePressed
 
-    private void btnAddProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddProductActionPerformed
-            AddProduct_Dialog add = new AddProduct_Dialog(Storage.this, true);
-                add.addWindowListener(new WindowAdapter(){
-                
-                @Override
-                public void windowClosed(WindowEvent e){
-                    EstoqueController.listaEstoque();
-                 
-                }
-            });
-                add.setVisible(true);
-    }//GEN-LAST:event_btnAddProductActionPerformed
+    private void btnAddProductActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnAddProductActionPerformed
+        AddProduct_Dialog add = new AddProduct_Dialog(Storage.this, true);
+        add.addWindowListener(new WindowAdapter() {
+
+            @Override
+            public void windowClosed(WindowEvent e) {
+                EstoqueController.listaEstoque();
+
+            }
+        });
+        add.setVisible(true);
+    }// GEN-LAST:event_btnAddProductActionPerformed
 
     public static void main(String args[]) {
 
@@ -225,47 +234,46 @@ public class Storage extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void initTable() {
-        
-        
-        
+
         Product_Table.fixTable(Scrollpane_Table);
         DefaultTableModel model = (DefaultTableModel) Product_Table.getModel();
-        
+
         TableActionEvent ev = new TableActionEvent() {
-            
+
             @Override
             public void onEdit(int row) {
                 DefaultTableModel m = (DefaultTableModel) Product_Table.getModel();
                 EditProduct_Dialog edit = new EditProduct_Dialog(Storage.this, true);
-                edit.addWindowListener(new WindowAdapter(){
-                    
-                @Override
-                public void windowActivated(WindowEvent e){
-                    edit.setView(String.valueOf(m.getValueAt(row, 1)));
-                }
-                @Override
-                public void windowClosed(WindowEvent e){
-                    
-                    EstoqueController.view(String.valueOf(m.getValueAt(row, 1)));
-                    ((AbstractTableModel) Product_Table.getModel()).setValueAt(estoque.getNome(), row, 1);
-                    ((AbstractTableModel) Product_Table.getModel()).setValueAt(estoque.getQuantidade(), row, 2);
-                    ((AbstractTableModel) Product_Table.getModel()).setValueAt(estoque.getVencimento(), row, 4);
-                    ((AbstractTableModel) Product_Table.getModel()).setValueAt(estoque.getValor(), row, 5);
-                    estoque.limpaDados();
-                    
-                    
-                }
-            });
-                
-                edit.setVisible(true);
-                
-                //TODO: ABRIR EDITPRODUCT_DIALOG E ATUALIZAR TABELA QUANDO DIALOG FECHAR, EXEMPLO COD. ABAIXO   
-                /*
-                editProduct_dialog.addWindowListener(new WindowAdapter() {
+                edit.addWindowListener(new WindowAdapter() {
+
+                    @Override
+                    public void windowActivated(WindowEvent e) {
+                        edit.setView(String.valueOf(m.getValueAt(row, 1)));
+                    }
+
+                    @Override
                     public void windowClosed(WindowEvent e) {
-                        loadProjects();
-                }
-                */
+
+                        EstoqueController.view(String.valueOf(m.getValueAt(row, 1)));
+                        ((AbstractTableModel) Product_Table.getModel()).setValueAt(estoque.getNome(), row, 1);
+                        ((AbstractTableModel) Product_Table.getModel()).setValueAt(estoque.getQuantidade(), row, 2);
+                        ((AbstractTableModel) Product_Table.getModel()).setValueAt(estoque.getVencimento(), row, 4);
+                        ((AbstractTableModel) Product_Table.getModel()).setValueAt(estoque.getValor(), row, 5);
+                        estoque.limpaDados();
+
+                    }
+                });
+
+                edit.setVisible(true);
+
+                // TODO: ABRIR EDITPRODUCT_DIALOG E ATUALIZAR TABELA QUANDO DIALOG FECHAR,
+                // EXEMPLO COD. ABAIXO
+                /*
+                 * editProduct_dialog.addWindowListener(new WindowAdapter() {
+                 * public void windowClosed(WindowEvent e) {
+                 * loadProjects();
+                 * }
+                 */
             }
 
             @Override
@@ -273,28 +281,23 @@ public class Storage extends javax.swing.JFrame {
                 if (Product_Table.isEditing()) {
                     Product_Table.getCellEditor().stopCellEditing();
                 }
-                
+
                 DefaultTableModel m = (DefaultTableModel) Product_Table.getModel();
                 System.out.println(Integer.parseInt(String.valueOf(m.getValueAt(row, 0))));
                 EstoqueController.deletaProduto(Integer.parseInt(String.valueOf(m.getValueAt(row, 0))));
                 m.removeRow(row);
-                
-                
-                
-                //TODO: MÉTODO 'DELETE' PRODUTO
+
+                // TODO: MÉTODO 'DELETE' PRODUTO
             }
-        };    
-      
+        };
+
         Product_Table.getColumnModel().getColumn(6).setCellRenderer(new TableCellActionRenderer());
         Product_Table.getColumnModel().getColumn(6).setCellEditor(new TableCellActionEditor(ev));
-        
-        //TESTE: Dados teste na tabela
-<<<<<<< HEAD
-        
-=======
+
+        // TESTE: Dados teste na tabela
+
         for (int i = 1; i <= 20; i++) {
-            model.addRow(new Object[] {"Teste", i, false});
+            model.addRow(new Object[] { "Teste", i, false });
         }
->>>>>>> 6e2c301e52006c866217f7c64d2cfc9d57efd893
     }
 }
