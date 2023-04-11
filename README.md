@@ -20,7 +20,7 @@
 
 🔹 <a href = "#Linguagens, dependências e libs utilizadas">Linguagens, dependências e libs utilizadas</a>
 
-🔹 <a href = "#Descrição">Novas Recursos</a>
+🔹 <a href = "#">Novas Recursos</a>
 
 🔹 <a href = "#Resolvendo Problemas">Resolvendo problemas</a>
 
