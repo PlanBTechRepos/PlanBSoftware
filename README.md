@@ -51,28 +51,26 @@ O mesmo permite que o atendente realize os pedidos dos clientes, assim como o co
 (https://github.com/PlanBTechRepos/PlanBSoftware)
 
 ## Pré-requisitos ⚠️    
-NetBeans; 
 XAMPP 
-Aparelho utilizado para testes.
-- Liste todas as dependencias e libs que o usuário deve ter instalado na máquina antes de rodar a aplicação, para rodar o projeto.
+Aparelho utilizado para testes
+JVM(Java Virtual Machine).
 
 ## Como rodar a aplicação 
-Explicação de como se deve utilizar o projeto.
+O programa deve ser executado em uma maquina capaz de surportar JVM, com um banco de dados local, para a realização das operações diárias.
 
 ## Testes realizados
-Utilização de imagens e descrição do qeu foi testado.
+Utilização de imagens e descrição do que foi testado.
 
 ## Banco de Dados 🗂️
-SQL Text file
-Caso tenha acesso a uma base de dados, deixe a descrição do arquivo (json, csv, xml e etc).
+
 
 ## Linguagens, dependencias e libs utilizadas 📚
-![Android Studio](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)
-![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
 
-XML
-...
-Liste as tecnologias utilizadas no projeto que não forem reconhecidas pelo Github
+![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
+![MySQL](	https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white)
+
+Maven
+Xampp
 
 ## Resolvendo Problemas 
 Em issues foram abertos alguns problemas gerados durante o desenvolvimento desse projeto e como foram resolvidos.
@@ -88,7 +86,7 @@ Se for o caso, liste tarefas/funcionalidades que ainda precisam ser implementada
 
 ## Desenvolvedores/Contribuintes:
 Yago Almeida - BackEnd
-Leonardo Lima - FrontEnd/Documentação
+Leonardo Lima - FrontEnd/Documentação/Tester
 Nathaly Gomes - Documentação/FrontEnd/Gerenciamento de Equipe
 Douglas Machado - FullStack
 Alessandro Lemos - FullStack
