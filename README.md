@@ -5,9 +5,9 @@
 ## Tópicos
 🔹 <a href = "#Descrição">Descrição do projeto </a>
 
-🔹 <a href = "Funcionalidade">Funcionalidades </a>
+🔹 <a href = "#Funcionalidade">Funcionalidades </a>
 
-🔹 <a href = "Distribuição">Distribuição</a>
+🔹 <a href = "#Distribuição">Distribuição</a>
 
 🔹 <a href = "Descrição">Pré-requisitos</a>
 
