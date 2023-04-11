@@ -51,15 +51,15 @@ O mesmo permite que o atendente realize os pedidos dos clientes, assim como o co
 (https://github.com/PlanBTechRepos/PlanBSoftware)
 
 ## Pré-requisitos ⚠️    
-XAMPP 
-Aparelho utilizado para testes
-JVM(Java Virtual Machine).
+<p>XAMPP<p> 
+<p>Aparelho utilizado para testes<p>
+<p>JVM(Java Virtual Machine).<p>
 
 ## Como rodar a aplicação 
-O programa deve ser executado em uma maquina capaz de surportar JVM, com um banco de dados local, para a realização das operações diárias.
+<p>O programa deve ser executado em uma maquina capaz de surportar JVM, com um banco de dados local, para a realização das operações diárias.<p>
 
 ## Testes realizados
-Utilização de imagens e descrição do que foi testado.
+<p>Utilização de imagens e descrição do que foi testado.<p>
 
 ## Banco de Dados 🗂️
 
@@ -85,11 +85,11 @@ Se for o caso, liste tarefas/funcionalidades que ainda precisam ser implementada
 📝 Tarefa 3
 
 ## Desenvolvedores/Contribuintes:
-Yago Almeida - BackEnd
-Leonardo Lima - FrontEnd/Documentação/Tester
-Nathaly Gomes - Documentação/FrontEnd/Gerenciamento de Equipe
-Douglas Machado - FullStack
-Alessandro Lemos - FullStack
+<p>Yago Almeida - BackEnd<p>
+<p>Leonardo Lima - FrontEnd/Documentação/Tester<p>
+<p>Nathaly Gomes - Documentação/FrontEnd/Gerenciamento de Equipe<p>
+<p>Douglas Machado - FullStack<p>
+<p>Alessandro Lemos - FullStack<p>
 
 
 ## Licença
