@@ -10,25 +10,25 @@
 
 🔹 <a href = "#Distribuição">Distribuição</a>
 
-🔹 <a href = "Descrição">Pré-requisitos</a>
+🔹 <a href = "#>Pré-requisitos">Pré-requisitos</a>
 
-🔹 <a href = "Descrição">Como rodar a aplicação</a>
+🔹 <a href = "Como rodar a aplicação">Como rodar a aplicação</a>
 
-🔹 <a href = "Descrição">Testes realizados</a>
+🔹 <a href = "Testes realizados">Testes realizados</a>
 
-🔹 <a href = "Descrição">Banco de Dados</a>
+🔹 <a href = "Banco de Dados">Banco de Dados</a>
 
-🔹 <a href = "Descrição">Linguagens, dependências e libs utilizadas</a>
+🔹 <a href = "Linguagens, dependências e libs utilizadas">Linguagens, dependências e libs utilizadas</a>
 
 🔹 <a href = "Descrição">Novas Recursos</a>
 
-🔹 <a href = "Descrição">Resolvendo problemas</a>
+🔹 <a href = "Resolvendo Problemas">Resolvendo problemas</a>
 
-🔹 <a href = "Descrição">Recursos inseridos </a>
+🔹 <a href = "Recursos de inseridos">Recursos inseridos </a>
 
-🔹 <a href = "Descrição">Desenvolvedores/Contribuintes</a>
+🔹 <a href = "Desenvolvedores/Contribuintes:">Desenvolvedores/Contribuintes</a>
 
-🔹 <a href = "Descrição">Informações Extras</a>
+🔹 <a href = "Informações Extras">Informações Extras</a>
 
 
 ...
@@ -51,21 +51,21 @@ O mesmo permite que o atendente realize os pedidos dos clientes, assim como o co
 <h2 id = "Distribuição">Distribuição</h2>
 https://github.com/PlanBTechRepos/PlanBSoftware
 
-## Pré-requisitos ⚠️    
+<h2 id = "Pré-requisitos">Pré-requisitoso</h2> ⚠️    
 <p>XAMPP</p> 
 <p>Aparelho utilizado para testes</p>
 <p>JVM(Java Virtual Machine).</p>
 
-## Como rodar a aplicação 
+<h2 id = "Como rodar a aplicação">Como rodar a aplicação</h2>  
 <p>O programa deve ser executado em uma maquina capaz de surportar JVM, com um banco de dados local, para a realização das operações diárias.</p>
 
-## Testes realizados
+<h2 id = "Testes realizados">Testes realizados</h2>
 <p>Utilização de imagens e descrição do que foi testado.<p>
 
-## Banco de Dados 🗂️
+<h2 id = "Banco de Dados">Banco de Dados</h2>  🗂️
 
 
-## Linguagens, dependencias e libs utilizadas 📚
+<h2 id = "Linguagens, dependencias e libs utilizadas"> Linguagens, dependencias e libs utilizadas</h2> 📚
 
 ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
 ![MySQL](	https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white)
@@ -73,10 +73,10 @@ https://github.com/PlanBTechRepos/PlanBSoftware
 <p>Maven</p>
 <p>Xampp</p>
 
-## Resolvendo Problemas 
+<h2 id = "Resolvendo Problemas">Resolvendo Problemas</h2>  
 Em issues foram abertos alguns problemas gerados durante o desenvolvimento desse projeto e como foram resolvidos.
 
-## Recursos de inseridos 🧰
+<h2 id = "Recursos de inseridos">Recursos de inseridos</h2>  🧰
 Se for o caso, liste tarefas/funcionalidades que ainda precisam ser implementadas na sua aplicação, insira fotos da tela do app.
 
 📝 Tarefa 1
@@ -85,7 +85,7 @@ Se for o caso, liste tarefas/funcionalidades que ainda precisam ser implementada
 
 📝 Tarefa 3
 
-## Desenvolvedores/Contribuintes:
+<h2 id = "Desenvolvedores/Contribuintes:">Desenvolvedores/Contribuintes:</h2> 
 <p>Yago Almeida - BackEnd</p>
 <p>Leonardo Lima - FrontEnd/Documentação/Tester</p>
 <p>Nathaly Gomes - Documentação/FrontEnd/Gerenciamento de Equipe</p>
@@ -93,7 +93,8 @@ Se for o caso, liste tarefas/funcionalidades que ainda precisam ser implementada
 <p>Alessandro Lemos - FullStack</p>
 
 
-## Licença
+<h2 id = "Informações Extras">Informações Extras</h2> 
+##Licença
 The MIT License (MIT)
 
-## Copyright ©️ Ano - pdvTech
+##Copyright ©️ Ano - pdvTech
