@@ -95,4 +95,4 @@ Alessandro Lemos - FullStack
 ## Licença
 The MIT License (MIT)
 
-## Copyright ©️ Ano - Titulo do Projeto
+## Copyright ©️ Ano - pdvTech
