@@ -93,9 +93,7 @@ Se for o caso, liste tarefas/funcionalidades que ainda precisam ser implementada
 <p>Alessandro Lemos - FullStack</p>
 
 
-<h2 id = "Informações Extras">Informações Extras</h2> 
-
-## Licença
+<h2 id = "Informações Extras">Licença</h2> 
 The MIT License (MIT)
 
 ## Copyright ©️ Ano - pdvTech
