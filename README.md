@@ -91,8 +91,9 @@ https://github.com/PlanBTechRepos/PlanBSoftware
 <p>Xampp</p>
 
 <h2 id = "Resolvendo Problemas">Resolvendo Problemas</h2>  
- <img src="prints de teste/storange_delete_1.png"/>
+
 <img src="prints de teste/storange_adicionar.png"/>
+ <img src="prints de teste/storange_delete_1.png"/>
 
 <p> Tela de Inserção de produto na tabela, a procedure alocada está sendo executada e o banco está sendo atulizado, porém a tabela na aplicação não está sendo atualizada, duas soluções a serem testadas, evento quando adicionado adiciona manualmente uma linha local ou mudar a localização da criação de evento dos botões de delete e edit, para que uma atualização mais eficiente e sem conflitos de ordem de métodos</p>
 
