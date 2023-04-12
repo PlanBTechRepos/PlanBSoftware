@@ -30,11 +30,6 @@
 
 🔹 <a href = "#Informações Extras">Informações Extras</a>
 
-
-...
-
-Insira os tópicos do README em links para facilitar a navegação do leitor
-
 <h2 id = "Descrição">Descrição do projeto</h2>
 O projeto consiste em um sistema PDV para restaurante.
 O mesmo permite que o atendente realize os pedidos dos clientes, assim como o controle de estoque e gerenciamento dos funcionários para o gerente/administrador.
@@ -63,18 +58,24 @@ https://github.com/PlanBTechRepos/PlanBSoftware
 <p>Utilização de imagens e descrição do que foi testado.<p>
  <img src="prints de teste/ger_funci.png"/>
  <img src="prints de teste/ger_funci_1.png"/>
+ <p>Teste de inserção e Atualização de funcionarios(Atendente e Gerente), está é uma tela experimental com funcionalidades voltadas para testes</p>
  <img src="prints de teste/listar_funci.png"/>
+ <p> Teste de listagem de funcionarios que estão cadastrado no banco de dados, esta é uma tela experimental com funcionalidades voltadas para testes</p> 
  <img src="prints de teste/login teste.png"/>
  <img src="prints de teste/login teste_2.png"/>
+ <p>Tela de cadastros logando em uma conta registrada como atendente.</p>
  <img src="prints de teste/menu_funcionario.png"/>
+ <p>Menu onde as funcionalidades acessadas pelo atendente estão disponibilizadas.</p>
  <img src="prints de teste/storange.png"/>
- <img src="prints de teste/storange_adicionar.png"/>
- <img src="prints de teste/storange_delete.png"/>
+ <p>Tela de gerenciamento de estoque, com a  funcionalidade de listar os ingredientes presentes no estoquem em quantidade e valor, podendo levar as funcionalidades de insert, update e delete</p>
+ 
  <img src="prints de teste/storange_delete_1.png"/>
  <img src="prints de teste/storange_edit.png"/>
+ <p>Teste realizado para a remoção de um produto da tabela sendo feita em tempo  de execução</p> 
  <img src="prints de teste/storange_edit_1.png"/>
  <img src="prints de teste/storange_edit_2.png"/>
- <img src="prints de teste/storange_edit_3.png"/>
+ <p> Teste de editar o produto no banco de dados, sendo a tabela da aplicação sendo atualizada com uma versão local</p> 
+
 
 <h2 id = "Banco de Dados">Banco de Dados 🗂️</h2>  
 
@@ -88,7 +89,9 @@ https://github.com/PlanBTechRepos/PlanBSoftware
 <p>Xampp</p>
 
 <h2 id = "Resolvendo Problemas">Resolvendo Problemas</h2>  
-Em issues foram abertos alguns problemas gerados durante o desenvolvimento desse projeto e como foram resolvidos.
+<img src="prints de teste/storange_adicionar.png"/>
+<img src="prints de teste/storange_delete.png"/>
+<p> Tela de Inserção de produto na tabela, a procedure alocada está sendo executada e o banco está sendo atulizado, porém a tabela na aplicação não está sendo atualizada, duas soluções a serem testadas, evento quando adicionado adiciona manualmente uma linha local ou mudar a localização da criação de evento dos botões de delete e edit, para que uma atualização mais eficiente e sem conflitos de ordem de métodos</p>
 
 <h2 id = "Recursos de inseridos">Recursos de inseridos 🧰</h2>  
 Se for o caso, liste tarefas/funcionalidades que ainda precisam ser implementadas na sua aplicação, insira fotos da tela do app.
