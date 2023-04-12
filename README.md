@@ -106,7 +106,6 @@ https://github.com/PlanBTechRepos/PlanBSoftware
 <p> Tela de Inserção de produto na tabela, a procedure alocada está sendo executada e o banco está sendo atulizado, porém a tabela na aplicação não está sendo atualizada, duas soluções a serem testadas, evento quando adicionado adiciona manualmente uma linha local ou mudar a localização da criação de evento dos botões de delete e edit, para que uma atualização mais eficiente e sem conflitos de ordem de métodos</p>
 
 <h2 id = "Recursos de inseridos">Recursos de inseridos 🧰</h2>  
-Se for o caso, liste tarefas/funcionalidades que ainda precisam ser implementadas na sua aplicação, insira fotos da tela do app.
 <h3>📝Tela de Carrinho para ajudar na operação de pedido</h3>
 <img src="prints de teste/carrinho_1.png"/>
 <img src="prints de teste/carrinho_2.png"/>
