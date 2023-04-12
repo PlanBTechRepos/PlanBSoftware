@@ -68,7 +68,8 @@ https://github.com/PlanBTechRepos/PlanBSoftware
  <p>Menu onde as funcionalidades acessadas pelo atendente estão disponibilizadas.</p>
  <img src="prints de teste/storange.png"/>
  <p>Tela de gerenciamento de estoque, com a  funcionalidade de listar os ingredientes presentes no estoquem em quantidade e valor, podendo levar as funcionalidades de insert, update e delete</p>
-  <img src="prints de teste/storange_edit.png"/>
+  
+  <img src="prints de teste/storange_delete.png"/>
  <img src="prints de teste/storange_delete_1.png"/>
 
  <p>Teste realizado para a remoção de um produto da tabela sendo feita em tempo  de execução</p> 
@@ -89,8 +90,9 @@ https://github.com/PlanBTechRepos/PlanBSoftware
 <p>Xampp</p>
 
 <h2 id = "Resolvendo Problemas">Resolvendo Problemas</h2>  
+<img src="prints de teste/storange_edit.png"/>
 <img src="prints de teste/storange_adicionar.png"/>
-<img src="prints de teste/storange_delete.png"/>
+
 <p> Tela de Inserção de produto na tabela, a procedure alocada está sendo executada e o banco está sendo atulizado, porém a tabela na aplicação não está sendo atualizada, duas soluções a serem testadas, evento quando adicionado adiciona manualmente uma linha local ou mudar a localização da criação de evento dos botões de delete e edit, para que uma atualização mais eficiente e sem conflitos de ordem de métodos</p>
 
 <h2 id = "Recursos de inseridos">Recursos de inseridos 🧰</h2>  
