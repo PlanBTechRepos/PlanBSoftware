@@ -91,8 +91,8 @@ https://github.com/PlanBTechRepos/PlanBSoftware
 
 <h2 id = "Linguagens, dependencias e libs utilizadas"> Linguagens, dependencias e libs utilizadas 📚</h2> 
 
-![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
-![MySQL](	https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white)
+<p>![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)</p>
+<p>![MySQL](	https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white)</p>
 
 <p>Maven</p>
 <p>Xampp</p>
