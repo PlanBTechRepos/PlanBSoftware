@@ -47,7 +47,6 @@ O mesmo permite que o atendente realize os pedidos dos clientes, assim como o co
 https://github.com/PlanBTechRepos/PlanBSoftware
 
 <h2 id = "Pré-requisitos">Pré-requisitoso ⚠️ </h2>    
-<p>XAMPP</p> 
 <p>Aparelho utilizado para testes</p>
 <p>JVM(Java Virtual Machine).</p>
 
