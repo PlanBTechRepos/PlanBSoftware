@@ -61,6 +61,20 @@ https://github.com/PlanBTechRepos/PlanBSoftware
 
 <h2 id = "Testes realizados">Testes realizados</h2>
 <p>Utilização de imagens e descrição do que foi testado.<p>
+ <img src="prints de teste/ger_funci.png"/>
+ <img src="prints de teste/ger_funci_1.png"/>
+ <img src="prints de teste/listar_funci.png"/>
+ <img src="prints de teste/login teste.png"/>
+ <img src="prints de teste/login teste_2.png"/>
+ <img src="prints de teste/menu_funcionario.png"/>
+ <img src="prints de teste/storange.png"/>
+ <img src="prints de teste/storange_adicionar.png"/>
+ <img src="prints de teste/storange_delete.png"/>
+ <img src="prints de teste/storange_delete_1.png"/>
+ <img src="prints de teste/storange_edit.png"/>
+ <img src="prints de teste/storange_edit_1.png"/>
+ <img src="prints de teste/storange_edit_2.png"/>
+ <img src="prints de teste/storange_edit_3.png"/>
 
 <h2 id = "Banco de Dados">Banco de Dados 🗂️</h2>  
 
