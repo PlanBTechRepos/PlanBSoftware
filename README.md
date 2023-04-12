@@ -55,29 +55,32 @@ https://github.com/PlanBTechRepos/PlanBSoftware
 <p>O programa deve ser executado em uma maquina capaz de surportar JVM, com um banco de dados local, para a realização das operações diárias.</p>
 
 <h2 id = "Testes realizados">Testes realizados</h2>
-📝<h3>Tela de Gerencimento de Funcionario (Tela de teste)</h3>
+<h3>📝Tela de Gerencimento de Funcionario (Tela de teste)</h3>
  <img src="prints de teste/ger_funci.png"/>
  <img src="prints de teste/ger_funci_1.png"/>
  <p>Teste de inserção e Atualização de funcionarios(Atendente e Gerente), está é uma tela experimental com funcionalidades voltadas para testes</p>
- 📝<h3>Tela de Listagem de Funcionario(Tela de teste)</h3>
+<h3> 📝Tela de Listagem de Funcionario(Tela de teste)</h3>
  <img src="prints de teste/listar_funci.png"/>
  <p> Teste de listagem de funcionarios que estão cadastrado no banco de dados, esta é uma tela experimental com funcionalidades voltadas para testes</p> 
- 📝<h3>Tela de Login</h3>
+<h3> 📝Tela de Login</h3>
  <img src="prints de teste/login teste.png"/>
  <img src="prints de teste/login teste_2.png"/>
  <p>Tela de cadastros logando em uma conta registrada como atendente.</p>
- 📝<h3>Telas de Menu</h3>
+<h3> 📝Telas de Menu</h3>
  <img src="prints de teste/menu_funcionario.png"/>
  <img src="prints de teste/menu_adm.png"/>
- <p>Menu onde as funcionalidades acessadas pelo atendente estão disponibilizadas.</p>
+ <p>Menus onde as funcionalidades acessadas pelo atendente e pelo gerente estão disponibilizadas.</p>
+ <h3> 📝Tela de Estoque</h3>
  <img src="prints de teste/storange.png"/>
  <p>Tela de gerenciamento de estoque, com a  funcionalidade de listar os ingredientes presentes no estoquem em quantidade e valor, podendo levar as funcionalidades de insert, update e delete</p>
-  
+   <h3> 📝Função de Delete de Estoque</h3>
+
   <img src="prints de teste/storange_delete.png"/>
  <img src="prints de teste/storange_delete_1.png"/>
 
  <p>Teste realizado para a remoção de um produto da tabela sendo feita em tempo  de execução</p> 
- 
+  <h3> 📝Função de Editar produto de Estoque</h3>
+
  <img src="prints de teste/storange_edit_1.png"/>
  <img src="prints de teste/storange_edit_2.png"/>
  <p> Teste de editar o produto no banco de dados, sendo a tabela da aplicação sendo atualizada com uma versão local</p> 
@@ -95,7 +98,7 @@ https://github.com/PlanBTechRepos/PlanBSoftware
 <p>Xampp</p>
 
 <h2 id = "Resolvendo Problemas">Resolvendo Problemas</h2>  
-📝<h3>Tela de Adicionar Estoque</h3>
+<h3>📝Tela de Adicionar Estoque</h3>
 <img src="prints de teste/storange_adicionar.png"/>
  <img src="prints de teste/storange_delete_1.png"/>
 
@@ -103,12 +106,12 @@ https://github.com/PlanBTechRepos/PlanBSoftware
 
 <h2 id = "Recursos de inseridos">Recursos de inseridos 🧰</h2>  
 Se for o caso, liste tarefas/funcionalidades que ainda precisam ser implementadas na sua aplicação, insira fotos da tela do app.
-📝<h3>Tela de Carrinho para ajudar na operação de pedido</h3>
+<h3>📝Tela de Carrinho para ajudar na operação de pedido</h3>
 <img src="prints de teste/carrinho_1.png"/>
 <img src="prints de teste/carrinho_2.png"/>
-📝<h3>Tela de pedido para a realização da função de pedido do sistema</h3>
+<h3>📝Tela de pedido para a realização da função de pedido do sistema</h3>
 <img src="prints de teste/order.png"/>
-📝<h3>Tela de erro para ser implementada quando necessario um aviso de erro</h3>
+<h3>📝Tela de erro para ser implementada quando necessario um aviso de erro</h3>
 <img src="prints de teste/warning.png"/>
 
 <h2 id = "Desenvolvedores/Contribuintes:">Desenvolvedores/Contribuintes:</h2> 
