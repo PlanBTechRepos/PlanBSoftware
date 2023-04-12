@@ -55,8 +55,7 @@ nome VARCHAR(50),
 valor DECIMAL (10,2)
 )
 BEGIN
-	SET @buscatipo = (	SELECT tipo_ingrediente FROM  estoque 
-						JOIN ingredientes ON ingredientes.id_Ingrediente = estoque.tipo_Ingrediente
+	SET @buscatipo = (	SELECT id_Ingrediente FROM  ingredientes 
                         WHERE nome = ingredientes.nome);
 	UPDATE estoque 
     SET quantidade = qtd,
@@ -72,13 +71,12 @@ DROP PROCEDURE IF EXISTS insertEstoque;
 DELIMITER $
 CREATE PROCEDURE insertEstoque(
 qtd VARCHAR(50),
-nomeProduto VARCHAR(50),
 nomeIngrediente VARCHAR(50),
 valor DECIMAL (10,2)
 )
 BEGIN
 	SET @buscatipo = (SELECT id_ingrediente FROM  ingredientes WHERE nomeIngrediente = ingredientes.nome);
-	INSERT INTO estoque (nome, tipo_ingrediente, quantidade, Valor_de_Compra, vencimento) VALUES (nomeProduto ,@buscatipo, qtd, valor, date_add(SYSDATE(), interval 1 month));
+	INSERT INTO estoque (tipo_ingrediente, quantidade, Valor_de_Compra, vencimento) VALUES (@buscatipo, qtd, valor, date_add(SYSDATE(), interval 1 month));
 END$
 DELIMITER ;
 

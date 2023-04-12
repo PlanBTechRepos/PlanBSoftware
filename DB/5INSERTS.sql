@@ -115,6 +115,6 @@ CALL cadUsuario("douglas", "machado","doug","1234", 1);
 
 CALL cadUsuario("Yago", "Henrique", "hfa", "root", 0);
 
-CALL insertEstoque(3, 'Mussarela Jussara 5KG', 'mussarela', 4.50);
-CALL insertEstoque(4, 'Na brasa Calabresa 10 KG', 'calabresa', 7);
+CALL insertEstoque(3, 'mussarela', 4.50);
+CALL insertEstoque(4, 'calabresa', 7);
 
