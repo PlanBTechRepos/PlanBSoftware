@@ -68,9 +68,9 @@ https://github.com/PlanBTechRepos/PlanBSoftware
  <p>Menu onde as funcionalidades acessadas pelo atendente estão disponibilizadas.</p>
  <img src="prints de teste/storange.png"/>
  <p>Tela de gerenciamento de estoque, com a  funcionalidade de listar os ingredientes presentes no estoquem em quantidade e valor, podendo levar as funcionalidades de insert, update e delete</p>
- 
+  <img src="prints de teste/storange_edit.png"/>
  <img src="prints de teste/storange_delete_1.png"/>
- <img src="prints de teste/storange_edit.png"/>
+
  <p>Teste realizado para a remoção de um produto da tabela sendo feita em tempo  de execução</p> 
  <img src="prints de teste/storange_edit_1.png"/>
  <img src="prints de teste/storange_edit_2.png"/>
