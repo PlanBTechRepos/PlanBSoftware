@@ -87,6 +87,7 @@ https://github.com/PlanBTechRepos/PlanBSoftware
 
 
 <h2 id = "Banco de Dados">Banco de Dados 🗂️</h2>  
+<a href="https://github.com/PlanBTechRepos/PlanBSoftware/tree/main/DB"> Lista de Arquivos SQL</a>
 
 
 <h2 id = "Linguagens, dependencias e libs utilizadas"> Linguagens, dependencias e libs utilizadas 📚</h2> 
