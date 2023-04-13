@@ -95,7 +95,7 @@ https://github.com/PlanBTechRepos/PlanBSoftware
 
 ![MySQL](	https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white)
 
-![Maven Central](	https://img.shields.io/badge/Maven-0000F?style=for-the-badge&logo=maven&logoColor=white)
+![Maven Central](	https://img.shields.io/badge/Maven-0000F?style=for-the-badge&logo=white&logoColor=orange)
 <p>Xampp</p>
 
 <h2 id = "Resolvendo Problemas">Resolvendo Problemas</h2>  
