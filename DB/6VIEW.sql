@@ -18,7 +18,7 @@ SELECT f.nome, f.sobrenome, c.nome AS cargo, u.usuario, u.senha, u.permissao
 
 DROP VIEW IF EXISTS borda;
 CREATE VIEW borda AS    
-SELECT nome FROM ingredientes WHERE borda = TRUE;
+SELECT id_Ingrediente, nome FROM ingredientes WHERE borda = TRUE;
 
 DROP VIEW IF EXISTS Pizzas;
 CREATE VIEW pizzas AS

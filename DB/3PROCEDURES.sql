@@ -74,11 +74,18 @@ CREATE PROCEDURE insertEstoque(
 qtd VARCHAR(50),
 nomeProduto VARCHAR(50),
 nomeIngrediente VARCHAR(50),
-valor DECIMAL (10,2)
+valor DECIMAL (10,2),
+borda BOOLEAN #essa borda só existe porque sera criado um ingrediente caso o ingrediente ainda não exista
 )
 BEGIN
 	SET @buscatipo = (SELECT id_ingrediente FROM  ingredientes WHERE nomeIngrediente = ingredientes.nome);
-	INSERT INTO estoque (nome, tipo_ingrediente, quantidade, Valor_de_Compra, vencimento) VALUES (nomeProduto ,@buscatipo, qtd, valor, date_add(SYSDATE(), interval 1 month));
+	IF @buscatipo <=> NULL THEN
+		INSERT INTO ingredientes (nome, borda) VALUES (nomeIngrediente, borda);
+        SET @buscatipo = (SELECT id_ingrediente FROM  ingredientes WHERE nomeIngrediente = ingredientes.nome);
+		INSERT INTO estoque (nome, tipo_ingrediente, quantidade, Valor_de_Compra, vencimento) VALUES (nomeProduto, @buscatipo, qtd, valor, date_add(SYSDATE(), interval 1 month));
+	ELSE
+		INSERT INTO estoque (nome, tipo_ingrediente, quantidade, Valor_de_Compra, vencimento) VALUES (nomeProduto, @buscatipo, qtd, valor, date_add(SYSDATE(), interval 1 month));
+	END IF;
 END$
 DELIMITER ;
 
@@ -122,5 +129,49 @@ SELECT nome AS PIZZA FROM ingredientes
 	JOIN receita on 
 		receita.id_Ingrediente = ingredientes.id_Ingrediente 
 			WHERE nome_receita LIKE receitaN;
+END$
+DELIMITER ;
+
+DROP PROCEDURE IF EXISTS add_Carrinho;
+DELIMITER $
+CREATE PROCEDURE add_Carrinho(
+	ID INTEGER,
+	produto INTEGER,
+    bordaI INTEGER,
+    QTDP INTEGER
+)
+BEGIN
+		SET @valor = (SELECT valor FROM receita WHERE id_Receita = produto GROUP BY valor ORDER BY id_Ingrediente ASC);
+		INSERT INTO carrinho VALUES(ID, produto, @valor*QTDP, bordaI, QTDP);
+END$
+DELIMITER ;
+
+DROP PROCEDURE IF EXISTS cad_Pedido;
+DELIMITER $
+CREATE PROCEDURE cad_Pedido(
+	nomeFunc INTEGER,
+    carrinho INTEGER,
+    clienteC VARCHAR(50),
+    obs VARCHAR(255),
+    statusP INTEGER
+)
+BEGIN
+	SET @valor = (SELECT SUM(valor) FROM carrinho WHERE id_Carrinho = carrinho );
+	INSERT INTO pedido VALUES (NULL, nomeFunc, carrinho, clienteC, obs, @valor, statusP);
+END$
+DELIMITER ;
+
+DROP PROCEDURE IF EXISTS buscarProdutosPedido;
+DELIMITER $
+CREATE PROCEDURE buscarProdutosPedido(
+	idCarrinho INTEGER
+)
+BEGIN
+		SELECT receita.Nome_receita, carrinho.Qtd, carrinho.Valor, ROUND((carrinho.Valor/carrinho.Qtd), 2) AS "Valor unitário"
+			FROM carrinho 
+				JOIN receita ON receita.id_Receita = carrinho.id_Receita
+					WHERE carrinho.id_Carrinho = idCarrinho
+						GROUP BY Nome_receita
+							ORDER BY Nome_receita ASC;
 END$
 DELIMITER ;
