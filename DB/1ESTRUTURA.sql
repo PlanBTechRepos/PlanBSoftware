@@ -48,7 +48,8 @@ CREATE TABLE IF NOT EXISTS pedido(
 
 CREATE TABLE IF NOT EXISTS estoque(
 	id_Produto INTEGER PRIMARY KEY AUTO_INCREMENT,
-	Quantidade INTEGER NOT NULL,
+    Nome VARCHAR(50) NOT NULL,
+    Quantidade INTEGER NOT NULL,
     Recebimento DATETIME DEFAULT CURRENT_TIMESTAMP(),
     Vencimento DATETIME,
     tipo_Ingrediente INTEGER, #mussarela, refri
