@@ -15,18 +15,18 @@ public class EstoqueController {
    static MySQL conn = new MySQL();
    public static  Estoque estoque = new Estoque();
     
-    public static void addEstoque(int qtd, String nome, float valor){
+    public static void addEstoque(int qtd, String nome, String ingrediente, float valor, String validade, boolean border){
         conn.conectaBanco();
-        System.out.println("teste1");
         try{
-             String query = 
-                     "call insertEstoque("
-                     + qtd + ", '"
-                     + nome + "', "
-                     + valor + ");";
+             String query = "CALL insertEstoque("
+                     + qtd + ", "
+                     + "'" + nome + "', "
+                     + "'" + ingrediente + "', "
+                     + valor +", "
+                     + "'" + validade + "', "
+                     + border + ");";
              
              conn.executarSQL(query);
-             System.out.println("Teste2");
             }
             catch(Exception e){
                 e.getMessage();
@@ -82,7 +82,7 @@ public class EstoqueController {
         try{
             String query = 
                     "Select id_Produto, "
-                    + "ingredientes.nome, "
+                    + "estoque.nome, "
                     + "Quantidade, "
                     + "Recebimento, "
                     + "Vencimento, "

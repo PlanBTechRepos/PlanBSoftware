@@ -1,17 +1,16 @@
-
 package com.pdvtech.view.use;
 
 import com.pdvtech.controller.EstoqueController;
 import static com.pdvtech.controller.EstoqueController.estoque;
+import static com.pdvtech.controller.EstoqueController.listaEstoque;
 import com.pdvtech.model.TableActionEvent;
 import com.pdvtech.view.component.util.TableCellActionEditor;
 import com.pdvtech.view.component.util.TableCellActionRenderer;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import com.pdvtech.view.use.EditProduct_Dialog;
 import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
-import com.pdvtech.view.use.AddProduct_Dialog;
+import javax.swing.JOptionPane;
 import javax.swing.table.AbstractTableModel;
 
 public class Storage extends javax.swing.JFrame {
@@ -206,7 +205,6 @@ public class Storage extends javax.swing.JFrame {
             @Override
             public void windowClosed(WindowEvent e) {
                 EstoqueController.listaEstoque();
-
             }
         });
         add.setVisible(true);
@@ -232,7 +230,7 @@ public class Storage extends javax.swing.JFrame {
     private javax.swing.JLabel btnReturn;
     private javax.swing.JLabel pageLocation_Name;
     // End of variables declaration//GEN-END:variables
-
+    
     private void initTable() {
 
         Product_Table.fixTable(Scrollpane_Table);
@@ -253,7 +251,7 @@ public class Storage extends javax.swing.JFrame {
 
                     @Override
                     public void windowClosed(WindowEvent e) {
-                            
+
                         System.out.println(estoque.getNome());
                         ((AbstractTableModel) Product_Table.getModel()).setValueAt(estoque.getNome(), row, 1);
                         ((AbstractTableModel) Product_Table.getModel()).setValueAt(estoque.getQuantidade(), row, 2);
@@ -277,15 +275,14 @@ public class Storage extends javax.swing.JFrame {
 
             @Override
             public void onDelete(int row) {
-                if (Product_Table.isEditing()) {
+                int confirmDelete = JOptionPane.showConfirmDialog(rootPane, "Deseja apagar este item mesmo?", "Apagar produto", 2);
+                if (Product_Table.isEditing() && confirmDelete != 2) {
                     Product_Table.getCellEditor().stopCellEditing();
+                    DefaultTableModel m = (DefaultTableModel) Product_Table.getModel();
+                    System.out.println(Integer.parseInt(String.valueOf(m.getValueAt(row, 0))));
+                    EstoqueController.deletaProduto(Integer.parseInt(String.valueOf(m.getValueAt(row, 0))));
+                    m.removeRow(row);
                 }
-
-                DefaultTableModel m = (DefaultTableModel) Product_Table.getModel();
-                System.out.println(Integer.parseInt(String.valueOf(m.getValueAt(row, 0))));
-                EstoqueController.deletaProduto(Integer.parseInt(String.valueOf(m.getValueAt(row, 0))));
-                m.removeRow(row);
-
                 // TODO: MÉTODO 'DELETE' PRODUTO
             }
         };
@@ -293,10 +290,5 @@ public class Storage extends javax.swing.JFrame {
         Product_Table.getColumnModel().getColumn(6).setCellRenderer(new TableCellActionRenderer());
         Product_Table.getColumnModel().getColumn(6).setCellEditor(new TableCellActionEditor(ev));
 
-        // TESTE: Dados teste na tabela
-
-        for (int i = 1; i <= 20; i++) {
-            model.addRow(new Object[] { "Teste", i, false });
-        }
     }
 }

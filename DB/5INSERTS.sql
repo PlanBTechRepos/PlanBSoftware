@@ -116,8 +116,8 @@ CALL cadUsuario("douglas", "machado","doug","1234", 1);
 
 CALL cadUsuario("Yago", "Henrique", "hfa", "root", 0);
 
-CALL insertEstoque(3, 'Mussarela Jussara 5KG', 'mussarela', 4.50);
-CALL insertEstoque(4, 'Na brasa Calabresa 10 KG', 'calabresa', 7);
+CALL insertEstoque(3, 'Mussarela Jussara 5KG', 'mussarela', 4.50, '2023/05/05', true);
+CALL insertEstoque(4, 'Na brasa Calabresa 10 KG', 'calabresa', 7, '', false);
 
 call pdvplanbtech.add_Carrinho(1, 1, 1, 1);
 call pdvplanbtech.add_Carrinho(1, 2, 1, 2);

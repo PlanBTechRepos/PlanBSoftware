@@ -75,6 +75,7 @@ qtd VARCHAR(50),
 nomeProduto VARCHAR(50),
 nomeIngrediente VARCHAR(50),
 valor DECIMAL (10,2),
+vencimento VARCHAR(10),
 borda BOOLEAN #essa borda só existe porque sera criado um ingrediente caso o ingrediente ainda não exista
 )
 BEGIN
@@ -82,9 +83,17 @@ BEGIN
 	IF @buscatipo <=> NULL THEN
 		INSERT INTO ingredientes (nome, borda) VALUES (nomeIngrediente, borda);
         SET @buscatipo = (SELECT id_ingrediente FROM  ingredientes WHERE nomeIngrediente = ingredientes.nome);
-		INSERT INTO estoque (nome, tipo_ingrediente, quantidade, Valor_de_Compra, vencimento) VALUES (nomeProduto, @buscatipo, qtd, valor, date_add(SYSDATE(), interval 1 month));
-	ELSE
-		INSERT INTO estoque (nome, tipo_ingrediente, quantidade, Valor_de_Compra, vencimento) VALUES (nomeProduto, @buscatipo, qtd, valor, date_add(SYSDATE(), interval 1 month));
+        IF vencimento LIKE '' THEN        
+			INSERT INTO estoque (nome, tipo_ingrediente, quantidade, Valor_de_Compra, vencimento) VALUES (nomeProduto, @buscatipo, qtd, valor, date_add(SYSDATE(), interval 1 month));
+            ELSE
+				INSERT INTO estoque (nome, tipo_ingrediente, quantidade, Valor_de_Compra, vencimento) VALUES (nomeProduto, @buscatipo, qtd, valor, vencimento);
+                END IF;
+    ELSE
+		IF vencimento LIKE '' THEN        
+			INSERT INTO estoque (nome, tipo_ingrediente, quantidade, Valor_de_Compra, vencimento) VALUES (nomeProduto, @buscatipo, qtd, valor, date_add(SYSDATE(), interval 1 month));
+            ELSE
+				INSERT INTO estoque (nome, tipo_ingrediente, quantidade, Valor_de_Compra, vencimento) VALUES (nomeProduto, @buscatipo, qtd, valor, vencimento);
+                END IF;
 	END IF;
 END$
 DELIMITER ;
