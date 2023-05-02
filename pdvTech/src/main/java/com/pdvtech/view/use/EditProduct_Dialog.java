@@ -8,8 +8,6 @@ import java.awt.event.WindowAdapter;
 public class EditProduct_Dialog extends javax.swing.JDialog {
     Estoque produto;
     
-    
-    
     public void setView(String nome){
         produto = EstoqueController.view(nome);
         this.input_description.setText(produto.getNome());
@@ -49,10 +47,8 @@ public class EditProduct_Dialog extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setAlwaysOnTop(true);
-        setMaximumSize(new java.awt.Dimension(400, 500));
         setMinimumSize(new java.awt.Dimension(400, 500));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(400, 440));
 
         EditProduct_Panel.setBackground(new java.awt.Color(153, 153, 153));
 
@@ -161,10 +157,11 @@ public class EditProduct_Dialog extends javax.swing.JDialog {
                     .addComponent(lblPrice)
                     .addGroup(EditProduct_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(EditProduct_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblDesc)
                             .addComponent(input_description, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(EditProduct_PanelLayout.createSequentialGroup()
-                                .addComponent(input_price, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(EditProduct_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblDesc)
+                                    .addComponent(input_price, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(175, 175, 175)))
                         .addGroup(EditProduct_PanelLayout.createSequentialGroup()
                             .addGroup(EditProduct_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -209,8 +206,7 @@ public class EditProduct_Dialog extends javax.swing.JDialog {
                     .addGroup(EditProduct_PanelLayout.createSequentialGroup()
                         .addComponent(lblValidity)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(input_validity, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(input_validity, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addGroup(EditProduct_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)

@@ -1,9 +1,7 @@
 
 package com.pdvtech.view.use;
 
-import com.pdvtech.controller.EstoqueController;
 import java.awt.event.WindowAdapter;
-import javax.swing.JOptionPane;
 
 public class AddProduct_Dialog extends javax.swing.JDialog {
 
@@ -34,9 +32,6 @@ public class AddProduct_Dialog extends javax.swing.JDialog {
         lblValidity = new javax.swing.JLabel();
         lblPrice = new javax.swing.JLabel();
         input_price = new com.pdvtech.view.component.customTextField();
-        radBorderYes = new javax.swing.JRadioButton();
-        radBorderNot = new javax.swing.JRadioButton();
-        lblPrice1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -132,32 +127,17 @@ public class AddProduct_Dialog extends javax.swing.JDialog {
         input_price.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         input_price.setRound(8);
 
-        radBorderYes.setBackground(new java.awt.Color(153, 153, 153));
-        radBorder.add(radBorderYes);
-        radBorderYes.setForeground(new java.awt.Color(255, 255, 255));
-        radBorderYes.setText("Sim");
-
-        radBorderNot.setBackground(new java.awt.Color(153, 153, 153));
-        radBorder.add(radBorderNot);
-        radBorderNot.setForeground(new java.awt.Color(255, 255, 255));
-        radBorderNot.setSelected(true);
-        radBorderNot.setText("Não");
-
-        lblPrice1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblPrice1.setForeground(new java.awt.Color(255, 255, 255));
-        lblPrice1.setText("Borda");
-
         javax.swing.GroupLayout AddProduct_PanelLayout = new javax.swing.GroupLayout(AddProduct_Panel);
         AddProduct_Panel.setLayout(AddProduct_PanelLayout);
         AddProduct_PanelLayout.setHorizontalGroup(
             AddProduct_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(Menu_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(AddProduct_PanelLayout.createSequentialGroup()
-                .addContainerGap(57, Short.MAX_VALUE)
+                .addContainerGap(40, Short.MAX_VALUE)
                 .addGroup(AddProduct_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(AddProduct_PanelLayout.createSequentialGroup()
                         .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(45, 45, 45)
+                        .addGap(60, 60, 60)
                         .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(lblDesc)
                     .addComponent(input_description, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -172,13 +152,8 @@ public class AddProduct_Dialog extends javax.swing.JDialog {
                         .addGap(30, 30, 30)
                         .addGroup(AddProduct_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblValidity)
-                            .addComponent(input_validity, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblPrice1)
-                            .addGroup(AddProduct_PanelLayout.createSequentialGroup()
-                                .addComponent(radBorderYes)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(radBorderNot)))))
-                .addContainerGap(23, Short.MAX_VALUE))
+                            .addComponent(input_validity, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
         AddProduct_PanelLayout.setVerticalGroup(
             AddProduct_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -199,20 +174,14 @@ public class AddProduct_Dialog extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(input_validity, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addGroup(AddProduct_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblPrice)
-                    .addComponent(lblPrice1))
+                .addComponent(lblPrice)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(AddProduct_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(input_price, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(AddProduct_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(radBorderYes)
-                        .addComponent(radBorderNot)))
-                .addGap(27, 27, 27)
+                .addComponent(input_price, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                 .addGroup(AddProduct_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addGap(20, 20, 20))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -235,26 +204,8 @@ public class AddProduct_Dialog extends javax.swing.JDialog {
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
-        String ingrediente = input_description.getText()
-                .substring(0, input_description.getText().indexOf(" "));
-        
-        boolean border = false;
-        
-        if(radBorderYes.isSelected())
-            border = true;
-        
-        if(this.input_validity.getText().equals(""))
-            this.input_validity.setText(null);
-        
-        EstoqueController.addEstoque(
-               Integer.parseInt(this.input_quantity.getText()),
-               this.input_description.getText(),
-               ingrediente, 
-               Float.parseFloat(this.input_price.getText()),
-               this.input_validity.getText(),
-               border
-        );
-       this.dispose();
+        //TODO: ADD Produto
+        this.dispose();
     }//GEN-LAST:event_btnConfirmActionPerformed
 
     public static void main(String args[]) {
@@ -285,11 +236,8 @@ public class AddProduct_Dialog extends javax.swing.JDialog {
     private com.pdvtech.view.component.customTextField input_validity;
     private javax.swing.JLabel lblDesc;
     private javax.swing.JLabel lblPrice;
-    private javax.swing.JLabel lblPrice1;
     private javax.swing.JLabel lblQuantity;
     private javax.swing.JLabel lblValidity;
     private javax.swing.ButtonGroup radBorder;
-    private javax.swing.JRadioButton radBorderNot;
-    private javax.swing.JRadioButton radBorderYes;
     // End of variables declaration//GEN-END:variables
 }
