@@ -222,12 +222,12 @@ public class LancamentoEstoque extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        
+        /*
         EstoqueController.addEstoque(
                 Integer.parseInt(this.txtQuantidade.getText()), 
                 this.txtNomeEstoque.getText(), 
                 Float.parseFloat(this.txtValor.getText()));
-                
+        */
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
