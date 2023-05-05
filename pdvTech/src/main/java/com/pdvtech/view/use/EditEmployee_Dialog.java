@@ -1,9 +1,9 @@
 
 package com.pdvtech.view.use;
 
-public class AddEmployee_Dialog extends javax.swing.JDialog {
+public class EditEmployee_Dialog extends javax.swing.JDialog {
 
-    public AddEmployee_Dialog(java.awt.Frame parent, boolean modal) {
+    public EditEmployee_Dialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);      
         initComponents();
         initManualComponents();
@@ -16,7 +16,6 @@ public class AddEmployee_Dialog extends javax.swing.JDialog {
         Register_Panel = new javax.swing.JPanel();
         Account_Panel = new com.pdvtech.view.component.customPanel();
         lbl_user = new javax.swing.JLabel();
-        input_user = new javax.swing.JTextField();
         lbl_password = new javax.swing.JLabel();
         lblConfirm_password = new javax.swing.JLabel();
         separator1 = new javax.swing.JSeparator();
@@ -28,13 +27,13 @@ public class AddEmployee_Dialog extends javax.swing.JDialog {
         btn_showPass = new javax.swing.JLabel();
         btn_hidePass = new javax.swing.JLabel();
         btnExit = new javax.swing.JLabel();
+        print_user = new javax.swing.JLabel();
         lbl_name = new javax.swing.JLabel();
         input_name = new com.pdvtech.view.component.customTextField();
         lbl_lastName = new javax.swing.JLabel();
         input_lastName = new com.pdvtech.view.component.customTextField();
         lbl_position = new javax.swing.JLabel();
         input_position = new javax.swing.JComboBox<>();
-        btn_clear = new com.pdvtech.view.component.customButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -49,14 +48,8 @@ public class AddEmployee_Dialog extends javax.swing.JDialog {
         lbl_user.setText("Usuário");
         Account_Panel.add(lbl_user, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 41, -1, -1));
 
-        input_user.setBackground(new java.awt.Color(80, 80, 80));
-        input_user.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        input_user.setForeground(new java.awt.Color(255, 255, 255));
-        input_user.setBorder(null);
-        Account_Panel.add(input_user, new org.netbeans.lib.awtextra.AbsoluteConstraints(81, 57, 184, 40));
-
         lbl_password.setForeground(new java.awt.Color(255, 255, 255));
-        lbl_password.setText("Senha");
+        lbl_password.setText("Nova senha");
         Account_Panel.add(lbl_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 125, -1, -1));
 
         lblConfirm_password.setForeground(new java.awt.Color(255, 255, 255));
@@ -90,7 +83,7 @@ public class AddEmployee_Dialog extends javax.swing.JDialog {
         btn_register.setBackground(new java.awt.Color(51, 51, 51));
         btn_register.setBorder(null);
         btn_register.setForeground(new java.awt.Color(255, 255, 255));
-        btn_register.setText("Cadastrar");
+        btn_register.setText("Alterar");
         btn_register.setBorderColor(new java.awt.Color(51, 51, 51));
         btn_register.setColor(new java.awt.Color(51, 51, 51));
         btn_register.setColorClick(new java.awt.Color(51, 51, 51));
@@ -127,6 +120,11 @@ public class AddEmployee_Dialog extends javax.swing.JDialog {
         });
         Account_Panel.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, -1, -1));
 
+        print_user.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        print_user.setForeground(new java.awt.Color(255, 255, 255));
+        print_user.setText("user123_example");
+        Account_Panel.add(print_user, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, 180, 40));
+
         lbl_name.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lbl_name.setForeground(new java.awt.Color(255, 255, 255));
         lbl_name.setText("Nome");
@@ -150,22 +148,6 @@ public class AddEmployee_Dialog extends javax.swing.JDialog {
         input_position.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "   ", "Cargo X", "Cargo Y", "Cargo Z" }));
         input_position.setBorder(null);
 
-        btn_clear.setBackground(new java.awt.Color(51, 51, 51));
-        btn_clear.setBorder(null);
-        btn_clear.setForeground(new java.awt.Color(255, 255, 255));
-        btn_clear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/vassoura.png"))); // NOI18N
-        btn_clear.setText("Limpar");
-        btn_clear.setBorderColor(new java.awt.Color(51, 51, 51));
-        btn_clear.setColor(new java.awt.Color(51, 51, 51));
-        btn_clear.setColorClick(new java.awt.Color(51, 51, 51));
-        btn_clear.setColorOver(new java.awt.Color(115, 162, 239));
-        btn_clear.setRadius(8);
-        btn_clear.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_clearActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout Register_PanelLayout = new javax.swing.GroupLayout(Register_Panel);
         Register_Panel.setLayout(Register_PanelLayout);
         Register_PanelLayout.setHorizontalGroup(
@@ -178,8 +160,7 @@ public class AddEmployee_Dialog extends javax.swing.JDialog {
                     .addComponent(input_lastName, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(input_name, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbl_position)
-                    .addComponent(input_position, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_clear, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(input_position, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addComponent(Account_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -199,9 +180,7 @@ public class AddEmployee_Dialog extends javax.swing.JDialog {
                 .addComponent(lbl_position)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(input_position, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btn_clear, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27))
+                .addGap(27, 150, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -240,15 +219,11 @@ public class AddEmployee_Dialog extends javax.swing.JDialog {
         input_confirmPass.setEchoChar((char) 0);
     }//GEN-LAST:event_btn_showPassMousePressed
 
-    private void btn_clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_clearActionPerformed
-        //TODO: Limpar tela
-    }//GEN-LAST:event_btn_clearActionPerformed
-
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                AddEmployee_Dialog dialog = new AddEmployee_Dialog(new javax.swing.JFrame(), true);
+                EditEmployee_Dialog dialog = new EditEmployee_Dialog(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -264,7 +239,6 @@ public class AddEmployee_Dialog extends javax.swing.JDialog {
     private com.pdvtech.view.component.customPanel Account_Panel;
     private javax.swing.JPanel Register_Panel;
     private javax.swing.JLabel btnExit;
-    private com.pdvtech.view.component.customButton btn_clear;
     private javax.swing.JLabel btn_hidePass;
     private com.pdvtech.view.component.customButton btn_register;
     private javax.swing.JLabel btn_showPass;
@@ -273,13 +247,13 @@ public class AddEmployee_Dialog extends javax.swing.JDialog {
     private com.pdvtech.view.component.customTextField input_name;
     private javax.swing.JPasswordField input_pass;
     private javax.swing.JComboBox<String> input_position;
-    private javax.swing.JTextField input_user;
     private javax.swing.JLabel lblConfirm_password;
     private javax.swing.JLabel lbl_lastName;
     private javax.swing.JLabel lbl_name;
     private javax.swing.JLabel lbl_password;
     private javax.swing.JLabel lbl_position;
     private javax.swing.JLabel lbl_user;
+    private javax.swing.JLabel print_user;
     private javax.swing.JSeparator separator1;
     private javax.swing.JSeparator separator2;
     private javax.swing.JSeparator separator3;
