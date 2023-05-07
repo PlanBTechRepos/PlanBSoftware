@@ -14,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class OrderController {
     static MySQL conn = new MySQL();
-    public static  Pedido estoque = new Pedido();
+    public static  Pedido pedido = new Pedido();
     
     public static void Pedido (String Nome_receita, float Valor) {
             conn.conectaBanco();
