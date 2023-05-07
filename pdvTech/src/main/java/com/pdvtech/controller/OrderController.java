@@ -35,17 +35,41 @@ public class OrderController {
             }
     }
     
-    /*public static DefaultTableModel listarOrder (){
+    public static DefaultTableModel listarOrder (){
     String columNames[] = {"Nome", "Valor" };
     DefaultTableModel model = new DefaultTableModel(columNames, 0);
     conn.conectaBanco();
     
+    try {
+        String query = 
+                "Select id_Receita,"
+                + "Nome_receite, "
+                + "Valor, "
+                + "JOIN receita on receita.id_Ingrediente = ingredientes.id_Ingrediente;";
+                conn.executarSQL(query);
+                
+                while(conn.getResultSet().next()){
+                    model.addRow( new String[] {
+                    conn.getResultSet().getString(1),
+                    String.valueOf(conn.getResultSet().getFloat(2))
+                    });
+                }
+    }
+    
+    catch  (Exception e){
+        e.getMessage();
+        
+    }
+    finally {
+        conn.fechaBanco();
+    }
+    return model;
     
     
 
 
 
-} */
+} 
 }
 
 
