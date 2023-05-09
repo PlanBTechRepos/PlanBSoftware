@@ -5,7 +5,8 @@
 package com.pdvtech.controller;
 
 import com.pdvtech.util.MySQL;
-import com.pdvtech.view.Pedido;
+import com.pdvtech.model.Pizza;
+import java.sql.SQLException;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -14,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class OrderController {
     static MySQL conn = new MySQL();
-    public static  Pedido pedido = new Pedido();
+    public static  Pizza pizza = new Pizza();
     
     public static void Pedido (String Nome_receita, float Valor) {
             conn.conectaBanco();
@@ -56,7 +57,7 @@ public class OrderController {
                 }
     }
     
-    catch  (Exception e){
+    catch  (SQLException e){
         e.getMessage();
         
     }
