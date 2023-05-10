@@ -23,21 +23,16 @@ public class OrderController {
     DefaultTableModel model = new DefaultTableModel(columNames, 0);
     conn.conectaBanco();
     
-        System.out.println("testa a");
     
     try {
-        System.out.println("testa b");
         String query = 
                 "Select Nome_receita, Valor from receita;";
-        System.out.println("testa c");
                 conn.executarSQL(query);
-                System.out.println("testa d");
                 while(conn.getResultSet().next()){
                     model.addRow( new String[] {
                     conn.getResultSet().getString(1),
                     String.valueOf(conn.getResultSet().getFloat(2))
                     });
-                System.out.println("testa e");
                 }
     }
     
@@ -48,7 +43,6 @@ public class OrderController {
     finally {
         conn.fechaBanco();
     }
-        System.out.println("cu");
     return model;
 } 
 }

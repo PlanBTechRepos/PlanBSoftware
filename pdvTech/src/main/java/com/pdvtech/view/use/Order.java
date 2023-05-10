@@ -544,7 +544,8 @@ public class Order extends javax.swing.JFrame {
         
         Product_Table.fixTable(Scrollpane_Table);
         DefaultTableModel model = (DefaultTableModel) Product_Table.getModel();
-         
+        
+        
         
         //TESTE: Dados teste na tabela
         for (int i = 1; i <= 20; i++) {
