@@ -1,6 +1,7 @@
 
 package com.pdvtech.view.use;
 
+import com.pdvtech.controller.OrderController;
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
@@ -125,31 +126,8 @@ public class Order extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        Product_Table.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Pizza", "Borda", "Preco"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, true, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
+        Product_Table.setModel(OrderController.listarOrder());
         Scrollpane_Table.setViewportView(Product_Table);
-        if (Product_Table.getColumnModel().getColumnCount() > 0) {
-            Product_Table.getColumnModel().getColumn(1).setMinWidth(80);
-            Product_Table.getColumnModel().getColumn(1).setPreferredWidth(80);
-            Product_Table.getColumnModel().getColumn(1).setMaxWidth(100);
-            Product_Table.getColumnModel().getColumn(2).setMinWidth(110);
-            Product_Table.getColumnModel().getColumn(2).setPreferredWidth(110);
-            Product_Table.getColumnModel().getColumn(2).setMaxWidth(130);
-        }
 
         Ordering_Panel.setBackground(new java.awt.Color(120, 120, 120));
         Ordering_Panel.setRoundBottomLeft(10);
@@ -189,7 +167,6 @@ public class Order extends javax.swing.JFrame {
         );
 
         Ordering_Title.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        Ordering_Title.setForeground(new java.awt.Color(0, 0, 0));
         Ordering_Title.setText("Informações do pedido");
 
         lbl_NumOrder.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
@@ -535,7 +512,7 @@ public class Order extends javax.swing.JFrame {
     private javax.swing.JPanel Order_Panel;
     private com.pdvtech.view.component.customPanel Ordering_Panel;
     private javax.swing.JLabel Ordering_Title;
-    private com.pdvtech.view.component.customTable Product_Table;
+    private static com.pdvtech.view.component.customTable Product_Table;
     private javax.swing.JScrollPane Scrollpane_Table;
     private com.pdvtech.view.component.customPanel Search_Panel;
     private com.pdvtech.view.component.customPanel area_NumOrder;
@@ -571,7 +548,7 @@ public class Order extends javax.swing.JFrame {
         
         //TESTE: Dados teste na tabela
         for (int i = 1; i <= 20; i++) {
-            model.addRow(new Object[] {"Teste", true, i});
+            model.addRow(new Object[] {"Teste", i});
         }
     }
 

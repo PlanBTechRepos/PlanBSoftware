@@ -17,43 +17,27 @@ public class OrderController {
     static MySQL conn = new MySQL();
     public static  Pizza pizza = new Pizza();
     
-    public static void Pedido (String Nome_receita, float Valor) {
-            conn.conectaBanco();
-            try{
-                String query = "CALL buscaReceita ("
-                        + Nome_receita + ", "
-                        + "'" + Valor  + ", "
-                        + ");";
-                
-                conn.executarSQL(query);
-                
-            }
-            catch(Exception e) {
-            e.getMessage();
-            }
-            finally {
-                conn.fechaBanco();
-            }
-    }
     
     public static DefaultTableModel listarOrder (){
     String columNames[] = {"Nome", "Valor" };
     DefaultTableModel model = new DefaultTableModel(columNames, 0);
     conn.conectaBanco();
     
+        System.out.println("testa a");
+    
     try {
+        System.out.println("testa b");
         String query = 
-                "Select id_Receita,"
-                + "Nome_receite, "
-                + "Valor, "
-                + "JOIN receita on receita.id_Ingrediente = ingredientes.id_Ingrediente;";
+                "Select Nome_receita, Valor from receita;";
+        System.out.println("testa c");
                 conn.executarSQL(query);
-                
+                System.out.println("testa d");
                 while(conn.getResultSet().next()){
                     model.addRow( new String[] {
                     conn.getResultSet().getString(1),
                     String.valueOf(conn.getResultSet().getFloat(2))
                     });
+                System.out.println("testa e");
                 }
     }
     
@@ -64,12 +48,8 @@ public class OrderController {
     finally {
         conn.fechaBanco();
     }
+        System.out.println("cu");
     return model;
-    
-    
-
-
-
 } 
 }
 
