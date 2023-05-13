@@ -6,6 +6,7 @@ import com.pdvtech.view.component.util.TableCellActionEditor;
 import com.pdvtech.view.component.util.TableCellActionRenderer;
 import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
+import com.pdvtech.controller.UsuarioController;
 
 public class Employees extends javax.swing.JFrame {
 
@@ -31,7 +32,6 @@ public class Employees extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
-        setMaximumSize(new java.awt.Dimension(1000, 600));
         setMinimumSize(new java.awt.Dimension(1000, 600));
         setUndecorated(true);
 
@@ -70,22 +70,7 @@ public class Employees extends javax.swing.JFrame {
 
         Scrollpane_Table.setBorder(null);
 
-        Employees_Table.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "ID", "Cargo", "Nome", ""
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, true, true, true
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
+        Employees_Table.setModel(UsuarioController.viewAllFunc());
         Scrollpane_Table.setViewportView(Employees_Table);
         if (Employees_Table.getColumnModel().getColumnCount() > 0) {
             Employees_Table.getColumnModel().getColumn(0).setMinWidth(60);
@@ -205,7 +190,7 @@ public class Employees extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Employees_Panel;
-    private com.pdvtech.view.component.customTable Employees_Table;
+    private static com.pdvtech.view.component.customTable Employees_Table;
     private javax.swing.JScrollPane Scrollpane_Table;
     private javax.swing.JLabel btnExit;
     private javax.swing.JLabel btnMaximize;
