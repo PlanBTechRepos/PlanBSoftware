@@ -195,7 +195,7 @@ public class Storage extends javax.swing.JFrame {
     }// GEN-LAST:event_btnMaximizeMousePressed
 
     private void btnExitMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_btnExitMousePressed
-        System.exit(0);
+        this.dispose();
     }// GEN-LAST:event_btnExitMousePressed
 
     private void btnAddProductActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnAddProductActionPerformed

@@ -479,7 +479,7 @@ public class Order extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMaximizeMousePressed
 
     private void btnExitMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMousePressed
-        System.exit(0);
+        this.dispose();
     }//GEN-LAST:event_btnExitMousePressed
 
     private void btnAdd_to_OrderingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd_to_OrderingActionPerformed

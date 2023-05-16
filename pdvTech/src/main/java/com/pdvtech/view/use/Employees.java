@@ -7,6 +7,7 @@ import com.pdvtech.view.component.util.TableCellActionRenderer;
 import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 import com.pdvtech.controller.UsuarioController;
+import com.pdvtech.model.Usuario;
 
 public class Employees extends javax.swing.JFrame {
 
@@ -160,7 +161,17 @@ public class Employees extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnReturnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReturnMouseClicked
-        //TODO: Voltar tela
+        Usuario user = new Usuario();
+        if(user.getAdm()){
+            MenuAdmin adm = new MenuAdmin();
+            adm.setVisible(true);
+        } else {
+            MenuEmployer emp = new MenuEmployer();
+            emp.setVisible(true);
+        }
+        
+        Employees close = new Employees();
+        close.dispose();
     }//GEN-LAST:event_btnReturnMouseClicked
 
     private void btnMinimizeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMinimizeMousePressed
@@ -172,11 +183,11 @@ public class Employees extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMaximizeMousePressed
 
     private void btnExitMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMousePressed
-        System.exit(0);
+        this.dispose();
     }//GEN-LAST:event_btnExitMousePressed
 
     private void btn_AddEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AddEmployeeActionPerformed
-        // TODO: Add Produto
+        
     }//GEN-LAST:event_btn_AddEmployeeActionPerformed
 
     public static void main(String args[]) {

@@ -1,6 +1,7 @@
 
 package com.pdvtech.view.use;
 
+import com.pdvtech.controller.UsuarioController;
 import com.pdvtech.view.component.util.PdvColors;
 
 import javax.swing.JFrame;
@@ -81,6 +82,9 @@ public class MenuAdmin extends javax.swing.JFrame {
         Order_Panel.setRoundTopLeft(60);
         Order_Panel.setRoundTopRight(100);
         Order_Panel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Order_PanelMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 Order_PanelMouseEntered(evt);
             }
@@ -126,6 +130,9 @@ public class MenuAdmin extends javax.swing.JFrame {
         Employee_Panel.setRoundTopLeft(50);
         Employee_Panel.setRoundTopRight(500);
         Employee_Panel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Employee_PanelMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 Employee_PanelMouseEntered(evt);
             }
@@ -225,6 +232,9 @@ public class MenuAdmin extends javax.swing.JFrame {
         Storage_Panel.setRoundTopLeft(200);
         Storage_Panel.setRoundTopRight(100);
         Storage_Panel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Storage_PanelMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 Storage_PanelMouseEntered(evt);
             }
@@ -374,9 +384,27 @@ public class MenuAdmin extends javax.swing.JFrame {
 
     private void btnReturnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReturnMouseClicked
         Login MenuL = new Login();
+        UsuarioController.user.setLogin(null);
+        UsuarioController.user.setSenha(null);
+        UsuarioController.user.setAdm(false);
         MenuL.setVisible(true);
         MenuAdmin.this.dispose();
     }//GEN-LAST:event_btnReturnMouseClicked
+
+    private void Order_PanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Order_PanelMouseClicked
+        Order order = new Order();
+        order.setVisible(true);
+    }//GEN-LAST:event_Order_PanelMouseClicked
+
+    private void Storage_PanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Storage_PanelMouseClicked
+        Storage st = new Storage();
+        st.setVisible(true);
+    }//GEN-LAST:event_Storage_PanelMouseClicked
+
+    private void Employee_PanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Employee_PanelMouseClicked
+        Employees emp = new Employees();
+        emp.setVisible(true);
+    }//GEN-LAST:event_Employee_PanelMouseClicked
 
     public static void main(String args[]) {
         try {

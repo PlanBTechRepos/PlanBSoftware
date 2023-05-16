@@ -1,6 +1,6 @@
-
 package com.pdvtech.view.use;
 
+import com.pdvtech.controller.UsuarioController;
 import com.pdvtech.view.component.util.PdvColors;
 
 import javax.swing.JFrame;
@@ -74,6 +74,9 @@ public class MenuEmployer extends javax.swing.JFrame {
         Order_Panel.setRoundTopLeft(300);
         Order_Panel.setRoundTopRight(100);
         Order_Panel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Order_PanelMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 Order_PanelMouseEntered(evt);
             }
@@ -119,6 +122,9 @@ public class MenuEmployer extends javax.swing.JFrame {
         Storage_Panel.setRoundTopLeft(50);
         Storage_Panel.setRoundTopRight(500);
         Storage_Panel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Storage_PanelMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 Storage_PanelMouseEntered(evt);
             }
@@ -242,10 +248,22 @@ public class MenuEmployer extends javax.swing.JFrame {
     }//GEN-LAST:event_Storage_PanelMouseExited
 
     private void btnReturnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReturnMouseClicked
-      
-       new Login().setVisible(true);
-       MenuEmployer.this.dispose();
+        UsuarioController.user.setLogin(null);
+        UsuarioController.user.setSenha(null);
+        UsuarioController.user.setAdm(false);
+        new Login().setVisible(true);
+        MenuEmployer.this.dispose();
     }//GEN-LAST:event_btnReturnMouseClicked
+
+    private void Order_PanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Order_PanelMouseClicked
+        Order order = new Order();
+        order.setVisible(true);
+    }//GEN-LAST:event_Order_PanelMouseClicked
+
+    private void Storage_PanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Storage_PanelMouseClicked
+        Storage st = new Storage();
+        st.setVisible(true);
+    }//GEN-LAST:event_Storage_PanelMouseClicked
 
     public static void main(String args[]) {
 

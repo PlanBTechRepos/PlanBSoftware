@@ -1,10 +1,11 @@
-
 package com.pdvtech.view.use;
 
 import com.pdvtech.controller.UsuarioController;
+import com.pdvtech.model.Usuario;
 import com.pdvtech.util.ConnectionFactory;
 
 import java.awt.Color;
+import java.awt.event.KeyEvent;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -89,6 +90,11 @@ public class Login extends javax.swing.JFrame {
         input_Pass.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         input_Pass.setToolTipText("Digite aqui sua senha");
         input_Pass.setBorder(null);
+        input_Pass.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                input_PassKeyPressed(evt);
+            }
+        });
         Form_Panel.add(input_Pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 220, 40));
 
         btnSubmit.setBorder(null);
@@ -186,39 +192,7 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
-        MenuAdmin menuA = new MenuAdmin();
-        MenuEmployer menuE = new MenuEmployer();
-        ConnectionFactory conn = new ConnectionFactory();
-
-        if (input_User.getText().equals("criar db") && input_Pass.getText().equals("")) {
-            conn.criaDB("");
-            if(conn.getLineError().contains("ERROR 1045"))
-                JOptionPane.showMessageDialog(rootPane, "Banco de dados com senha");
-            else
-                JOptionPane.showMessageDialog(rootPane, "O banco de dados foi criado");
-        
-        } else if (input_User.getText().equals("criar db") && input_Pass.getText().length()>0) {
-            conn.criaDB(input_Pass.getText());
-            if(conn.getLineError().contains("ERROR 1045"))
-                JOptionPane.showMessageDialog(rootPane, "Senha errada");
-            else
-                JOptionPane.showMessageDialog(rootPane, "O banco de dados foi criado");
-        
-        }
-        else {
-            try {
-                UsuarioController.user.Login(this.input_User.getText(), this.input_Pass.getText());
-                if (UsuarioController.user.getAdm()) {
-                    menuA.setVisible(true);
-                } else {
-                    menuE.setVisible(true);
-                }
-                Login.this.dispose();
-            } catch (Exception ex) {
-                System.out.println(UsuarioController.user.getAdm());
-                JOptionPane.showMessageDialog(rootPane, "Não foi possivel verificar Usuario", "Usario invalido", 1);
-            }
-        }
+        submitForm();
     }//GEN-LAST:event_btnSubmitActionPerformed
 
     private void btn_showPassMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_showPassMousePressed
@@ -244,6 +218,59 @@ public class Login extends javax.swing.JFrame {
     private void btnExitMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMousePressed
         System.exit(0);
     }//GEN-LAST:event_btnExitMousePressed
+
+    private void input_PassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_input_PassKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            submitForm();
+        }
+    }//GEN-LAST:event_input_PassKeyPressed
+
+    private void submitForm() {
+        MenuAdmin menuA = new MenuAdmin();
+        MenuEmployer menuE = new MenuEmployer();
+        ConnectionFactory conn = new ConnectionFactory();
+        Usuario user = new Usuario();
+        if (input_User.getText().equals("criar db") && input_Pass.getText().equals("")) {
+            conn.criaDB("");
+            if (conn.getLineError().contains("ERROR 1045")) {
+                JOptionPane.showMessageDialog(rootPane, "Banco de dados com senha");
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "O banco de dados foi criado");
+            }
+
+        } else if (input_User.getText().equals("criar db") && input_Pass.getText().length() > 0) {
+            conn.criaDB(input_Pass.getText());
+            if (conn.getLineError().contains("ERROR 1045")) {
+                JOptionPane.showMessageDialog(rootPane, "Senha errada");
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "O banco de dados foi criado");
+            }
+
+        } else {
+            try {
+                UsuarioController.user.Login(this.input_User.getText(), this.input_Pass.getText());
+                String userLogin = UsuarioController.user.getLogin();
+                String userPass = UsuarioController.user.getSenha();
+
+                if (!userLogin.isBlank() || !userPass.isBlank()) {
+                    if (UsuarioController.user.getAdm()) {
+                        menuA.setVisible(true);
+                        Login.this.dispose();
+                    } else {
+                        menuE.setVisible(true);
+                        Login.this.dispose();
+                    }
+                } else{
+                    error_Pass.setText("Usuário ou senha incorretos");
+                }
+                
+            } catch (Exception ex) {
+                System.out.println(UsuarioController.user.getAdm());
+                error_Pass.setText("Por favor reinsira seus dados");
+                System.out.println(ex);
+            }
+        }
+    }
 
     public static void main(String args[]) {
 
