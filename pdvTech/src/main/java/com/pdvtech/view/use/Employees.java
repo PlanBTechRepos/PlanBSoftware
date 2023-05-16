@@ -164,14 +164,12 @@ public class Employees extends javax.swing.JFrame {
         Usuario user = new Usuario();
         if(user.getAdm()){
             MenuAdmin adm = new MenuAdmin();
-            adm.setVisible(true);
+            adm.requestFocus();
         } else {
             MenuEmployer emp = new MenuEmployer();
-            emp.setVisible(true);
+            emp.requestFocus();
         }
-        
-        Employees close = new Employees();
-        close.dispose();
+        this.dispose();
     }//GEN-LAST:event_btnReturnMouseClicked
 
     private void btnMinimizeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMinimizeMousePressed

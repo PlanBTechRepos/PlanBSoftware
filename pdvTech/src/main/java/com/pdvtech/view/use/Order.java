@@ -1,7 +1,7 @@
-
 package com.pdvtech.view.use;
 
 import com.pdvtech.controller.OrderController;
+import com.pdvtech.model.Usuario;
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
@@ -11,10 +11,10 @@ public class Order extends javax.swing.JFrame {
     public Order() {
         initComponents();
         initTable();
-        
+
         //TESTE: Espaçamento de TextField
         input_Search.setBorder(BorderFactory.createCompoundBorder(
-            input_Search.getBorder(), BorderFactory.createEmptyBorder(0, 10, 0, 0)));
+                input_Search.getBorder(), BorderFactory.createEmptyBorder(0, 10, 0, 0)));
     }
 
     @SuppressWarnings("unchecked")
@@ -467,7 +467,15 @@ public class Order extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnReturnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReturnMouseClicked
-        //TODO: VOLTAR PÁGINA
+        Usuario user = new Usuario();
+        if(user.getAdm()){
+            MenuAdmin adm = new MenuAdmin();
+            adm.requestFocus();
+        } else {
+            MenuEmployer emp = new MenuEmployer();
+            emp.requestFocus();
+        }
+        this.dispose();
     }//GEN-LAST:event_btnReturnMouseClicked
 
     private void btnMinimizeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMinimizeMousePressed
@@ -541,15 +549,13 @@ public class Order extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void initTable() {
-        
+
         Product_Table.fixTable(Scrollpane_Table);
         DefaultTableModel model = (DefaultTableModel) Product_Table.getModel();
-        
-        
-        
+
         //TESTE: Dados teste na tabela
         for (int i = 1; i <= 20; i++) {
-            model.addRow(new Object[] {"Teste", i});
+            model.addRow(new Object[]{"Teste", i});
         }
     }
 

@@ -4,6 +4,7 @@ import com.pdvtech.controller.EstoqueController;
 import static com.pdvtech.controller.EstoqueController.estoque;
 import static com.pdvtech.controller.EstoqueController.listaEstoque;
 import com.pdvtech.model.TableActionEvent;
+import com.pdvtech.model.Usuario;
 import com.pdvtech.view.component.util.TableCellActionEditor;
 import com.pdvtech.view.component.util.TableCellActionRenderer;
 import java.awt.event.WindowAdapter;
@@ -183,7 +184,15 @@ public class Storage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnReturnMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_btnReturnMouseClicked
-        // TODO: VOLTAR PÁGINA
+        Usuario user = new Usuario();
+        if(user.getAdm()){
+            MenuAdmin adm = new MenuAdmin();
+            adm.requestFocus();
+        } else {
+            MenuEmployer emp = new MenuEmployer();
+            emp.requestFocus();
+        }
+        this.dispose();
     }// GEN-LAST:event_btnReturnMouseClicked
 
     private void btnMinimizeMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_btnMinimizeMousePressed
@@ -230,7 +239,7 @@ public class Storage extends javax.swing.JFrame {
     private javax.swing.JLabel btnReturn;
     private javax.swing.JLabel pageLocation_Name;
     // End of variables declaration//GEN-END:variables
-    
+
     private void initTable() {
 
         Product_Table.fixTable(Scrollpane_Table);
