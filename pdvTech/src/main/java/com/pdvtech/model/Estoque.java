@@ -4,8 +4,6 @@
  */
 package com.pdvtech.model;
 
-import java.time.LocalDate;
-
 /**
  *
  * @author Yago_

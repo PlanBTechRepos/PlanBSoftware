@@ -2,7 +2,6 @@ package com.pdvtech.view.use;
 
 import com.pdvtech.controller.EstoqueController;
 import static com.pdvtech.controller.EstoqueController.estoque;
-import static com.pdvtech.controller.EstoqueController.listaEstoque;
 import com.pdvtech.model.TableActionEvent;
 import com.pdvtech.model.Usuario;
 import com.pdvtech.view.component.util.TableCellActionEditor;
@@ -185,7 +184,7 @@ public class Storage extends javax.swing.JFrame {
 
     private void btnReturnMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_btnReturnMouseClicked
         Usuario user = new Usuario();
-        if(user.getAdm()){
+        if (user.getAdm()) {
             MenuAdmin adm = new MenuAdmin();
             adm.requestFocus();
         } else {
@@ -213,7 +212,8 @@ public class Storage extends javax.swing.JFrame {
 
             @Override
             public void windowClosed(WindowEvent e) {
-                EstoqueController.listaEstoque();
+                Product_Table.setModel(EstoqueController.listaEstoque());
+                Storage.this.initTable();
             }
         });
         add.setVisible(true);
@@ -243,8 +243,6 @@ public class Storage extends javax.swing.JFrame {
     private void initTable() {
 
         Product_Table.fixTable(Scrollpane_Table);
-        DefaultTableModel model = (DefaultTableModel) Product_Table.getModel();
-
         TableActionEvent ev = new TableActionEvent() {
 
             @Override
@@ -255,21 +253,17 @@ public class Storage extends javax.swing.JFrame {
 
                     @Override
                     public void windowActivated(WindowEvent e) {
-                        edit.setView(String.valueOf(m.getValueAt(row, 1)));
+                        int editId = Integer.parseInt(String.valueOf(m.getValueAt(row, 0)));
+                        edit.setView(editId);
                     }
 
                     @Override
                     public void windowClosed(WindowEvent e) {
 
-                        System.out.println(estoque.getNome());
-                        ((AbstractTableModel) Product_Table.getModel()).setValueAt(estoque.getNome(), row, 1);
-                        ((AbstractTableModel) Product_Table.getModel()).setValueAt(estoque.getQuantidade(), row, 2);
-                        ((AbstractTableModel) Product_Table.getModel()).setValueAt(estoque.getVencimento(), row, 4);
-                        ((AbstractTableModel) Product_Table.getModel()).setValueAt(estoque.getValor(), row, 5);
-
+                        Product_Table.setModel(EstoqueController.listaEstoque());
+                        Storage.this.initTable();
                     }
                 });
-
                 edit.setVisible(true);
 
                 // TODO: ABRIR EDITPRODUCT_DIALOG E ATUALIZAR TABELA QUANDO DIALOG FECHAR,

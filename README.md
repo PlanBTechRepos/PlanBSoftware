@@ -125,4 +125,4 @@ https://github.com/PlanBTechRepos/PlanBSoftware
 <h2 id = "Informações Extras">Licença</h2> 
 The MIT License (MIT)
 
-## Copyright ©️ Ano - pdvTech
+## Copyright ©️ 2023 - pdvTech

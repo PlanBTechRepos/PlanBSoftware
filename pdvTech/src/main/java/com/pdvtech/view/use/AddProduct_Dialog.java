@@ -1,6 +1,6 @@
-
 package com.pdvtech.view.use;
 
+import com.pdvtech.controller.EstoqueController;
 import java.awt.event.WindowAdapter;
 
 public class AddProduct_Dialog extends javax.swing.JDialog {
@@ -9,9 +9,10 @@ public class AddProduct_Dialog extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
     }
-    
-    public void open(){
-        this.addWindowListener(new WindowAdapter() {});
+
+    public void open() {
+        this.addWindowListener(new WindowAdapter() {
+        });
     }
 
     @SuppressWarnings("unchecked")
@@ -32,6 +33,7 @@ public class AddProduct_Dialog extends javax.swing.JDialog {
         lblValidity = new javax.swing.JLabel();
         lblPrice = new javax.swing.JLabel();
         input_price = new com.pdvtech.view.component.customTextField();
+        error_Campos = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -110,6 +112,7 @@ public class AddProduct_Dialog extends javax.swing.JDialog {
         input_quantity.setRound(8);
 
         input_validity.setForeground(new java.awt.Color(255, 255, 255));
+        input_validity.setText("AAAA-MM-DD");
         input_validity.setToolTipText("");
         input_validity.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         input_validity.setRound(8);
@@ -126,6 +129,10 @@ public class AddProduct_Dialog extends javax.swing.JDialog {
         input_price.setToolTipText("");
         input_price.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         input_price.setRound(8);
+
+        error_Campos.setForeground(new java.awt.Color(255, 0, 0));
+        error_Campos.setText("Por favor não deixe nenhum campo em branco");
+        error_Campos.setFocusable(false);
 
         javax.swing.GroupLayout AddProduct_PanelLayout = new javax.swing.GroupLayout(AddProduct_Panel);
         AddProduct_Panel.setLayout(AddProduct_PanelLayout);
@@ -154,6 +161,11 @@ public class AddProduct_Dialog extends javax.swing.JDialog {
                             .addComponent(lblValidity)
                             .addComponent(input_validity, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(40, Short.MAX_VALUE))
+            .addGroup(AddProduct_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(AddProduct_PanelLayout.createSequentialGroup()
+                    .addGap(75, 75, 75)
+                    .addComponent(error_Campos, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(50, Short.MAX_VALUE)))
         );
         AddProduct_PanelLayout.setVerticalGroup(
             AddProduct_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,12 +189,19 @@ public class AddProduct_Dialog extends javax.swing.JDialog {
                 .addComponent(lblPrice)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(input_price, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 18, Short.MAX_VALUE)
                 .addGroup(AddProduct_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20))
+            .addGroup(AddProduct_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(AddProduct_PanelLayout.createSequentialGroup()
+                    .addGap(306, 306, 306)
+                    .addComponent(error_Campos, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
+                    .addGap(67, 67, 67)))
         );
+
+        error_Campos.setVisible(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -204,8 +223,18 @@ public class AddProduct_Dialog extends javax.swing.JDialog {
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
-        //TODO: ADD Produto
-        this.dispose();
+        error_Campos.setVisible(false);
+        String nome = input_description.getText();
+        String vencimento = input_validity.getText();
+        int espaco = nome.indexOf(" ");
+        if (nome.isBlank() || input_quantity.getText().isBlank() || vencimento.isBlank() || input_price.getText().isBlank() || input_validity.getText().equals("AAAA-MM-DD"))
+            error_Campos.setVisible(true);
+        else {
+            int qtd = Integer.parseInt(input_quantity.getText());
+            float preco = Float.parseFloat(input_price.getText());
+            EstoqueController.addEstoque(qtd, nome, nome.substring(0, espaco), preco, vencimento, false);
+            this.dispose();
+        }
     }//GEN-LAST:event_btnConfirmActionPerformed
 
     public static void main(String args[]) {
@@ -230,6 +259,7 @@ public class AddProduct_Dialog extends javax.swing.JDialog {
     private javax.swing.JLabel Menu_Title;
     private com.pdvtech.view.component.customButton btnCancel;
     private com.pdvtech.view.component.customButton btnConfirm;
+    private javax.swing.JLabel error_Campos;
     private com.pdvtech.view.component.customTextField input_description;
     private com.pdvtech.view.component.customTextField input_price;
     private com.pdvtech.view.component.customTextField input_quantity;
