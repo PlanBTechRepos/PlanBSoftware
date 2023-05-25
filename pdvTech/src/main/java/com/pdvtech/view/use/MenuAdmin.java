@@ -30,9 +30,6 @@ public class MenuAdmin extends javax.swing.JFrame {
         emp_img = new javax.swing.JLabel();
         emp_title1 = new javax.swing.JLabel();
         emp_title2 = new javax.swing.JLabel();
-        Balance_Panel = new com.pdvtech.view.component.customPanel();
-        balance_img = new javax.swing.JLabel();
-        balance_title = new javax.swing.JLabel();
         Storage_Panel = new com.pdvtech.view.component.customPanel();
         storage_img = new javax.swing.JLabel();
         storage_title = new javax.swing.JLabel();
@@ -180,51 +177,6 @@ public class MenuAdmin extends javax.swing.JFrame {
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
-        Balance_Panel.setBackground(new java.awt.Color(102, 102, 102));
-        Balance_Panel.setPreferredSize(new java.awt.Dimension(152, 134));
-        Balance_Panel.setRoundBottomLeft(100);
-        Balance_Panel.setRoundBottomRight(600);
-        Balance_Panel.setRoundTopLeft(200);
-        Balance_Panel.setRoundTopRight(200);
-        Balance_Panel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                Balance_PanelMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                Balance_PanelMouseExited(evt);
-            }
-        });
-
-        balance_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/balanca.png"))); // NOI18N
-
-        balance_title.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        balance_title.setForeground(new java.awt.Color(255, 255, 255));
-        balance_title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        balance_title.setText("BALANÇO");
-
-        javax.swing.GroupLayout Balance_PanelLayout = new javax.swing.GroupLayout(Balance_Panel);
-        Balance_Panel.setLayout(Balance_PanelLayout);
-        Balance_PanelLayout.setHorizontalGroup(
-            Balance_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Balance_PanelLayout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addComponent(balance_img)
-                .addContainerGap(46, Short.MAX_VALUE))
-            .addGroup(Balance_PanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(balance_title, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        Balance_PanelLayout.setVerticalGroup(
-            Balance_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Balance_PanelLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(balance_img)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(balance_title)
-                .addContainerGap(24, Short.MAX_VALUE))
-        );
-
         Storage_Panel.setBackground(new java.awt.Color(102, 102, 102));
         Storage_Panel.setPreferredSize(new java.awt.Dimension(152, 134));
         Storage_Panel.setRoundBottomLeft(60);
@@ -295,9 +247,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                             .addComponent(Employee_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Order_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(70, 70, 70)
-                        .addGroup(Menu_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(Storage_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Balance_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(Storage_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 556, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -305,21 +255,18 @@ public class MenuAdmin extends javax.swing.JFrame {
             Menu_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Menu_PanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(Menu_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Balance_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(Menu_PanelLayout.createSequentialGroup()
-                        .addGroup(Menu_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnExit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnMinimize, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnMaximize, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(pageLocation_Name, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(90, 90, 90)
-                        .addGroup(Menu_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Order_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Storage_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(40, 40, 40)
-                        .addComponent(Employee_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(Menu_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnExit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnMinimize, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnMaximize, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(pageLocation_Name, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(90, 90, 90)
+                .addGroup(Menu_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Order_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Storage_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40)
+                .addComponent(Employee_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(170, 170, 170))
         );
 
@@ -365,14 +312,6 @@ public class MenuAdmin extends javax.swing.JFrame {
     private void Employee_PanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Employee_PanelMouseExited
         PdvColors.resetColor(Employee_Panel);
     }//GEN-LAST:event_Employee_PanelMouseExited
-
-    private void Balance_PanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Balance_PanelMouseEntered
-        PdvColors.setColor(Balance_Panel);
-    }//GEN-LAST:event_Balance_PanelMouseEntered
-
-    private void Balance_PanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Balance_PanelMouseExited
-        PdvColors.resetColor(Balance_Panel);
-    }//GEN-LAST:event_Balance_PanelMouseExited
 
     private void Storage_PanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Storage_PanelMouseEntered
         PdvColors.setColor(Storage_Panel);
@@ -432,13 +371,10 @@ public class MenuAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.pdvtech.view.component.customPanel Balance_Panel;
     private com.pdvtech.view.component.customPanel Employee_Panel;
     private javax.swing.JPanel Menu_Panel;
     private com.pdvtech.view.component.customPanel Order_Panel;
     private com.pdvtech.view.component.customPanel Storage_Panel;
-    private javax.swing.JLabel balance_img;
-    private javax.swing.JLabel balance_title;
     private javax.swing.JLabel btnExit;
     private javax.swing.JLabel btnMaximize;
     private javax.swing.JLabel btnMinimize;

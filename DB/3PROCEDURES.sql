@@ -51,18 +51,16 @@ DROP PROCEDURE IF EXISTS UPDATEEstoque$
 CREATE PROCEDURE UPDATEEstoque(
 id INTEGER,
 qtd VARCHAR(50),
-nome VARCHAR(50),
-valor DECIMAL (10,2)
+nomeUE VARCHAR(50),
+valor DECIMAL (10,2),
+venci varchar(20)
 )
 BEGIN
-	SET @buscatipo = (	SELECT tipo_ingrediente FROM  estoque 
-						JOIN ingredientes ON ingredientes.id_Ingrediente = estoque.tipo_Ingrediente
-                        WHERE nome = ingredientes.nome);
 	UPDATE estoque 
     SET quantidade = qtd,
-    tipo_ingrediente = @buscatipo,
+    Nome = nomeUE,
     Valor_de_Compra = valor,
-    vencimento = SYSDATE()
+    vencimento = venci
     WHERE id_Produto = id;
 END$
 

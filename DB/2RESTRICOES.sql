@@ -14,7 +14,6 @@ ALTER TABLE carrinho
 ADD CONSTRAINT FK_Borda FOREIGN KEY (Borda) REFERENCES ingredientes(id_Ingrediente);
 
 ALTER TABLE pedido
-ADD CONSTRAINT FK_Carrinho FOREIGN KEY (id_Carrinho) REFERENCES carrinho(id_Carrinho),
 ADD CONSTRAINT FK_Funcionario FOREIGN KEY (id_Funcionario) REFERENCES funcionario(id_Funcionario),
 ADD CHECK (Valor_Total > 0.00);
 

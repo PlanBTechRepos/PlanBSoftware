@@ -3,8 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.pdvtech.controller;
+
 import com.pdvtech.model.Estoque;
 import com.pdvtech.util.MySQL;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -12,76 +14,69 @@ import javax.swing.table.DefaultTableModel;
  * @author Yago_
  */
 public class EstoqueController {
-   static MySQL conn = new MySQL();
-   public static  Estoque estoque = new Estoque();
-    
-    public static void addEstoque(int qtd, String nome, String ingrediente, float valor, String validade, boolean border){
+    static MySQL conn = new MySQL();
+    public static Estoque estoque = new Estoque();
+
+    public static void addEstoque(int qtd, String nome, String ingrediente, float valor, String validade,
+            boolean border) {
         conn.conectaBanco();
-        try{
-             String query = "CALL insertEstoque("
-                     + qtd + ", "
-                     + "'" + nome + "', "
-                     + "'" + ingrediente + "', "
-                     + valor +", "
-                     + "'" + validade + "', "
-                     + border + ");";
-             
-             conn.executarSQL(query);
-            }
-            catch(Exception e){
-                e.getMessage();
-            }
-            finally{
-                conn.fechaBanco();
-            }
-        
+        try {
+            String query = "CALL insertEstoque("
+                    + qtd + ", "
+                    + "'" + nome + "', "
+                    + "'" + ingrediente + "', "
+                    + valor + ", "
+                    + "'" + validade + "', "
+                    + border + ");";
+
+            conn.executarSQL(query);
+        } catch (Exception e) {
+            e.getMessage();
+        } finally {
+            conn.fechaBanco();
+        }
+
     }
-    
-    public static void editEstoque(int id, String nome, int qtd, float price){
+
+    public static void editEstoque(int id, String nome, int qtd, float price, String vencimento) {
         conn.conectaBanco();
         System.out.println("Teste1");
-        try{
-            String query =
-                    "call UPDATEEstoque("
+        try {
+            String query = "call UPDATEEstoque("
                     + id + ", "
                     + qtd + ", '"
                     + nome + "', "
-                    + price
-                    + ");";
+                    + price  + ", '"
+                    + vencimento
+                    + "');";
             conn.executarSQL(query);
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             e.getMessage();
-        }
-        finally{
+        } finally {
             conn.fechaBanco();
         }
-        
+
     }
-    
-    public static void deletaProduto(int id){
+
+    public static void deletaProduto(int id) {
         conn.conectaBanco();
-        try{
-            String query = 
-                    "delete from estoque "
+        try {
+            String query = "delete from estoque "
                     + "where id_Produto = " + id + ";";
             conn.updateSQL(query);
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             e.getMessage();
-        }
-        finally{
+        } finally {
             conn.fechaBanco();
         }
     }
-    
-    public static DefaultTableModel listaEstoque (){
-        String columNames[] = {"Codigo", "Nome", "Quantidade", "Data de Entreda", "Vencimento", "Valor", "Ação"};
+
+    public static DefaultTableModel listaEstoque() {
+        String columNames[] = { "Codigo", "Nome", "Quantidade", "Data de Entreda", "Vencimento", "Valor", "Ação" };
         DefaultTableModel model = new DefaultTableModel(columNames, 0);
         conn.conectaBanco();
-        try{
-            String query = 
-                    "Select id_Produto, "
+        try {
+            String query = "Select id_Produto, "
                     + "estoque.nome, "
                     + "Quantidade, "
                     + "Recebimento, "
@@ -91,63 +86,53 @@ public class EstoqueController {
                     + "estoque "
                     + "join ingredientes on ingredientes.id_ingrediente = estoque.tipo_Ingrediente;";
             conn.executarSQL(query);
-            while(conn.getResultSet().next()){
-                model.addRow( new String[]{
-                    Integer.toString(conn.getResultSet().getInt(1)),
-                    conn.getResultSet().getString(2),
-                    Integer.toString(conn.getResultSet().getInt(3)),
-                    conn.getResultSet().getString(4),
-                    conn.getResultSet().getString(5),
-                    String.valueOf(conn.getResultSet().getFloat(6))
-                    
-                 
-            });
-                
+            while (conn.getResultSet().next()) {
+                model.addRow(new String[] {
+                        Integer.toString(conn.getResultSet().getInt(1)),
+                        conn.getResultSet().getString(2),
+                        Integer.toString(conn.getResultSet().getInt(3)),
+                        conn.getResultSet().getString(4),
+                        conn.getResultSet().getString(5),
+                        String.valueOf(conn.getResultSet().getFloat(6))
+
+                });
+
             }
-            
-                    
-        }
-        catch(Exception e){
+
+        } catch (Exception e) {
             e.getMessage();
-        }
-        finally{
+        } finally {
             conn.fechaBanco();
         }
-        return model; 
+        return model;
     }
-    
-    public static Estoque view(String nome){
+
+    public static Estoque view(int id) {
         conn.conectaBanco();
-        try{
-            String query = 
-                    "Select id_Produto, "
+        try {
+            String query = "Select id_Produto, "
                     + "Valor_de_Compra, "
                     + "Quantidade, "
-                    + "vencimento "
+                    + "vencimento, "
+                    + "estoque.Nome "
                     + "from estoque "
-                    + "join ingredientes on ingredientes.id_ingrediente = estoque.tipo_ingrediente "
-                    + "where ingredientes.nome = '" + nome + "';";
-            
+                    + "where estoque.id_Produto = " + id + ";";
+
             conn.executarSQL(query);
-            
-            while(conn.getResultSet().next()){
-                estoque.setNome(nome);
+            while (conn.getResultSet().next()) {
                 estoque.setId(conn.getResultSet().getInt(1));
                 estoque.setValor(conn.getResultSet().getFloat(2));
                 estoque.setQuantidade(conn.getResultSet().getInt(3));
-                estoque.setVencimento(conn.getResultSet().getString(4));              
+                estoque.setVencimento(conn.getResultSet().getString(4));
+                estoque.setNome(conn.getResultSet().getString(5));
             }
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             e.getMessage();
+        } finally {
+            conn.fechaBanco();
         }
-        finally{
-        conn.fechaBanco();
-    }
+        
         return estoque;
     }
-    
-    
-    
-    
+
 }
