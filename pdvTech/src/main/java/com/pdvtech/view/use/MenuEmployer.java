@@ -2,6 +2,7 @@ package com.pdvtech.view.use;
 
 import com.pdvtech.controller.UsuarioController;
 import com.pdvtech.view.component.util.PdvColors;
+import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 
@@ -10,6 +11,7 @@ public class MenuEmployer extends javax.swing.JFrame {
     public MenuEmployer() {
         initComponents();
         setExtendedState(MAXIMIZED_BOTH);
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons/tech.png")));
     }
 
     @SuppressWarnings("unchecked")

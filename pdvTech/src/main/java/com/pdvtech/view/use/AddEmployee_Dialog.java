@@ -1,12 +1,17 @@
-
 package com.pdvtech.view.use;
+
+import com.pdvtech.controller.FuncionarioController;
+import com.pdvtech.controller.UsuarioController;
+import java.awt.Toolkit;
+import javax.swing.JOptionPane;
 
 public class AddEmployee_Dialog extends javax.swing.JDialog {
 
     public AddEmployee_Dialog(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);      
+        super(parent, modal);
         initComponents();
         initManualComponents();
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons/tech.png")));
     }
 
     @SuppressWarnings("unchecked")
@@ -37,6 +42,8 @@ public class AddEmployee_Dialog extends javax.swing.JDialog {
         btn_clear = new com.pdvtech.view.component.customButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setName("Adicionar Funcionário"); // NOI18N
+        setUndecorated(true);
 
         Register_Panel.setBackground(new java.awt.Color(153, 153, 153));
 
@@ -147,13 +154,17 @@ public class AddEmployee_Dialog extends javax.swing.JDialog {
 
         input_position.setBackground(new java.awt.Color(80, 80, 80));
         input_position.setForeground(new java.awt.Color(255, 255, 255));
-        input_position.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "   ", "Cargo X", "Cargo Y", "Cargo Z" }));
+        input_position.setModel(new javax.swing.DefaultComboBoxModel<>(FuncionarioController.cargosView()));
         input_position.setBorder(null);
+        input_position.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                input_positionActionPerformed(evt);
+            }
+        });
 
         btn_clear.setBackground(new java.awt.Color(51, 51, 51));
         btn_clear.setBorder(null);
         btn_clear.setForeground(new java.awt.Color(255, 255, 255));
-        btn_clear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/vassoura.png"))); // NOI18N
         btn_clear.setText("Limpar");
         btn_clear.setBorderColor(new java.awt.Color(51, 51, 51));
         btn_clear.setColor(new java.awt.Color(51, 51, 51));
@@ -216,14 +227,26 @@ public class AddEmployee_Dialog extends javax.swing.JDialog {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_registerActionPerformed
-        //TODO: Registrar novo funcionário
+        if (input_confirmPass.getText().isBlank()
+                || input_name.getText().isBlank()
+                || input_lastName.getText().isBlank()
+                || input_pass.getText().isBlank()
+                || input_user.getText().isBlank())
+            JOptionPane.showMessageDialog(rootPane, "Campos em branco", "Campos em branco", 0);
+        else if (input_pass.getText().equals(input_confirmPass.getText())) {
+            UsuarioController.cadFuncUs(input_name.getText(), input_lastName.getText(), input_position.getSelectedItem().toString(), input_user.getText(), input_pass.getText());
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Senha não identica", "Senha não identica", 0);
+        }
     }//GEN-LAST:event_btn_registerActionPerformed
 
     private void btnExitMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMousePressed
-        System.exit(0);
+        this.dispose();
     }//GEN-LAST:event_btnExitMousePressed
 
     private void btn_hidePassMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_hidePassMousePressed
@@ -243,6 +266,10 @@ public class AddEmployee_Dialog extends javax.swing.JDialog {
     private void btn_clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_clearActionPerformed
         //TODO: Limpar tela
     }//GEN-LAST:event_btn_clearActionPerformed
+
+    private void input_positionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_positionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_input_positionActionPerformed
 
     public static void main(String args[]) {
 

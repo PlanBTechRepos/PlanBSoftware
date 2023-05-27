@@ -4,6 +4,7 @@ package com.pdvtech.view.use;
 import com.pdvtech.model.TableActionEvent;
 import com.pdvtech.view.component.util.TableCellDeleteActionEditor;
 import com.pdvtech.view.component.util.TableCellDeleteActionRenderer;
+import java.awt.Toolkit;
 import javax.swing.table.DefaultTableModel;
 
 public class Shopping_Cart extends javax.swing.JDialog {
@@ -12,6 +13,7 @@ public class Shopping_Cart extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         initTable();
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons/tech.png")));
     }
 
     @SuppressWarnings("unchecked")

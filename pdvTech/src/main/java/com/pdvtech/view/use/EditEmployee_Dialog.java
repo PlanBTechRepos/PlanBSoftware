@@ -1,12 +1,15 @@
 
 package com.pdvtech.view.use;
 
+import java.awt.Toolkit;
+
 public class EditEmployee_Dialog extends javax.swing.JDialog {
 
     public EditEmployee_Dialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);      
         initComponents();
         initManualComponents();
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons/tech.png")));
     }
 
     @SuppressWarnings("unchecked")
