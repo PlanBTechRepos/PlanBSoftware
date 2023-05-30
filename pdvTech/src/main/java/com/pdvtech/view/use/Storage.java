@@ -1,23 +1,23 @@
 package com.pdvtech.view.use;
 
 import com.pdvtech.controller.EstoqueController;
-import static com.pdvtech.controller.EstoqueController.estoque;
 import com.pdvtech.model.TableActionEvent;
 import com.pdvtech.model.Usuario;
 import com.pdvtech.view.component.util.TableCellActionEditor;
 import com.pdvtech.view.component.util.TableCellActionRenderer;
+import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JOptionPane;
-import javax.swing.table.AbstractTableModel;
 
 public class Storage extends javax.swing.JFrame {
 
     public Storage() {
         initComponents();
         initTable();
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons/tech.png")));
     }
 
     @SuppressWarnings("unchecked")

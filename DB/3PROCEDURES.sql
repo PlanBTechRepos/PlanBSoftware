@@ -182,3 +182,36 @@ BEGIN
 							ORDER BY Nome_receita ASC;
 END$
 DELIMITER ;
+
+DROP PROCEDURE IF EXISTS cadUsuarioFunc;
+
+DELIMITER $
+CREATE PROCEDURE cadUsuarioFunc(
+#FUNCIONÁRIO
+nomeP VARCHAR(20),
+sobrenomeP VARCHAR(20),
+cargoP VARCHAR(20),
+#USUÁRIO
+usuarioP VARCHAR(20),
+senhaP VARCHAR(20)
+)
+BEGIN
+	SET @cargo = (SELECT id_Cargo FROM cargos WHERE cargoP LIKE Nome);
+    SET @func = (SELECT id_Funcionario FROM funcionario WHERE id_Cargo = @cargo AND Nome LIKE nomeP AND Sobrenome LIKE sobrenomeP);
+    set @us = (SELECT usuario.Usuario FROM usuario WHERE usuario.Usuario LIKE usuarioP);
+    
+    IF (@func IS NULL AND @us IS NULL) THEN
+		INSERT INTO funcionario VALUES (null, @cargo, nomeP, sobrenomeP);
+		SET @func = (SELECT id_Funcionario FROM funcionario WHERE id_Cargo = @cargo AND Nome LIKE nomeP AND Sobrenome LIKE sobrenomeP);
+		INSERT INTO usuario VALUES(null, @func, usuarioP, senhaP, 0);
+        ELSE 
+			signal sqlstate '45000'
+			set message_text = 'problema no cadastro de usuário ou funcionário',
+			mysql_errno = 2023;
+            END IF;
+END$
+
+DELIMITER ;
+SELECT * FROM pdvplanbtech.funcionario;
+SELECT * FROM pdvplanbtech.usuario;
+SELECT usuario FROM usuario WHERE usuario LIKE 'jao';

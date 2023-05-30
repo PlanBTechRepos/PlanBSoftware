@@ -1,14 +1,67 @@
 
 package com.pdvtech.view.use;
+import com.pdvtech.util.MySQL;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.DefaultComboBoxModel;
+
+import java.awt.Toolkit;
 
 public class EditEmployee_Dialog extends javax.swing.JDialog {
-
+    MySQL conn = new MySQL();
     public EditEmployee_Dialog(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);      
+        super(parent, modal);
         initComponents();
         initManualComponents();
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons/tech.png")));
     }
 
+    public void setView(String nome){
+        this.conn.conectaBanco();
+        String[] name = nome.split(" ");
+        try{
+            String query = 
+                    "Select cargos.nome, usuario.usuario "
+                    + "from funcionario "
+                    + "join usuario on usuario.id_funcionario = funcionario.id_funcionario "
+                    + "join cargos on funcionario.id_cargo = cargos.id_Cargo "
+                    + "where funcionario.nome = '"
+                    + name[0] + "' "
+                    + "and "
+                    + "funcionario.sobrenome = '"
+                    + name[1] + "';";
+            
+           this.conn.executarSQL(query);
+           
+           while(this.conn.getResultSet().next()){
+               this.input_name.setText(name[0]);
+               this.input_lastName.setText(name[1]);
+               this.input_position.setSelectedItem(this.conn.getResultSet().getString(1));
+               this.print_user.setText(this.conn.getResultSet().getString(2));
+           }
+        }
+        catch(Exception e){
+            e.getMessage();
+        }
+    }
+    private List<String> getCargos(){
+        this.conn.conectaBanco();
+        List<String> listCargo = new ArrayList<String>();
+        try{
+            String query =
+                    "Select "
+                    + "nome from "
+                    + "cargos;";
+            this.conn.executarSQL(query);
+            while(this.conn.getResultSet().next()){
+                listCargo.add(this.conn.getResultSet().getString(1));
+            }
+        }
+        catch(Exception e){
+            e.getMessage();
+        }
+        return listCargo;
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -145,7 +198,7 @@ public class EditEmployee_Dialog extends javax.swing.JDialog {
 
         input_position.setBackground(new java.awt.Color(80, 80, 80));
         input_position.setForeground(new java.awt.Color(255, 255, 255));
-        input_position.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "   ", "Cargo X", "Cargo Y", "Cargo Z" }));
+        input_position.setModel(new DefaultComboBoxModel<String>(getCargos().toArray(new String[0])));
         input_position.setBorder(null);
 
         javax.swing.GroupLayout Register_PanelLayout = new javax.swing.GroupLayout(Register_Panel);
@@ -198,11 +251,54 @@ public class EditEmployee_Dialog extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_registerActionPerformed
-        //TODO: Registrar novo funcionário
+        System.out.println(this.input_name.getText() + " " + this.input_lastName.getText() + "" +
+                this.input_position.getSelectedItem());
+        if(this.input_pass.getText().isEmpty() && this.input_confirmPass.getText().isEmpty()){
+            System.out.println("Passei aqui");
+             try{
+            this.conn.conectaBanco();
+            String query = 
+                    "Call updateFunc('pass', '"
+                    + String.valueOf(this.input_position.getSelectedItem()) + "', '"
+                    + this.input_name.getText() + "', '"
+                    + this.input_lastName.getText() + "');" ;
+            this.conn.executarSQL(query);
+                    
+        }
+        catch(Exception e){
+            e.getMessage();
+        }
+             finally{
+                 this.conn.fechaBanco();
+                 EditEmployee_Dialog.this.dispose();
+             }
+        }
+        
+        else if(this.input_pass.getText().equals(this.input_confirmPass.getText())){
+        try{
+            this.conn.conectaBanco();
+            String query = 
+                    "Call updateFunc('"
+                    + this.input_confirmPass.getText() + "', '"
+                    + String.valueOf(this.input_position.getSelectedItem()) + "', '"
+                    + this.input_name.getText() + "', '"
+                    + this.input_lastName.getText() + "');" ;
+            this.conn.executarSQL(query);
+                    
+        }
+        catch(Exception e){
+            e.getMessage();
+        }
+        finally{
+                 this.conn.fechaBanco();
+                 EditEmployee_Dialog.this.dispose();
+             }
+        }
+        
     }//GEN-LAST:event_btn_registerActionPerformed
 
     private void btnExitMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMousePressed
-        System.exit(0);
+        EditEmployee_Dialog.this.dispose();
     }//GEN-LAST:event_btnExitMousePressed
 
     private void btn_hidePassMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_hidePassMousePressed
