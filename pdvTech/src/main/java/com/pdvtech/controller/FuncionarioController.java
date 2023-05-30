@@ -6,9 +6,11 @@ package com.pdvtech.controller;
 
 import com.pdvtech.util.MySQL;
 import com.pdvtech.model.Funcionario;
-import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class FuncionarioController {
+
     static Funcionario funcionario = new Funcionario();
     static MySQL conn = new MySQL();
 
@@ -19,47 +21,42 @@ public class FuncionarioController {
     public static void setFuncionario(Funcionario funcionario) {
         FuncionarioController.funcionario = funcionario;
     }
-    
-    public static void salvarFunc(String nome, String cargo){
+
+    public static void salvarFunc(String nome, String cargo) {
         String[] nomeSeparado = nome.split(" ");
         conn.conectaBanco();
-        try{
-            String query = 
-                    "call cadFunc ('"
+        try {
+            String query
+                    = "call cadFunc ('"
                     + nomeSeparado[0] + "', '"
-                    + nomeSeparado[nomeSeparado.length -1] + "', '"
-                    + cargo + "');" ;
+                    + nomeSeparado[nomeSeparado.length - 1] + "', '"
+                    + cargo + "');";
             conn.insertSQL(query);
-        }
-        catch(Exception ex){
+        } catch (Exception ex) {
             ex.getMessage();
-        }
-        finally{
+        } finally {
             conn.fechaBanco();
         }
     }
-    
-    
-    public static void updateFuncionario(String newName, String newLastName, String newCargo, int id_funcionario){
+
+    public static void updateFuncionario(String newName, String newLastName, String newCargo, int id_funcionario) {
         conn.conectaBanco();
-        try{
+        try {
             String query = "update funcionario"
                     + "set nome = '" + newName + "', "
                     + "set sobreNome = '" + newLastName + "' "
                     + "set cargo = '";
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             e.getMessage();
         }
     }
-   
-    
-    public static void viewFuncionario(String nome){
+
+    public static void viewFuncionario(String nome) {
         String[] nomeSeparado = nome.split(" ");
         conn.conectaBanco();
-        try{
-            String query = 
-                    "Select funcionario.id_funcionario, "
+        try {
+            String query
+                    = "Select funcionario.id_funcionario, "
                     + "cargo.nome, "
                     + "usuario.nome "
                     + "from funcionario "
@@ -69,27 +66,43 @@ public class FuncionarioController {
                     + nomeSeparado[0] + "', "
                     + "and funcionario.sobrenome = '"
                     + nomeSeparado[nomeSeparado.length - 1] + "';";
-            
+
             conn.executarSQL(query);
-            while(conn.getResultSet().next()){
+            while (conn.getResultSet().next()) {
                 funcionario.setId_funcionario(conn.getResultSet().getInt(1));
                 funcionario.setCargo(conn.getResultSet().getString(2));
             }
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             e.getMessage();
+        } finally {
+            conn.fechaBanco();
         }
-        finally{
+    }
+
+    public static String[] cargosView() {
+        conn.conectaBanco();
+        List<String> resultado = new ArrayList<>();
+        try {
+            conn.executarSQL("SELECT * FROM pdvplanbtech.cargosview;");
+            while (conn.getResultSet().next()) {
+                if ((conn.getResultSet().getString(1)).isBlank() == false) {
+                    resultado.add((conn.getResultSet().getString(1)));
+                } else {
+                    resultado.add("Cadastre um cargo");
+                }
+            }
+        } catch (Exception e) {
+            e.getMessage();
+        } finally {
             conn.fechaBanco();
         }
         
         
-        
-        
-        
+        String[] cargos = new String[resultado.size()];
+        for (int i = 0; i < cargos.length; i++) {
+            cargos[i] = resultado.get(i);
+        }
+        return cargos;
     }
-    
-   
 
 }
-

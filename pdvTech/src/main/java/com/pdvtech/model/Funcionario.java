@@ -10,6 +10,7 @@ package com.pdvtech.model;
 public class Funcionario {
     private int id_funcionario;
     private String nome;
+    private String sobrenome;
     private String cargo;
     private Funcionario func;
 
@@ -34,6 +35,14 @@ public class Funcionario {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getSobreNome() {
+        return sobrenome;
+    }
+
+    public void setSobreNome(String nome) {
+        this.nome = sobrenome;
     }
 
     public String getCargo() {

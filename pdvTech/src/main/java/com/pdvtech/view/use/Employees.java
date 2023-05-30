@@ -1,4 +1,3 @@
-
 package com.pdvtech.view.use;
 
 import com.pdvtech.model.TableActionEvent;
@@ -8,6 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 import com.pdvtech.controller.UsuarioController;
 import com.pdvtech.model.Usuario;
+import java.awt.Toolkit;
+
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
@@ -15,8 +16,9 @@ public class Employees extends javax.swing.JFrame {
 
     public Employees() {
         initComponents();
-        initTable();
-        
+        Employees_Table.setModel(UsuarioController.viewAllFunc());
+        Employees.this.initTable();
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons/tech.png")));
     }
 
     @SuppressWarnings("unchecked")
@@ -35,6 +37,7 @@ public class Employees extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
+        setIconImages(null);
         setMinimumSize(new java.awt.Dimension(1000, 600));
         setUndecorated(true);
 
@@ -164,7 +167,7 @@ public class Employees extends javax.swing.JFrame {
 
     private void btnReturnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReturnMouseClicked
         Usuario user = new Usuario();
-        if(user.getAdm()){
+        if (user.getAdm()) {
             MenuAdmin adm = new MenuAdmin();
             adm.requestFocus();
         } else {
@@ -187,7 +190,15 @@ public class Employees extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExitMousePressed
 
     private void btn_AddEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AddEmployeeActionPerformed
-        
+        AddEmployee_Dialog ae = new AddEmployee_Dialog(this, rootPaneCheckingEnabled);
+        ae.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosed(WindowEvent e) {
+                Employees_Table.setModel(UsuarioController.viewAllFunc());
+                Employees.this.initTable();
+            }
+        });
+        ae.setVisible(true);
     }//GEN-LAST:event_btn_AddEmployeeActionPerformed
 
     public static void main(String args[]) {
@@ -212,11 +223,15 @@ public class Employees extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void initTable() {
-        
+
         Employees_Table.fixTable(Scrollpane_Table);
         DefaultTableModel model = (DefaultTableModel) Employees_Table.getModel();
-        DefaultTableModel m = (DefaultTableModel) Employees_Table.getModel();
-        TableActionEvent ev = new TableActionEvent() {           
+
+        DefaultTableModel m = (DefaultTableModel) Employees_Table.getModel();          
+
+
+        TableActionEvent ev = new TableActionEvent() {
+
             @Override
             public void onEdit(int row) {
                 EditEmployee_Dialog edit = new EditEmployee_Dialog(Employees.this, true);
@@ -241,26 +256,36 @@ public class Employees extends javax.swing.JFrame {
 
             @Override
             public void onDelete(int row) {
-                
+
                 if (Employees_Table.isEditing()) {
                     Employees_Table.getCellEditor().stopCellEditing();
                 }
-                
+
                 DefaultTableModel m = (DefaultTableModel) Employees_Table.getModel();
                 m.removeRow(row);
-                
+
                 //TODO: Remover funcionário
             }
+
         
-        };
-         
-        Employees_Table.getColumnModel().getColumn(3).setCellRenderer(new TableCellActionRenderer());
-        Employees_Table.getColumnModel().getColumn(3).setCellEditor(new TableCellActionEditor(ev));
-        
+                };
+
+        Employees_Table.getColumnModel().getColumn(4).setCellRenderer(new TableCellActionRenderer());
+        Employees_Table.getColumnModel().getColumn(4).setCellEditor(new TableCellActionEditor(ev));
+
         //TESTE: Dados teste na tabela
-       
+
+        for (int i = 1; i <= 5; i++) {
+            model.addRow(new Object[]{i, "Caixa", "Pessoa " + i});
+
         }
+
+    
+
         
-    }
-        
+
+
+
+        }
+                }
 

@@ -1,6 +1,7 @@
 package com.pdvtech.view.use;
 
 import com.pdvtech.controller.EstoqueController;
+import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 
 public class AddProduct_Dialog extends javax.swing.JDialog {
@@ -8,6 +9,7 @@ public class AddProduct_Dialog extends javax.swing.JDialog {
     public AddProduct_Dialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons/tech.png")));
     }
 
     public void open() {

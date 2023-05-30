@@ -2,12 +2,14 @@
 package com.pdvtech.view.use;
 
 import com.pdvtech.view.component.util.PdvColors;
+import java.awt.Toolkit;
 
 public class Warning_Dialog extends javax.swing.JDialog {
 
     public Warning_Dialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons/tech.png")));
     }
 
     @SuppressWarnings("unchecked")
@@ -75,17 +77,14 @@ public class Warning_Dialog extends javax.swing.JDialog {
         Warning_Type.setText("ERR");
 
         print_ErrorType.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        print_ErrorType.setForeground(new java.awt.Color(0, 0, 0));
         print_ErrorType.setText("Ex: Produto não adicionado");
 
         separator.setForeground(new java.awt.Color(255, 255, 255));
 
         print_ErrorDescription.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        print_ErrorDescription.setForeground(new java.awt.Color(0, 0, 0));
         print_ErrorDescription.setText("Produto tem informações necessárias para cadastro.");
 
         print_ErrorSub_Description.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        print_ErrorSub_Description.setForeground(new java.awt.Color(0, 0, 0));
         print_ErrorSub_Description.setText("Por favor, verifique se preenchou os campos corretamente.");
 
         javax.swing.GroupLayout Warning_PanelLayout = new javax.swing.GroupLayout(Warning_Panel);

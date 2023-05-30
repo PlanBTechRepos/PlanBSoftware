@@ -1,10 +1,11 @@
 
 package com.pdvtech.view.use;
-
 import com.pdvtech.util.MySQL;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
+
+import java.awt.Toolkit;
 
 public class EditEmployee_Dialog extends javax.swing.JDialog {
     MySQL conn = new MySQL();
@@ -12,6 +13,7 @@ public class EditEmployee_Dialog extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         initManualComponents();
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons/tech.png")));
     }
 
     public void setView(String nome){

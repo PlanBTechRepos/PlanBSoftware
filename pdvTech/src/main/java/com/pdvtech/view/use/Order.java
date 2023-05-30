@@ -2,6 +2,7 @@ package com.pdvtech.view.use;
 
 import com.pdvtech.controller.OrderController;
 import com.pdvtech.model.Usuario;
+import java.awt.Toolkit;
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
@@ -11,6 +12,7 @@ public class Order extends javax.swing.JFrame {
     public Order() {
         initComponents();
         initTable();
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons/tech.png")));
 
         //TESTE: Espaçamento de TextField
         input_Search.setBorder(BorderFactory.createCompoundBorder(

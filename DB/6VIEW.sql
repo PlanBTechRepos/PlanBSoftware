@@ -25,4 +25,3 @@ CREATE VIEW pizzas AS
 SELECT nome_receita AS PIZZA, nome AS INGREDIENTE FROM receita
 	JOIN ingredientes ON ingredientes.id_Ingrediente = receita.id_Ingrediente
 		ORDER BY PIZZA ASC;
-            
