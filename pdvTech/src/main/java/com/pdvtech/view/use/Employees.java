@@ -8,6 +8,8 @@ import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 import com.pdvtech.controller.UsuarioController;
 import com.pdvtech.model.Usuario;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class Employees extends javax.swing.JFrame {
 
@@ -213,11 +215,28 @@ public class Employees extends javax.swing.JFrame {
         
         Employees_Table.fixTable(Scrollpane_Table);
         DefaultTableModel model = (DefaultTableModel) Employees_Table.getModel();
-        
+        DefaultTableModel m = (DefaultTableModel) Employees_Table.getModel();
         TableActionEvent ev = new TableActionEvent() {           
             @Override
             public void onEdit(int row) {
-                //TODO: Editar funcionário
+                EditEmployee_Dialog edit = new EditEmployee_Dialog(Employees.this, true);
+                
+                edit.addWindowListener(new WindowAdapter() {
+
+                    @Override
+                    public void windowActivated(WindowEvent e) {
+                        String editName = String.valueOf(m.getValueAt(row, 0));
+                        edit.setView(editName);
+                    }
+
+                    @Override
+                    public void windowClosed(WindowEvent e) {
+
+                        Employees_Table.setModel(UsuarioController.viewAllFunc());
+                        Employees.this.initTable();
+                    }
+                });
+                edit.setVisible(true);
             }
 
             @Override
@@ -239,10 +258,9 @@ public class Employees extends javax.swing.JFrame {
         Employees_Table.getColumnModel().getColumn(3).setCellEditor(new TableCellActionEditor(ev));
         
         //TESTE: Dados teste na tabela
-        for (int i = 1; i <= 5; i++) {
-            model.addRow(new Object[] {i, "Caixa", "Pessoa " + i});
+       
         }
         
     }
         
-}
+
