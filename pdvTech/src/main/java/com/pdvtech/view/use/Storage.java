@@ -16,13 +16,14 @@ public class Storage extends javax.swing.JFrame {
 
     public Storage() {
         initComponents();
+        setExtendedState(MAXIMIZED_BOTH);
         initTable();
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons/tech.png")));
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         Storage_Panel = new javax.swing.JPanel();
@@ -40,7 +41,7 @@ public class Storage extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(1000, 600));
         setUndecorated(true);
 
-        Storage_Panel.setBackground(new java.awt.Color(153, 153, 153));
+        Storage_Panel.setBackground(new java.awt.Color(238, 238, 238));
 
         btnReturn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/voltar.png"))); // NOI18N
         btnReturn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -50,6 +51,7 @@ public class Storage extends javax.swing.JFrame {
         });
 
         pageLocation_Name.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        pageLocation_Name.setForeground(new java.awt.Color(68, 68, 68));
         pageLocation_Name.setText("ESTOQUE");
 
         btnMinimize.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/minimizar.png"))); // NOI18N
@@ -73,13 +75,14 @@ public class Storage extends javax.swing.JFrame {
             }
         });
 
-        btnAddProduct.setBackground(new java.awt.Color(51, 51, 51));
+        btnAddProduct.setBackground(new java.awt.Color(84, 130, 171));
         btnAddProduct.setBorder(null);
         btnAddProduct.setForeground(new java.awt.Color(255, 255, 255));
         btnAddProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/plus.png"))); // NOI18N
         btnAddProduct.setText("PRODUTO");
-        btnAddProduct.setBorderColor(new java.awt.Color(51, 51, 51));
-        btnAddProduct.setColor(new java.awt.Color(51, 51, 51));
+        btnAddProduct.setBorderColor(new java.awt.Color(238, 238, 238));
+        btnAddProduct.setBorderPainted(false);
+        btnAddProduct.setColor(new java.awt.Color(84, 130, 171));
         btnAddProduct.setColorClick(new java.awt.Color(51, 51, 51));
         btnAddProduct.setColorOver(new java.awt.Color(115, 162, 239));
         btnAddProduct.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -93,17 +96,24 @@ public class Storage extends javax.swing.JFrame {
             }
         });
 
-        Product_Table.setModel(
+        Product_Table.setBackground(new java.awt.Color(238, 238, 238));
+        Product_Table.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
-                EstoqueController.listaEstoque());
-
-        {
-            boolean[] canEdit = new boolean[] {
-                    false, false, true
+            },
+            new String [] {
+                "Teste", "Mais um", ""
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, true
             };
 
-        }
-
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        Product_Table.setGridColor(new java.awt.Color(210, 210, 210));
         Scrollpane_Table.setViewportView(Product_Table);
         if (Product_Table.getColumnModel().getColumnCount() > 0) {
             Product_Table.getColumnModel().getColumn(2).setMinWidth(120);
@@ -114,69 +124,56 @@ public class Storage extends javax.swing.JFrame {
         javax.swing.GroupLayout Storage_PanelLayout = new javax.swing.GroupLayout(Storage_Panel);
         Storage_Panel.setLayout(Storage_PanelLayout);
         Storage_PanelLayout.setHorizontalGroup(
-                Storage_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Storage_PanelLayout
-                                .createSequentialGroup()
-                                .addGroup(Storage_PanelLayout
-                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(Storage_PanelLayout.createSequentialGroup()
-                                                .addContainerGap()
-                                                .addComponent(Scrollpane_Table))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, Storage_PanelLayout
-                                                .createSequentialGroup()
-                                                .addContainerGap()
-                                                .addComponent(btnReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 40,
-                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(pageLocation_Name)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED,
-                                                        740, Short.MAX_VALUE)
-                                                .addComponent(btnMinimize)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(btnMaximize)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(btnExit))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, Storage_PanelLayout
-                                                .createSequentialGroup()
-                                                .addGap(45, 45, 45)
-                                                .addComponent(btnAddProduct, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                        140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(0, 0, Short.MAX_VALUE)))
-                                .addContainerGap()));
+            Storage_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Storage_PanelLayout.createSequentialGroup()
+                .addGroup(Storage_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(Storage_PanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(Scrollpane_Table))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, Storage_PanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(pageLocation_Name)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 740, Short.MAX_VALUE)
+                        .addComponent(btnMinimize)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnMaximize)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnExit))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, Storage_PanelLayout.createSequentialGroup()
+                        .addGap(45, 45, 45)
+                        .addComponent(btnAddProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
         Storage_PanelLayout.setVerticalGroup(
-                Storage_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(Storage_PanelLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(Storage_PanelLayout
-                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(btnExit, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btnMinimize, javax.swing.GroupLayout.PREFERRED_SIZE, 26,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(btnMaximize, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btnReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 0,
-                                                Short.MAX_VALUE)
-                                        .addComponent(pageLocation_Name, javax.swing.GroupLayout.PREFERRED_SIZE, 26,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addComponent(btnAddProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 40,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(Scrollpane_Table, javax.swing.GroupLayout.DEFAULT_SIZE, 486,
-                                        Short.MAX_VALUE)
-                                .addContainerGap()));
+            Storage_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Storage_PanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(Storage_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnExit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnMinimize, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnMaximize, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(pageLocation_Name, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(btnAddProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Scrollpane_Table, javax.swing.GroupLayout.DEFAULT_SIZE, 486, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(Storage_Panel, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Storage_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(Storage_Panel, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Storage_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         pack();
         setLocationRelativeTo(null);

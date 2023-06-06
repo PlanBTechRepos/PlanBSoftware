@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 import com.pdvtech.controller.UsuarioController;
 import com.pdvtech.model.Usuario;
+import java.awt.Color;
 import java.awt.Toolkit;
 
 import java.awt.event.WindowAdapter;
@@ -16,6 +17,7 @@ public class Employees extends javax.swing.JFrame {
 
     public Employees() {
         initComponents();
+        setExtendedState(MAXIMIZED_BOTH);
         Employees_Table.setModel(UsuarioController.viewAllFunc());
         Employees.this.initTable();
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons/tech.png")));
@@ -41,7 +43,7 @@ public class Employees extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(1000, 600));
         setUndecorated(true);
 
-        Employees_Panel.setBackground(new java.awt.Color(153, 153, 153));
+        Employees_Panel.setBackground(new java.awt.Color(238, 238, 238));
 
         btnReturn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/voltar.png"))); // NOI18N
         btnReturn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -51,6 +53,7 @@ public class Employees extends javax.swing.JFrame {
         });
 
         pageLocation_Name.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        pageLocation_Name.setForeground(new java.awt.Color(68, 68, 68));
         pageLocation_Name.setText("FUNCIONÁRIOS");
 
         btnMinimize.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/minimizar.png"))); // NOI18N
@@ -76,7 +79,9 @@ public class Employees extends javax.swing.JFrame {
 
         Scrollpane_Table.setBorder(null);
 
+        Employees_Table.setBackground(new java.awt.Color(238, 238, 238));
         Employees_Table.setModel(UsuarioController.viewAllFunc());
+        Employees_Table.setGridColor(new java.awt.Color(210, 210, 210));
         Scrollpane_Table.setViewportView(Employees_Table);
         if (Employees_Table.getColumnModel().getColumnCount() > 0) {
             Employees_Table.getColumnModel().getColumn(0).setMinWidth(60);
@@ -90,13 +95,13 @@ public class Employees extends javax.swing.JFrame {
             Employees_Table.getColumnModel().getColumn(2).setMaxWidth(700);
         }
 
-        btn_AddEmployee.setBackground(new java.awt.Color(51, 51, 51));
+        btn_AddEmployee.setBackground(new java.awt.Color(84, 130, 171));
         btn_AddEmployee.setBorder(null);
         btn_AddEmployee.setForeground(new java.awt.Color(255, 255, 255));
         btn_AddEmployee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/plus.png"))); // NOI18N
-        btn_AddEmployee.setText("Funcionário");
-        btn_AddEmployee.setBorderColor(new java.awt.Color(51, 51, 51));
-        btn_AddEmployee.setColor(new java.awt.Color(51, 51, 51));
+        btn_AddEmployee.setText("FUNCIONÁRIO");
+        btn_AddEmployee.setBorderColor(new java.awt.Color(238, 238, 238));
+        btn_AddEmployee.setColor(new java.awt.Color(84, 130, 171));
         btn_AddEmployee.setColorClick(new java.awt.Color(51, 51, 51));
         btn_AddEmployee.setColorOver(new java.awt.Color(115, 162, 239));
         btn_AddEmployee.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -143,10 +148,10 @@ public class Employees extends javax.swing.JFrame {
                     .addComponent(btnMaximize, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(pageLocation_Name, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addComponent(btn_AddEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(Scrollpane_Table, javax.swing.GroupLayout.DEFAULT_SIZE, 475, Short.MAX_VALUE)
+                .addComponent(btn_AddEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Scrollpane_Table, javax.swing.GroupLayout.DEFAULT_SIZE, 486, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -223,12 +228,11 @@ public class Employees extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void initTable() {
-
+        
         Employees_Table.fixTable(Scrollpane_Table);
         DefaultTableModel model = (DefaultTableModel) Employees_Table.getModel();
 
         DefaultTableModel m = (DefaultTableModel) Employees_Table.getModel();          
-
 
         TableActionEvent ev = new TableActionEvent() {
 
@@ -266,26 +270,17 @@ public class Employees extends javax.swing.JFrame {
 
                 //TODO: Remover funcionário
             }
-
-        
-                };
+        };
 
         Employees_Table.getColumnModel().getColumn(4).setCellRenderer(new TableCellActionRenderer());
         Employees_Table.getColumnModel().getColumn(4).setCellEditor(new TableCellActionEditor(ev));
-
+        
         //TESTE: Dados teste na tabela
 
         for (int i = 1; i <= 5; i++) {
             model.addRow(new Object[]{i, "Caixa", "Pessoa " + i});
 
         }
-
-    
-
-        
-
-
-
-        }
-                }
+    }
+}
 

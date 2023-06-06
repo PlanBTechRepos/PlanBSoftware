@@ -74,20 +74,20 @@ public class customTable extends JTable {
             //Alterações visuais: cores: coluna/linha selecionadas
             if(isCellSelected(row, column)) {
                 if (row % 2 == 0) {
-                    c.setBackground(new Color(33, 103, 153));
+                    c.setBackground(new Color(84, 130, 171));
                 } else {
-                    c.setBackground(new Color(29, 86, 127));
+                    c.setBackground(new Color(115, 162, 239));
                 }               
             } else {
                 if (row % 2 == 0) {
-                    c.setBackground(new Color(100, 100, 100));
+                    c.setBackground(new Color(238, 238, 238));
                 } else {
-                    c.setBackground(new Color(150, 150, 150));
+                    c.setBackground(new Color(225, 225, 225));
                 }
             }
             
             //Alterações visuais: borda e letras
-            c.setForeground(new Color(220, 220, 220));
+            c.setForeground(new Color(51, 51, 51));
             setBorder(new EmptyBorder(0, 5, 0, 5));
             
             if (alignment.containsKey(column)) {
@@ -105,9 +105,9 @@ public class customTable extends JTable {
         JPanel panel = new JPanel();
         
         //Alterações visuais: background fundo atrás das células, canto de scrollbar e borda do panel
-        panel.setBackground(new Color(70, 70, 70));     
-        scroll.getViewport().setBackground(new Color(70, 70, 70));
-        scroll.setBorder(BorderFactory.createLineBorder(new Color(153, 153, 153), 1));
+        panel.setBackground(new Color(70,70, 70));     
+        scroll.getViewport().setBackground(new Color(68, 68, 68));
+        scroll.setBorder(BorderFactory.createLineBorder(new Color(238, 238, 238), 1));
         
         scroll.setCorner(JScrollPane.UPPER_RIGHT_CORNER, panel);
     }

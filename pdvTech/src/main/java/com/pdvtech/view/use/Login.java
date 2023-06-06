@@ -80,7 +80,7 @@ public class Login extends javax.swing.JFrame {
 
         btnSubmit.setBorder(null);
         btnSubmit.setForeground(new java.awt.Color(255, 255, 255));
-        btnSubmit.setBorderColor(new java.awt.Color(51, 51, 51));
+        btnSubmit.setBorderColor(new java.awt.Color(84, 130, 171));
         btnSubmit.setColor(new java.awt.Color(51, 51, 51));
         btnSubmit.setColorClick(new java.awt.Color(51, 51, 51));
         btnSubmit.setColorOver(new java.awt.Color(115, 162, 239));

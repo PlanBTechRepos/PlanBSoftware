@@ -7,11 +7,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class PanelAction extends javax.swing.JPanel {
-
+ 
     public PanelAction() {
         initComponents();
     }
-    
+
     public void initEvent(TableActionEvent ev, int row) {
         btnEdit.addActionListener(new ActionListener() {
             @Override
@@ -81,7 +81,6 @@ public class PanelAction extends javax.swing.JPanel {
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
-    
     
     }//GEN-LAST:event_btnEditActionPerformed
 
