@@ -3,7 +3,6 @@ package com.pdvtech.view.use;
 import com.pdvtech.controller.UsuarioController;
 import com.pdvtech.model.Usuario;
 import com.pdvtech.util.ConnectionFactory;
-import java.awt.Color;
 
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
@@ -321,7 +320,5 @@ public class Login extends javax.swing.JFrame {
         this.btn_hidePass.setVisible(false);
         input_Pass.setEchoChar('*');
         setExtendedState(MAXIMIZED_BOTH);
-        text_welcome.setForeground(new Color(68, 68, 68));
-        text_welcome2.setForeground(new Color(68, 68, 68));
     }
 }

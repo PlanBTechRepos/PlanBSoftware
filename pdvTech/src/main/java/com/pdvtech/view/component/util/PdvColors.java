@@ -11,6 +11,6 @@ public class PdvColors {
     }
     
     static public void resetColor(JPanel panel) {
-        panel.setBackground(new Color(102, 102, 102));
+        panel.setBackground(new Color(84, 130, 171));
     }
 }

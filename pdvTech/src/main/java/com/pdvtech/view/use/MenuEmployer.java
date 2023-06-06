@@ -36,7 +36,7 @@ public class MenuEmployer extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(1000, 600));
         setUndecorated(true);
 
-        Menu_Panel.setBackground(new java.awt.Color(153, 153, 153));
+        Menu_Panel.setBackground(new java.awt.Color(238, 238, 238));
 
         btnMaximize.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/maximizar.png"))); // NOI18N
         btnMaximize.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -67,9 +67,10 @@ public class MenuEmployer extends javax.swing.JFrame {
         });
 
         pageLocation_Name.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        pageLocation_Name.setForeground(new java.awt.Color(68, 68, 68));
         pageLocation_Name.setText("INÍCIO");
 
-        Order_Panel.setBackground(new java.awt.Color(102, 102, 102));
+        Order_Panel.setBackground(new java.awt.Color(84, 130, 171));
         Order_Panel.setPreferredSize(new java.awt.Dimension(152, 134));
         Order_Panel.setRoundBottomLeft(300);
         Order_Panel.setRoundBottomRight(50);
@@ -90,7 +91,7 @@ public class MenuEmployer extends javax.swing.JFrame {
         order_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/ordem-de-compra.png"))); // NOI18N
 
         order_title.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        order_title.setForeground(new java.awt.Color(255, 255, 255));
+        order_title.setForeground(new java.awt.Color(0, 0, 0));
         order_title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         order_title.setText("PEDIDO");
 
@@ -117,7 +118,7 @@ public class MenuEmployer extends javax.swing.JFrame {
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
-        Storage_Panel.setBackground(new java.awt.Color(102, 102, 102));
+        Storage_Panel.setBackground(new java.awt.Color(84, 130, 171));
         Storage_Panel.setPreferredSize(new java.awt.Dimension(152, 134));
         Storage_Panel.setRoundBottomLeft(130);
         Storage_Panel.setRoundBottomRight(130);
@@ -137,8 +138,9 @@ public class MenuEmployer extends javax.swing.JFrame {
 
         storage_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/estoque-60.png"))); // NOI18N
 
+        storage_title1.setBackground(new java.awt.Color(84, 130, 171));
         storage_title1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        storage_title1.setForeground(new java.awt.Color(255, 255, 255));
+        storage_title1.setForeground(new java.awt.Color(0, 0, 0));
         storage_title1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         storage_title1.setText("ESTOQUE");
 

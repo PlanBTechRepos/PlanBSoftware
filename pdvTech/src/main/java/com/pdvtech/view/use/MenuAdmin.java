@@ -41,7 +41,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(1000, 600));
         setUndecorated(true);
 
-        Menu_Panel.setBackground(new java.awt.Color(153, 153, 153));
+        Menu_Panel.setBackground(new java.awt.Color(238, 238, 238));
 
         btnMaximize.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/maximizar.png"))); // NOI18N
         btnMaximize.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -72,9 +72,10 @@ public class MenuAdmin extends javax.swing.JFrame {
         });
 
         pageLocation_Name.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        pageLocation_Name.setForeground(new java.awt.Color(68, 68, 68));
         pageLocation_Name.setText("INÍCIO");
 
-        Order_Panel.setBackground(new java.awt.Color(102, 102, 102));
+        Order_Panel.setBackground(new java.awt.Color(84, 130, 171));
         Order_Panel.setPreferredSize(new java.awt.Dimension(152, 134));
         Order_Panel.setRoundBottomLeft(130);
         Order_Panel.setRoundBottomRight(80);
@@ -95,7 +96,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         order_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/ordem-de-compra.png"))); // NOI18N
 
         order_title.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        order_title.setForeground(new java.awt.Color(255, 255, 255));
+        order_title.setForeground(new java.awt.Color(0, 0, 0));
         order_title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         order_title.setText("PEDIDO");
 
@@ -122,7 +123,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
-        Employee_Panel.setBackground(new java.awt.Color(102, 102, 102));
+        Employee_Panel.setBackground(new java.awt.Color(84, 130, 171));
         Employee_Panel.setPreferredSize(new java.awt.Dimension(152, 134));
         Employee_Panel.setRoundBottomLeft(500);
         Employee_Panel.setRoundBottomRight(80);
@@ -143,12 +144,12 @@ public class MenuAdmin extends javax.swing.JFrame {
         emp_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/cracha.png"))); // NOI18N
 
         emp_title1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        emp_title1.setForeground(new java.awt.Color(255, 255, 255));
+        emp_title1.setForeground(new java.awt.Color(0, 0, 0));
         emp_title1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         emp_title1.setText("GERIR");
 
-        emp_title2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        emp_title2.setForeground(new java.awt.Color(255, 255, 255));
+        emp_title2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        emp_title2.setForeground(new java.awt.Color(0, 0, 0));
         emp_title2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         emp_title2.setText("FUNCIONÁRIO");
 
@@ -159,8 +160,10 @@ public class MenuAdmin extends javax.swing.JFrame {
             .addGroup(Employee_PanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(Employee_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(emp_title2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(emp_title1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(emp_title1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(Employee_PanelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(emp_title2, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
             .addGroup(Employee_PanelLayout.createSequentialGroup()
                 .addGap(45, 45, 45)
@@ -176,10 +179,10 @@ public class MenuAdmin extends javax.swing.JFrame {
                 .addComponent(emp_title1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(emp_title2)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
-        Storage_Panel.setBackground(new java.awt.Color(102, 102, 102));
+        Storage_Panel.setBackground(new java.awt.Color(84, 130, 171));
         Storage_Panel.setPreferredSize(new java.awt.Dimension(152, 134));
         Storage_Panel.setRoundBottomLeft(60);
         Storage_Panel.setRoundBottomRight(300);
@@ -200,7 +203,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         storage_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/estoque-60.png"))); // NOI18N
 
         storage_title.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        storage_title.setForeground(new java.awt.Color(255, 255, 255));
+        storage_title.setForeground(new java.awt.Color(0, 0, 0));
         storage_title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         storage_title.setText("ESTOQUE");
 
