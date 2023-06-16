@@ -17,21 +17,21 @@ public class TableCellDeleteActionRenderer extends DefaultTableCellRenderer {
         
         //Cor de célula não selecionada, linha alternada (linhas pares)
         if(isSelected == false && row % 2 != 0) {
-            act.setBackground(new Color(150, 150, 150));
+            act.setBackground(new Color(225, 225, 225));
         } else {
             //Cor de linha quando selecionada
             if (row % 2 != 0){
-                act.setBackground(new Color(29, 86, 127));
+                act.setBackground(new Color(115, 162, 239));
             }
         }
         
         //Cor de célular não selecionada, linha alternada (linhas impares)
         if (isSelected == false && row % 2 == 0) {
-            act.setBackground(new Color(100, 100, 100));                
+            act.setBackground(new Color(238, 238, 238));
         } else {
             //Cor de linha quando selecionada
             if (row % 2 == 0) {
-                act.setBackground(new Color(33, 103, 153));
+                act.setBackground(new Color(84, 130, 171));
             }
         }
         

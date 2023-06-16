@@ -3,6 +3,7 @@ package com.pdvtech.view.component.util;
 
 import com.pdvtech.model.TableActionEvent;
 import com.pdvtech.view.use.PanelActionDelete;
+
 import java.awt.Component;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JCheckBox;
