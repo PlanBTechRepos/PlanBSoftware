@@ -45,9 +45,11 @@ public class ActionButton extends JButton {
         
         //Alterações visuais: cor de clique nos botões de ação
         if (mousePressed) {
-            g2.setColor(new Color(51, 51, 51));
+            //Cor do botão pressionado
+            g2.setColor(new Color(126, 172, 247));
         } else {
-            g2.setColor(new Color(153, 153, 153));
+            //Cor padrão, botão solto
+            g2.setColor(new Color(215, 215, 215));
         }
         
         g2.fill(new Ellipse2D.Double(x, y, size, size));

@@ -89,10 +89,13 @@ public class EditEmployee_Dialog extends javax.swing.JDialog {
         input_position = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setAlwaysOnTop(true);
+        setUndecorated(true);
 
-        Register_Panel.setBackground(new java.awt.Color(153, 153, 153));
+        Register_Panel.setBackground(new java.awt.Color(238, 238, 238));
+        Register_Panel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
 
-        Account_Panel.setBackground(new java.awt.Color(80, 80, 80));
+        Account_Panel.setBackground(new java.awt.Color(84, 130, 171));
         Account_Panel.setRoundBottomLeft(500);
         Account_Panel.setRoundTopLeft(150);
         Account_Panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -117,13 +120,13 @@ public class EditEmployee_Dialog extends javax.swing.JDialog {
         separator2.setForeground(new java.awt.Color(255, 255, 255));
         Account_Panel.add(separator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 181, 190, 10));
 
-        input_pass.setBackground(new java.awt.Color(80, 80, 80));
+        input_pass.setBackground(new java.awt.Color(84, 130, 171));
         input_pass.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         input_pass.setForeground(new java.awt.Color(255, 255, 255));
         input_pass.setBorder(null);
         Account_Panel.add(input_pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(81, 141, 184, 40));
 
-        input_confirmPass.setBackground(new java.awt.Color(80, 80, 80));
+        input_confirmPass.setBackground(new java.awt.Color(84, 130, 171));
         input_confirmPass.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         input_confirmPass.setForeground(new java.awt.Color(255, 255, 255));
         input_confirmPass.setBorder(null);
@@ -137,10 +140,11 @@ public class EditEmployee_Dialog extends javax.swing.JDialog {
         btn_register.setBorder(null);
         btn_register.setForeground(new java.awt.Color(255, 255, 255));
         btn_register.setText("Alterar");
-        btn_register.setBorderColor(new java.awt.Color(51, 51, 51));
+        btn_register.setBorderColor(new java.awt.Color(84, 130, 171));
         btn_register.setColor(new java.awt.Color(51, 51, 51));
         btn_register.setColorClick(new java.awt.Color(51, 51, 51));
         btn_register.setColorOver(new java.awt.Color(115, 162, 239));
+        btn_register.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btn_register.setRadius(20);
         btn_register.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -178,25 +182,27 @@ public class EditEmployee_Dialog extends javax.swing.JDialog {
         print_user.setText("user123_example");
         Account_Panel.add(print_user, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, 180, 40));
 
+        lbl_name.setBackground(new java.awt.Color(238, 238, 238));
         lbl_name.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lbl_name.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_name.setForeground(new java.awt.Color(68, 68, 68));
         lbl_name.setText("Nome");
 
-        input_name.setForeground(new java.awt.Color(255, 255, 255));
+        input_name.setForeground(new java.awt.Color(0, 0, 0));
         input_name.setRound(8);
 
+        lbl_lastName.setBackground(new java.awt.Color(238, 238, 238));
         lbl_lastName.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lbl_lastName.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_lastName.setForeground(new java.awt.Color(68, 68, 68));
         lbl_lastName.setText("Sobrenome");
 
-        input_lastName.setForeground(new java.awt.Color(255, 255, 255));
+        input_lastName.setForeground(new java.awt.Color(0, 0, 0));
         input_lastName.setRound(8);
 
         lbl_position.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lbl_position.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_position.setForeground(new java.awt.Color(68, 68, 68));
         lbl_position.setText("Cargo");
 
-        input_position.setBackground(new java.awt.Color(80, 80, 80));
+        input_position.setBackground(new java.awt.Color(51, 51, 51));
         input_position.setForeground(new java.awt.Color(255, 255, 255));
         input_position.setModel(new DefaultComboBoxModel<String>(getCargos().toArray(new String[0])));
         input_position.setBorder(null);
@@ -214,12 +220,12 @@ public class EditEmployee_Dialog extends javax.swing.JDialog {
                     .addComponent(input_name, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbl_position)
                     .addComponent(input_position, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addComponent(Account_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         Register_PanelLayout.setVerticalGroup(
             Register_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Account_Panel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE)
+            .addComponent(Account_Panel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE)
             .addGroup(Register_PanelLayout.createSequentialGroup()
                 .addGap(38, 38, 38)
                 .addComponent(lbl_name)
@@ -233,7 +239,7 @@ public class EditEmployee_Dialog extends javax.swing.JDialog {
                 .addComponent(lbl_position)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(input_position, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 150, Short.MAX_VALUE))
+                .addGap(27, 148, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -248,6 +254,7 @@ public class EditEmployee_Dialog extends javax.swing.JDialog {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_registerActionPerformed

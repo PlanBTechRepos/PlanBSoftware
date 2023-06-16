@@ -2,6 +2,7 @@
 package com.pdvtech.view.component;
 
 import com.pdvtech.view.component.util.TextFieldSuggestionUI;
+import javax.swing.BorderFactory;
 
 import javax.swing.JTextField;
 
@@ -12,6 +13,9 @@ public class customTextField extends JTextField {
     public customTextField() {
         textUI = new TextFieldSuggestionUI(this);
         setUI(textUI);
+        setBorder(BorderFactory.createCompoundBorder(
+                this.getBorder(), 
+                BorderFactory.createEmptyBorder(0, 15, 0, 0)));
     }
 
     public void addItemSuggestion(String text) {

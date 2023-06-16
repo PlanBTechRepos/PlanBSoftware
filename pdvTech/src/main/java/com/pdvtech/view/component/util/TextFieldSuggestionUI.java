@@ -34,13 +34,13 @@ public class TextFieldSuggestionUI extends MetalTextFieldUI {
         textfield.addFocusListener(new FocusAdapter() { 
             @Override
             public void focusGained(FocusEvent fe) {
-                border.setColor(new Color(75, 110, 175));
+                border.setColor(new Color(115, 162, 239));
                 textfield.repaint();
             }
 
             @Override
             public void focusLost(FocusEvent fe) {
-                border.setColor(new Color(75, 110, 175));
+                border.setColor(new Color(68, 68, 68));
                 textfield.repaint();
             }
         });
@@ -77,7 +77,7 @@ public class TextFieldSuggestionUI extends MetalTextFieldUI {
 
     private class Border extends EmptyBorder {
         
-        private Color focusColor = new Color(60, 63, 62);
+        private Color focusColor = new Color(115, 162, 239);
         private Color color = new Color(61, 61, 61);
         private int round;
 
