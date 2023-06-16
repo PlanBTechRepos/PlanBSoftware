@@ -24,9 +24,6 @@ public class Order extends javax.swing.JFrame {
         btnMinimize = new javax.swing.JLabel();
         btnMaximize = new javax.swing.JLabel();
         btnExit = new javax.swing.JLabel();
-        Search_Panel = new com.pdvtech.view.component.customPanel();
-        btnSearch = new com.pdvtech.view.component.customButton();
-        input_Search = new com.pdvtech.view.component.customTextField();
         Scrollpane_Table = new javax.swing.JScrollPane();
         Product_Table = new com.pdvtech.view.component.customTable();
         Ordering_Panel = new com.pdvtech.view.component.customPanel();
@@ -54,7 +51,7 @@ public class Order extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(1000, 600));
         setUndecorated(true);
 
-        Order_Panel.setBackground(new java.awt.Color(153, 153, 153));
+        Order_Panel.setBackground(new java.awt.Color(238, 238, 238));
 
         btnReturn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/voltar.png"))); // NOI18N
         btnReturn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -64,6 +61,7 @@ public class Order extends javax.swing.JFrame {
         });
 
         pageLocation_Name.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        pageLocation_Name.setForeground(new java.awt.Color(68, 68, 68));
         pageLocation_Name.setText("PEDIDOS");
 
         btnMinimize.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/minimizar.png"))); // NOI18N
@@ -87,46 +85,12 @@ public class Order extends javax.swing.JFrame {
             }
         });
 
-        Search_Panel.setBackground(new java.awt.Color(80, 80, 80));
-
-        btnSearch.setBackground(new java.awt.Color(153, 153, 153));
-        btnSearch.setBorder(null);
-        btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/pesquisa.png"))); // NOI18N
-        btnSearch.setBorderColor(new java.awt.Color(80, 80, 80));
-        btnSearch.setColor(new java.awt.Color(153, 153, 153));
-        btnSearch.setColorClick(new java.awt.Color(153, 153, 153));
-        btnSearch.setColorOver(new java.awt.Color(115, 162, 239));
-
-        input_Search.setBackground(new java.awt.Color(153, 153, 153));
-        input_Search.setForeground(new java.awt.Color(255, 255, 255));
-        input_Search.setText("Pesquisar");
-        input_Search.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-
-        javax.swing.GroupLayout Search_PanelLayout = new javax.swing.GroupLayout(Search_Panel);
-        Search_Panel.setLayout(Search_PanelLayout);
-        Search_PanelLayout.setHorizontalGroup(
-            Search_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Search_PanelLayout.createSequentialGroup()
-                .addGap(54, 54, 54)
-                .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(input_Search, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        Search_PanelLayout.setVerticalGroup(
-            Search_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Search_PanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(Search_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
-                    .addComponent(input_Search, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-
+        Product_Table.setBackground(new java.awt.Color(238, 238, 238));
         Product_Table.setModel(OrderController.listarOrder());
+        Product_Table.setGridColor(new java.awt.Color(210, 210, 210));
         Scrollpane_Table.setViewportView(Product_Table);
 
-        Ordering_Panel.setBackground(new java.awt.Color(120, 120, 120));
+        Ordering_Panel.setBackground(new java.awt.Color(84, 130, 171));
         Ordering_Panel.setRoundBottomLeft(10);
         Ordering_Panel.setRoundBottomRight(10);
         Ordering_Panel.setRoundTopLeft(10);
@@ -137,12 +101,14 @@ public class Order extends javax.swing.JFrame {
 
         cart_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/carrinho-32.png"))); // NOI18N
 
+        OrderData_Panel.setBackground(new java.awt.Color(238, 238, 238));
         OrderData_Panel.setRoundBottomLeft(100);
         OrderData_Panel.setRoundBottomRight(100);
         OrderData_Panel.setRoundTopLeft(100);
         OrderData_Panel.setRoundTopRight(100);
 
         numOrder.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        numOrder.setForeground(new java.awt.Color(115, 162, 239));
         numOrder.setText("50");
         numOrder.setToolTipText("");
 
@@ -163,20 +129,24 @@ public class Order extends javax.swing.JFrame {
                 .addContainerGap(7, Short.MAX_VALUE))
         );
 
+        Ordering_Title.setBackground(new java.awt.Color(68, 68, 68));
         Ordering_Title.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        Ordering_Title.setForeground(new java.awt.Color(51, 51, 51));
         Ordering_Title.setText("Informações do pedido");
+        Ordering_Title.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         lbl_NumOrder.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         lbl_NumOrder.setForeground(new java.awt.Color(255, 255, 255));
         lbl_NumOrder.setText("Número do pedido");
 
-        area_NumOrder.setBackground(new java.awt.Color(140, 140, 140));
+        area_NumOrder.setBackground(new java.awt.Color(115, 162, 239));
         area_NumOrder.setRoundBottomLeft(10);
         area_NumOrder.setRoundBottomRight(10);
         area_NumOrder.setRoundTopLeft(10);
         area_NumOrder.setRoundTopRight(10);
 
         print_numOrder.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        print_numOrder.setForeground(new java.awt.Color(255, 255, 255));
         print_numOrder.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         print_numOrder.setText("0000");
 
@@ -201,7 +171,7 @@ public class Order extends javax.swing.JFrame {
         lbl_ClientName.setForeground(new java.awt.Color(255, 255, 255));
         lbl_ClientName.setText("Nome do cliente");
 
-        input_ClientName.setText("Fulano");
+        input_ClientName.setForeground(new java.awt.Color(255, 255, 255));
         input_ClientName.setToolTipText("");
         input_ClientName.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         input_ClientName.setRound(10);
@@ -209,8 +179,8 @@ public class Order extends javax.swing.JFrame {
         btn_InsertOrder.setBackground(new java.awt.Color(51, 51, 51));
         btn_InsertOrder.setBorder(null);
         btn_InsertOrder.setForeground(new java.awt.Color(255, 255, 255));
-        btn_InsertOrder.setText("INSERIR PEDIDO");
-        btn_InsertOrder.setBorderColor(new java.awt.Color(120, 120, 120));
+        btn_InsertOrder.setText("Inserir Pedido");
+        btn_InsertOrder.setBorderColor(new java.awt.Color(84, 130, 171));
         btn_InsertOrder.setColor(new java.awt.Color(51, 51, 51));
         btn_InsertOrder.setColorClick(new java.awt.Color(51, 51, 51));
         btn_InsertOrder.setColorOver(new java.awt.Color(115, 162, 239));
@@ -228,8 +198,8 @@ public class Order extends javax.swing.JFrame {
         btn_DeleteOrder.setBackground(new java.awt.Color(51, 51, 51));
         btn_DeleteOrder.setBorder(null);
         btn_DeleteOrder.setForeground(new java.awt.Color(255, 255, 255));
-        btn_DeleteOrder.setText("CANCELAR PEDIDO");
-        btn_DeleteOrder.setBorderColor(new java.awt.Color(120, 120, 120));
+        btn_DeleteOrder.setText("Cancelar Pedido");
+        btn_DeleteOrder.setBorderColor(new java.awt.Color(84, 130, 171));
         btn_DeleteOrder.setColor(new java.awt.Color(51, 51, 51));
         btn_DeleteOrder.setColorClick(new java.awt.Color(51, 51, 51));
         btn_DeleteOrder.setColorOver(new java.awt.Color(115, 162, 239));
@@ -249,13 +219,14 @@ public class Order extends javax.swing.JFrame {
         lbl_ValueOrder.setForeground(new java.awt.Color(255, 255, 255));
         lbl_ValueOrder.setText("Valor do pedido");
 
-        area_ValueOrder.setBackground(new java.awt.Color(140, 140, 140));
+        area_ValueOrder.setBackground(new java.awt.Color(115, 162, 239));
         area_ValueOrder.setRoundBottomLeft(10);
         area_ValueOrder.setRoundBottomRight(10);
         area_ValueOrder.setRoundTopLeft(10);
         area_ValueOrder.setRoundTopRight(10);
 
         print_OrderPrice.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        print_OrderPrice.setForeground(new java.awt.Color(255, 255, 255));
         print_OrderPrice.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         print_OrderPrice.setText("R$ 000,00");
 
@@ -280,7 +251,7 @@ public class Order extends javax.swing.JFrame {
         btn_seeCart.setBorder(null);
         btn_seeCart.setForeground(new java.awt.Color(255, 255, 255));
         btn_seeCart.setText("VER CARRINHO");
-        btn_seeCart.setBorderColor(new java.awt.Color(120, 120, 120));
+        btn_seeCart.setBorderColor(new java.awt.Color(84, 130, 171));
         btn_seeCart.setColor(new java.awt.Color(51, 51, 51));
         btn_seeCart.setColorClick(new java.awt.Color(51, 51, 51));
         btn_seeCart.setColorOver(new java.awt.Color(115, 162, 239));
@@ -302,29 +273,29 @@ public class Order extends javax.swing.JFrame {
             .addGroup(Ordering_PanelLayout.createSequentialGroup()
                 .addGroup(Ordering_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Ordering_PanelLayout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(Ordering_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(Ordering_PanelLayout.createSequentialGroup()
-                                .addGap(8, 8, 8)
-                                .addComponent(cart_img)
-                                .addGap(0, 0, 0)
-                                .addComponent(OrderData_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Ordering_Title))
+                            .addComponent(separator1)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Ordering_PanelLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(separator2, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(Ordering_PanelLayout.createSequentialGroup()
+                        .addGroup(Ordering_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(Ordering_PanelLayout.createSequentialGroup()
                                 .addGap(59, 59, 59)
                                 .addGroup(Ordering_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(lbl_ClientName)
                                     .addComponent(lbl_NumOrder)
                                     .addComponent(area_NumOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(input_ClientName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(Ordering_PanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(Ordering_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(separator1)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Ordering_PanelLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(separator2, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(input_ClientName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(Ordering_PanelLayout.createSequentialGroup()
+                                .addGap(8, 8, 8)
+                                .addComponent(cart_img)
+                                .addGap(0, 0, 0)
+                                .addComponent(OrderData_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(Ordering_Title)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Ordering_PanelLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -347,14 +318,13 @@ public class Order extends javax.swing.JFrame {
             Ordering_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Ordering_PanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(Ordering_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Ordering_Title)
-                    .addGroup(Ordering_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(Ordering_PanelLayout.createSequentialGroup()
-                            .addGap(19, 19, 19)
-                            .addComponent(cart_img))
-                        .addComponent(OrderData_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(Ordering_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Ordering_PanelLayout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(cart_img))
+                    .addComponent(OrderData_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Ordering_Title, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(separator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lbl_NumOrder)
@@ -364,32 +334,33 @@ public class Order extends javax.swing.JFrame {
                 .addComponent(lbl_ClientName)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(input_ClientName, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addComponent(btn_InsertOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_DeleteOrder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(separator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addComponent(lbl_ValueOrder)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(area_ValueOrder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, Short.MAX_VALUE)
                 .addComponent(btn_seeCart, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(10, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         btn_InsertOrder.getAccessibleContext().setAccessibleName("INSERIR ");
 
-        btnAdd_to_Ordering.setBackground(new java.awt.Color(80, 80, 80));
+        btnAdd_to_Ordering.setBackground(new java.awt.Color(51, 51, 51));
         btnAdd_to_Ordering.setBorder(null);
+        btnAdd_to_Ordering.setForeground(new java.awt.Color(255, 255, 255));
         btnAdd_to_Ordering.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/duplo-direita-branco.png"))); // NOI18N
-        btnAdd_to_Ordering.setBorderColor(new java.awt.Color(153, 153, 153));
-        btnAdd_to_Ordering.setColor(new java.awt.Color(80, 80, 80));
-        btnAdd_to_Ordering.setColorClick(new java.awt.Color(80, 80, 80));
+        btnAdd_to_Ordering.setBorderColor(new java.awt.Color(238, 238, 238));
+        btnAdd_to_Ordering.setColor(new java.awt.Color(51, 51, 51));
+        btnAdd_to_Ordering.setColorClick(new java.awt.Color(51, 51, 51));
         btnAdd_to_Ordering.setColorOver(new java.awt.Color(115, 162, 239));
         btnAdd_to_Ordering.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnAdd_to_Ordering.setRadius(15);
+        btnAdd_to_Ordering.setRadius(12);
         btnAdd_to_Ordering.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAdd_to_OrderingActionPerformed(evt);
@@ -414,12 +385,10 @@ public class Order extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnExit))
                     .addGroup(Order_PanelLayout.createSequentialGroup()
-                        .addGroup(Order_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(Search_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Scrollpane_Table, javax.swing.GroupLayout.DEFAULT_SIZE, 620, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addComponent(btnAdd_to_Ordering, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
+                        .addComponent(Scrollpane_Table, javax.swing.GroupLayout.DEFAULT_SIZE, 620, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnAdd_to_Ordering, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(Ordering_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -433,19 +402,17 @@ public class Order extends javax.swing.JFrame {
                     .addComponent(btnMaximize, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(pageLocation_Name, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
                 .addGroup(Order_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Ordering_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(Order_PanelLayout.createSequentialGroup()
-                        .addComponent(Search_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(30, 30, 30)
                         .addGroup(Order_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Scrollpane_Table)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Order_PanelLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(btnAdd_to_Ordering, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addContainerGap())
+                            .addComponent(Ordering_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Scrollpane_Table, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Order_PanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnAdd_to_Ordering, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(184, 184, 184))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -519,7 +486,6 @@ public class Order extends javax.swing.JFrame {
     private javax.swing.JLabel Ordering_Title;
     private static com.pdvtech.view.component.customTable Product_Table;
     private javax.swing.JScrollPane Scrollpane_Table;
-    private com.pdvtech.view.component.customPanel Search_Panel;
     private com.pdvtech.view.component.customPanel area_NumOrder;
     private com.pdvtech.view.component.customPanel area_ValueOrder;
     private com.pdvtech.view.component.customButton btnAdd_to_Ordering;
@@ -527,13 +493,11 @@ public class Order extends javax.swing.JFrame {
     private javax.swing.JLabel btnMaximize;
     private javax.swing.JLabel btnMinimize;
     private javax.swing.JLabel btnReturn;
-    private com.pdvtech.view.component.customButton btnSearch;
     private com.pdvtech.view.component.customButton btn_DeleteOrder;
     private com.pdvtech.view.component.customButton btn_InsertOrder;
     private com.pdvtech.view.component.customButton btn_seeCart;
     private javax.swing.JLabel cart_img;
     private com.pdvtech.view.component.customTextField input_ClientName;
-    private com.pdvtech.view.component.customTextField input_Search;
     private javax.swing.JLabel lbl_ClientName;
     private javax.swing.JLabel lbl_NumOrder;
     private javax.swing.JLabel lbl_ValueOrder;

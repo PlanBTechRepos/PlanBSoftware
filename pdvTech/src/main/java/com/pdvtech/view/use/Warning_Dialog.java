@@ -31,9 +31,10 @@ public class Warning_Dialog extends javax.swing.JDialog {
         setMinimumSize(new java.awt.Dimension(510, 150));
         setUndecorated(true);
 
-        Warning_Panel.setBackground(new java.awt.Color(90, 90, 90));
+        Warning_Panel.setBackground(new java.awt.Color(238, 238, 238));
+        Warning_Panel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
 
-        btnConfirm.setBackground(new java.awt.Color(153, 153, 153));
+        btnConfirm.setBackground(new java.awt.Color(84, 130, 171));
         btnConfirm.setMaximumSize(new java.awt.Dimension(70, 60));
         btnConfirm.setMinimumSize(new java.awt.Dimension(70, 60));
         btnConfirm.setName(""); // NOI18N
@@ -72,19 +73,26 @@ public class Warning_Dialog extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        Warning_Type.setBackground(new java.awt.Color(51, 51, 51));
         Warning_Type.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
-        Warning_Type.setForeground(new java.awt.Color(255, 255, 255));
+        Warning_Type.setForeground(new java.awt.Color(115, 162, 239));
         Warning_Type.setText("ERR");
 
+        print_ErrorType.setBackground(new java.awt.Color(255, 255, 255));
         print_ErrorType.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        print_ErrorType.setForeground(new java.awt.Color(68, 68, 68));
         print_ErrorType.setText("Ex: Produto não adicionado");
 
-        separator.setForeground(new java.awt.Color(255, 255, 255));
+        separator.setForeground(new java.awt.Color(0, 0, 0));
 
+        print_ErrorDescription.setBackground(new java.awt.Color(238, 238, 238));
         print_ErrorDescription.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        print_ErrorDescription.setForeground(new java.awt.Color(0, 0, 0));
         print_ErrorDescription.setText("Produto tem informações necessárias para cadastro.");
 
+        print_ErrorSub_Description.setBackground(new java.awt.Color(238, 238, 238));
         print_ErrorSub_Description.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        print_ErrorSub_Description.setForeground(new java.awt.Color(0, 0, 0));
         print_ErrorSub_Description.setText("Por favor, verifique se preenchou os campos corretamente.");
 
         javax.swing.GroupLayout Warning_PanelLayout = new javax.swing.GroupLayout(Warning_Panel);
@@ -107,7 +115,7 @@ public class Warning_Dialog extends javax.swing.JDialog {
                                 .addGroup(Warning_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(print_ErrorDescription, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(print_ErrorSub_Description, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                                 .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(separator))))
                 .addContainerGap())
@@ -127,7 +135,7 @@ public class Warning_Dialog extends javax.swing.JDialog {
                         .addComponent(print_ErrorDescription)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(print_ErrorSub_Description)
-                        .addContainerGap(24, Short.MAX_VALUE))
+                        .addContainerGap(22, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Warning_PanelLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)

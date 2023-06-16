@@ -54,17 +54,19 @@ public class EditProduct_Dialog extends javax.swing.JDialog {
         setMinimumSize(new java.awt.Dimension(400, 500));
         setUndecorated(true);
 
-        EditProduct_Panel.setBackground(new java.awt.Color(153, 153, 153));
+        EditProduct_Panel.setBackground(new java.awt.Color(238, 238, 238));
+        EditProduct_Panel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
 
         btnCancel.setBackground(new java.awt.Color(51, 51, 51));
         btnCancel.setBorder(null);
         btnCancel.setForeground(new java.awt.Color(255, 255, 255));
         btnCancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/cancelar.png"))); // NOI18N
         btnCancel.setText("Cancelar");
-        btnCancel.setBorderColor(new java.awt.Color(51, 51, 51));
+        btnCancel.setBorderColor(new java.awt.Color(238, 238, 238));
         btnCancel.setColor(new java.awt.Color(51, 51, 51));
         btnCancel.setColorClick(new java.awt.Color(51, 51, 51));
         btnCancel.setColorOver(new java.awt.Color(115, 162, 239));
+        btnCancel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnCancel.setRadius(12);
         btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,10 +79,11 @@ public class EditProduct_Dialog extends javax.swing.JDialog {
         btnConfirm.setForeground(new java.awt.Color(255, 255, 255));
         btnConfirm.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/check.png"))); // NOI18N
         btnConfirm.setText("Confirmar");
-        btnConfirm.setBorderColor(new java.awt.Color(51, 51, 51));
+        btnConfirm.setBorderColor(new java.awt.Color(238, 238, 238));
         btnConfirm.setColor(new java.awt.Color(51, 51, 51));
         btnConfirm.setColorClick(new java.awt.Color(51, 51, 51));
         btnConfirm.setColorOver(new java.awt.Color(115, 162, 239));
+        btnConfirm.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnConfirm.setRadius(12);
         btnConfirm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,7 +91,7 @@ public class EditProduct_Dialog extends javax.swing.JDialog {
             }
         });
 
-        Menu_Panel.setBackground(new java.awt.Color(102, 102, 102));
+        Menu_Panel.setBackground(new java.awt.Color(84, 130, 171));
 
         Menu_Title.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         Menu_Title.setForeground(new java.awt.Color(255, 255, 255));
@@ -106,48 +109,53 @@ public class EditProduct_Dialog extends javax.swing.JDialog {
             .addComponent(Menu_Title, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
         );
 
+        lblDesc.setBackground(new java.awt.Color(68, 68, 68));
         lblDesc.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblDesc.setForeground(new java.awt.Color(255, 255, 255));
+        lblDesc.setForeground(new java.awt.Color(68, 68, 68));
         lblDesc.setText("Descrição");
 
-        input_description.setForeground(new java.awt.Color(255, 255, 255));
+        input_description.setForeground(new java.awt.Color(0, 0, 0));
         input_description.setToolTipText("");
         input_description.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         input_description.setRound(8);
 
+        lblQuantity.setBackground(new java.awt.Color(68, 68, 68));
         lblQuantity.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblQuantity.setForeground(new java.awt.Color(255, 255, 255));
+        lblQuantity.setForeground(new java.awt.Color(68, 68, 68));
         lblQuantity.setText("Quantidade");
 
-        input_quantity.setForeground(new java.awt.Color(255, 255, 255));
+        input_quantity.setForeground(new java.awt.Color(0, 0, 0));
         input_quantity.setToolTipText("");
         input_quantity.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         input_quantity.setRound(8);
 
-        input_validity.setForeground(new java.awt.Color(255, 255, 255));
+        input_validity.setForeground(new java.awt.Color(0, 0, 0));
         input_validity.setToolTipText("");
         input_validity.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         input_validity.setRound(8);
 
+        lblValidity.setBackground(new java.awt.Color(68, 68, 68));
         lblValidity.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblValidity.setForeground(new java.awt.Color(255, 255, 255));
+        lblValidity.setForeground(new java.awt.Color(68, 68, 68));
         lblValidity.setText("Vencimento");
 
+        lblPrice.setBackground(new java.awt.Color(68, 68, 68));
         lblPrice.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblPrice.setForeground(new java.awt.Color(255, 255, 255));
+        lblPrice.setForeground(new java.awt.Color(68, 68, 68));
         lblPrice.setText("Preço");
 
-        input_price.setForeground(new java.awt.Color(255, 255, 255));
+        input_price.setForeground(new java.awt.Color(0, 0, 0));
         input_price.setToolTipText("");
         input_price.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         input_price.setRound(8);
 
+        lbl_id.setBackground(new java.awt.Color(68, 68, 68));
         lbl_id.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lbl_id.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_id.setForeground(new java.awt.Color(68, 68, 68));
         lbl_id.setText("ID:");
 
-        print_id.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        print_id.setForeground(new java.awt.Color(255, 255, 255));
+        print_id.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        print_id.setForeground(new java.awt.Color(115, 162, 239));
         print_id.setText("0000");
 
         javax.swing.GroupLayout EditProduct_PanelLayout = new javax.swing.GroupLayout(EditProduct_Panel);
@@ -156,7 +164,7 @@ public class EditProduct_Dialog extends javax.swing.JDialog {
             EditProduct_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(Menu_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(EditProduct_PanelLayout.createSequentialGroup()
-                .addContainerGap(40, Short.MAX_VALUE)
+                .addContainerGap(39, Short.MAX_VALUE)
                 .addGroup(EditProduct_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblPrice)
                     .addGroup(EditProduct_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -183,7 +191,7 @@ public class EditProduct_Dialog extends javax.swing.JDialog {
                         .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(60, 60, 60)
                         .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         EditProduct_PanelLayout.setVerticalGroup(
             EditProduct_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -193,7 +201,7 @@ public class EditProduct_Dialog extends javax.swing.JDialog {
                 .addGroup(EditProduct_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_id)
                     .addComponent(print_id))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addComponent(lblDesc)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(input_description, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -211,10 +219,10 @@ public class EditProduct_Dialog extends javax.swing.JDialog {
                         .addComponent(lblValidity)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(input_validity, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addGroup(EditProduct_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20))
         );
 

@@ -43,17 +43,19 @@ public class AddProduct_Dialog extends javax.swing.JDialog {
         setMinimumSize(new java.awt.Dimension(400, 500));
         setUndecorated(true);
 
-        AddProduct_Panel.setBackground(new java.awt.Color(153, 153, 153));
+        AddProduct_Panel.setBackground(new java.awt.Color(238, 238, 238));
+        AddProduct_Panel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
 
         btnCancel.setBackground(new java.awt.Color(51, 51, 51));
         btnCancel.setBorder(null);
         btnCancel.setForeground(new java.awt.Color(255, 255, 255));
         btnCancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/cancelar.png"))); // NOI18N
         btnCancel.setText("Cancelar");
-        btnCancel.setBorderColor(new java.awt.Color(51, 51, 51));
+        btnCancel.setBorderColor(new java.awt.Color(238, 238, 238));
         btnCancel.setColor(new java.awt.Color(51, 51, 51));
         btnCancel.setColorClick(new java.awt.Color(51, 51, 51));
         btnCancel.setColorOver(new java.awt.Color(115, 162, 239));
+        btnCancel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnCancel.setRadius(12);
         btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,10 +68,11 @@ public class AddProduct_Dialog extends javax.swing.JDialog {
         btnConfirm.setForeground(new java.awt.Color(255, 255, 255));
         btnConfirm.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/check.png"))); // NOI18N
         btnConfirm.setText("Confirmar");
-        btnConfirm.setBorderColor(new java.awt.Color(51, 51, 51));
+        btnConfirm.setBorderColor(new java.awt.Color(238, 238, 238));
         btnConfirm.setColor(new java.awt.Color(51, 51, 51));
         btnConfirm.setColorClick(new java.awt.Color(51, 51, 51));
         btnConfirm.setColorOver(new java.awt.Color(115, 162, 239));
+        btnConfirm.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnConfirm.setRadius(12);
         btnConfirm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,7 +80,7 @@ public class AddProduct_Dialog extends javax.swing.JDialog {
             }
         });
 
-        Menu_Panel.setBackground(new java.awt.Color(102, 102, 102));
+        Menu_Panel.setBackground(new java.awt.Color(84, 130, 171));
 
         Menu_Title.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         Menu_Title.setForeground(new java.awt.Color(255, 255, 255));
@@ -96,38 +99,38 @@ public class AddProduct_Dialog extends javax.swing.JDialog {
         );
 
         lblDesc.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblDesc.setForeground(new java.awt.Color(255, 255, 255));
+        lblDesc.setForeground(new java.awt.Color(68, 68, 68));
         lblDesc.setText("Descrição");
 
-        input_description.setForeground(new java.awt.Color(255, 255, 255));
+        input_description.setForeground(new java.awt.Color(0, 0, 0));
         input_description.setToolTipText("");
         input_description.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         input_description.setRound(8);
 
         lblQuantity.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblQuantity.setForeground(new java.awt.Color(255, 255, 255));
+        lblQuantity.setForeground(new java.awt.Color(68, 68, 68));
         lblQuantity.setText("Quantidade");
 
-        input_quantity.setForeground(new java.awt.Color(255, 255, 255));
+        input_quantity.setForeground(new java.awt.Color(0, 0, 0));
         input_quantity.setToolTipText("");
         input_quantity.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         input_quantity.setRound(8);
 
-        input_validity.setForeground(new java.awt.Color(255, 255, 255));
+        input_validity.setForeground(new java.awt.Color(0, 0, 0));
         input_validity.setText("AAAA-MM-DD");
         input_validity.setToolTipText("");
         input_validity.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         input_validity.setRound(8);
 
         lblValidity.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblValidity.setForeground(new java.awt.Color(255, 255, 255));
+        lblValidity.setForeground(new java.awt.Color(68, 68, 68));
         lblValidity.setText("Vencimento");
 
         lblPrice.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblPrice.setForeground(new java.awt.Color(255, 255, 255));
+        lblPrice.setForeground(new java.awt.Color(68, 68, 68));
         lblPrice.setText("Preço");
 
-        input_price.setForeground(new java.awt.Color(255, 255, 255));
+        input_price.setForeground(new java.awt.Color(0, 0, 0));
         input_price.setToolTipText("");
         input_price.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         input_price.setRound(8);
@@ -142,8 +145,9 @@ public class AddProduct_Dialog extends javax.swing.JDialog {
             AddProduct_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(Menu_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(AddProduct_PanelLayout.createSequentialGroup()
-                .addContainerGap(40, Short.MAX_VALUE)
+                .addContainerGap(39, Short.MAX_VALUE)
                 .addGroup(AddProduct_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(error_Campos, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(AddProduct_PanelLayout.createSequentialGroup()
                         .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(60, 60, 60)
@@ -162,12 +166,7 @@ public class AddProduct_Dialog extends javax.swing.JDialog {
                         .addGroup(AddProduct_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblValidity)
                             .addComponent(input_validity, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(40, Short.MAX_VALUE))
-            .addGroup(AddProduct_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(AddProduct_PanelLayout.createSequentialGroup()
-                    .addGap(75, 75, 75)
-                    .addComponent(error_Campos, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(50, Short.MAX_VALUE)))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         AddProduct_PanelLayout.setVerticalGroup(
             AddProduct_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -191,16 +190,13 @@ public class AddProduct_Dialog extends javax.swing.JDialog {
                 .addComponent(lblPrice)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(input_price, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 18, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(error_Campos)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addGroup(AddProduct_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20))
-            .addGroup(AddProduct_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(AddProduct_PanelLayout.createSequentialGroup()
-                    .addGap(306, 306, 306)
-                    .addComponent(error_Campos, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
-                    .addGap(67, 67, 67)))
         );
 
         error_Campos.setVisible(false);
