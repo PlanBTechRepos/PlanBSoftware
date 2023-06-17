@@ -240,6 +240,7 @@ public class Storage extends javax.swing.JFrame {
     private void initTable() {
 
         Product_Table.fixTable(Scrollpane_Table);
+        Product_Table.setModel(EstoqueController.listaEstoque());
         TableActionEvent ev = new TableActionEvent() {
 
             @Override
