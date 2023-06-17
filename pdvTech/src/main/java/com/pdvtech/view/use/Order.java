@@ -10,6 +10,7 @@ public class Order extends javax.swing.JFrame {
 
     public Order() {
         initComponents();
+        setExtendedState(MAXIMIZED_BOTH);
         initTable();
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons/tech.png")));
     }
