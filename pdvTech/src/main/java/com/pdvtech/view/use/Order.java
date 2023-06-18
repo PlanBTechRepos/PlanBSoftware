@@ -1,9 +1,15 @@
 package com.pdvtech.view.use;
 
 import com.pdvtech.controller.OrderController;
+import com.pdvtech.controller.UsuarioController;
 import com.pdvtech.model.Usuario;
 import java.awt.Toolkit;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class Order extends javax.swing.JFrame {
@@ -89,6 +95,11 @@ public class Order extends javax.swing.JFrame {
         Product_Table.setBackground(new java.awt.Color(238, 238, 238));
         Product_Table.setModel(OrderController.listarOrder());
         Product_Table.setGridColor(new java.awt.Color(210, 210, 210));
+        Product_Table.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                Product_TableMousePressed(evt);
+            }
+        });
         Scrollpane_Table.setViewportView(Product_Table);
 
         Ordering_Panel.setBackground(new java.awt.Color(84, 130, 171));
@@ -110,7 +121,7 @@ public class Order extends javax.swing.JFrame {
 
         numOrder.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         numOrder.setForeground(new java.awt.Color(115, 162, 239));
-        numOrder.setText("50");
+        numOrder.setText("0");
         numOrder.setToolTipText("");
 
         javax.swing.GroupLayout OrderData_PanelLayout = new javax.swing.GroupLayout(OrderData_Panel);
@@ -431,9 +442,10 @@ public class Order extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    List<String> cartProd = new ArrayList<String>();
     private void btnReturnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReturnMouseClicked
         Usuario user = new Usuario();
-        if(user.getAdm()){
+        if (user.getAdm()) {
             MenuAdmin adm = new MenuAdmin();
             adm.requestFocus();
         } else {
@@ -456,11 +468,27 @@ public class Order extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExitMousePressed
 
     private void btnAdd_to_OrderingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd_to_OrderingActionPerformed
-        //TODO: ADICIONAR PIZZA AO CARRINHO, ATUALIZAR DADOS DE PEDIDO QUANDO CLICK
+        if (input_ClientName.getText().isBlank())
+            JOptionPane.showMessageDialog(rootPane, "Altere o nome do cliente");
+        else {
+            int row = Product_Table.getSelectedRow();
+            DefaultTableModel model = (DefaultTableModel) Product_Table.getModel();
+            cartProd.add((String) model.getValueAt(row, 0));
+            sumItems(Float.parseFloat((String) model.getValueAt(row, 1)));
+            model.removeRow(row);
+            numOrder.setText(String.valueOf(cartProd.size()));
+            System.out.println(cartProd);
+        }
     }//GEN-LAST:event_btnAdd_to_OrderingActionPerformed
 
     private void btn_InsertOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_InsertOrderActionPerformed
-        //TODO: INSERIR NUMERO DE PEDIDO E NOME DO CLIENTE AO PEDIDO
+        OrderController oc = new OrderController();
+        if (input_ClientName.getText().isBlank())
+            JOptionPane.showMessageDialog(rootPane, "Altere o nome do cliente");
+        else {
+            oc.setPedido(UsuarioController.user.getId(), input_ClientName.getText());
+            print_numOrder.setText(String.valueOf(oc.getPedido(UsuarioController.user.getId(), input_ClientName.getText())));
+        }
     }//GEN-LAST:event_btn_InsertOrderActionPerformed
 
     private void btn_DeleteOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_DeleteOrderActionPerformed
@@ -468,8 +496,21 @@ public class Order extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_DeleteOrderActionPerformed
 
     private void btn_seeCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_seeCartActionPerformed
-        //TODO: ABRIR CARRINHO DE COMPRAS DIALOG
+        Shopping_Cart sc = new Shopping_Cart(this, rootPaneCheckingEnabled);
+        sc.setVisible(true);
     }//GEN-LAST:event_btn_seeCartActionPerformed
+
+    private void Product_TableMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Product_TableMousePressed
+
+    }//GEN-LAST:event_Product_TableMousePressed
+
+    private void sumItems(float item) {
+        DecimalFormat df = new DecimalFormat("0.00");
+        double valor = Float.parseFloat(print_OrderPrice.getText().substring(3).replace(',', '.'));
+        double soma = valor + item;
+        String res = df.format(soma);
+        print_OrderPrice.setText("R$ " + res);
+    }
 
     public static void main(String args[]) {
 
@@ -515,10 +556,6 @@ public class Order extends javax.swing.JFrame {
         Product_Table.fixTable(Scrollpane_Table);
         DefaultTableModel model = (DefaultTableModel) Product_Table.getModel();
 
-        //TESTE: Dados teste na tabela
-        for (int i = 1; i <= 20; i++) {
-            model.addRow(new Object[]{"Teste", i});
-        }
     }
 
 }

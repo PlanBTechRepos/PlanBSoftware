@@ -143,13 +143,14 @@ DROP PROCEDURE IF EXISTS add_Carrinho;
 DELIMITER $
 CREATE PROCEDURE add_Carrinho(
 	ID INTEGER,
-	produto INTEGER,
+	produto VARCHAR(30),
     bordaI INTEGER,
     QTDP INTEGER
 )
 BEGIN
 		SET @valor = (SELECT valor FROM receita WHERE id_Receita = produto GROUP BY valor ORDER BY id_Ingrediente ASC);
-		INSERT INTO carrinho VALUES(ID, produto, @valor*QTDP, bordaI, QTDP);
+        SET @PRODID = (SELECT id_Receita FROM receita WHERE Nome_receita LIKE produto);
+		INSERT INTO carrinho VALUES(ID, @PRODID, @valor*QTDP, bordaI, QTDP);
 END$
 DELIMITER ;
 
