@@ -97,22 +97,6 @@ public class Storage extends javax.swing.JFrame {
         });
 
         Product_Table.setBackground(new java.awt.Color(238, 238, 238));
-        Product_Table.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Teste", "Mais um", ""
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, true
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
         Product_Table.setGridColor(new java.awt.Color(210, 210, 210));
         Scrollpane_Table.setViewportView(Product_Table);
         if (Product_Table.getColumnModel().getColumnCount() > 0) {
@@ -240,6 +224,7 @@ public class Storage extends javax.swing.JFrame {
     private void initTable() {
 
         Product_Table.fixTable(Scrollpane_Table);
+        Product_Table.setModel(EstoqueController.listaEstoque());
         TableActionEvent ev = new TableActionEvent() {
 
             @Override
