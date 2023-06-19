@@ -398,7 +398,9 @@ public class Shopping_Cart extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnReturnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReturnMouseClicked
-        //TODO: VOLTAR PÁGINA
+        this.dispose();
+        Order o = new Order();
+        o.requestFocus();
     }//GEN-LAST:event_btnReturnMouseClicked
 
     private void btn_CalculateChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CalculateChangeActionPerformed

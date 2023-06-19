@@ -42,11 +42,10 @@ CREATE TABLE IF NOT EXISTS carrinho(
     Borda INTEGER NOT NULL,
     Qtd INTEGER
 );
-
 CREATE TABLE IF NOT EXISTS pedido(
 	id_Pedido INTEGER PRIMARY KEY AUTO_INCREMENT,
     id_Funcionario INTEGER NOT NULL,
-    id_Carrinho INTEGER NOT NULL,
+    id_Carrinho INTEGER,
     Cliente VARCHAR(50),
     Observacao VARCHAR (100),
     Valor_Total DECIMAL(8,2),
