@@ -401,10 +401,7 @@ public class Shopping_Cart extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnReturnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReturnMouseClicked
-        this.dispose();
-        Order o = new Order();
-        
-        o.requestFocus();
+        Shopping_Cart.this.dispose();
     }//GEN-LAST:event_btnReturnMouseClicked
 
     private void btn_CalculateChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CalculateChangeActionPerformed
@@ -426,7 +423,10 @@ public class Shopping_Cart extends javax.swing.JDialog {
     }//GEN-LAST:event_btn_CalculateChangeActionPerformed
 
     private void btn_FinishOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_FinishOrderActionPerformed
-        //TODO: FINALIZAR PEDIDO
+        Shopping_Cart.this.dispose();
+        OrderController.pizzas.clear();
+        OrderController.values.clear();
+        
     }//GEN-LAST:event_btn_FinishOrderActionPerformed
 
     private void input_ValueReceivedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_ValueReceivedActionPerformed

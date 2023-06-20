@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class Order extends javax.swing.JFrame {
-
+       
         public Order() {
                 initComponents();
                 setExtendedState(MAXIMIZED_BOTH);
@@ -517,7 +517,9 @@ public class Order extends javax.swing.JFrame {
                 sc.addWindowListener(new WindowAdapter(){
                     @Override
                     public void windowClosed(WindowEvent ev){
-                        System.out.println("Fechado");
+                        
+                        Order.this.input_ClientName.setText(OrderController.cler());
+                        Order.this.print_OrderPrice.setText("R$" + OrderController.actualPrice());
                         Product_Table.setModel(OrderController.listarOrder());
                     }
                 });

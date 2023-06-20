@@ -23,6 +23,7 @@ public class OrderController {
     public static Pizza pizza = new Pizza();
     
     public static  DefaultTableModel cartTable(){
+        
         String columNames[] = {"Pizza", "Valor", "Opções"};
         DefaultTableModel model = new DefaultTableModel(columNames,0);
         
@@ -96,6 +97,10 @@ public class OrderController {
         }
         String soma = String.valueOf(calc).replace(".", ",");
         return soma;
+    }
+    
+    public static String cler(){
+        return "";
     }
 
 }

@@ -32,7 +32,7 @@ public class EditEmployee_Dialog extends javax.swing.JDialog {
                     + name[1] + "';";
             
            this.conn.executarSQL(query);
-           
+          
            while(this.conn.getResultSet().next()){
                this.input_name.setText(name[0]);
                this.input_lastName.setText(name[1]);
