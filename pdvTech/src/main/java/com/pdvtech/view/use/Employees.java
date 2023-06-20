@@ -277,10 +277,7 @@ public class Employees extends javax.swing.JFrame {
         
         //TESTE: Dados teste na tabela
 
-        for (int i = 1; i <= 5; i++) {
-            model.addRow(new Object[]{i, "Caixa", "Pessoa " + i});
 
-        }
     }
 }
 

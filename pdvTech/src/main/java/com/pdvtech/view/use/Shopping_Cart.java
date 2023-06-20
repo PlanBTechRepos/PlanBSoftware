@@ -1,16 +1,26 @@
 
 package com.pdvtech.view.use;
 
+import com.pdvtech.controller.OrderController;
 import com.pdvtech.model.TableActionEvent;
 import com.pdvtech.view.component.util.TableCellDeleteActionEditor;
 import com.pdvtech.view.component.util.TableCellDeleteActionRenderer;
 import java.awt.Toolkit;
+import java.text.DecimalFormat;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class Shopping_Cart extends javax.swing.JDialog {
-
+    public void setInfo(String nome){
+       String soma = OrderController.actualPrice();
+        this.print_ClientName.setText(nome);
+   
+        this.print_OrderPrice.setText("R$" + String.valueOf(soma));
+        
+    }
     public Shopping_Cart(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+         
         initComponents();
         initTable();
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons/tech.png")));
@@ -108,7 +118,6 @@ public class Shopping_Cart extends javax.swing.JDialog {
         area_Name.setRoundTopRight(10);
 
         print_ClientName.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        print_ClientName.setForeground(new java.awt.Color(0, 0, 0));
         print_ClientName.setText("Fulano");
 
         javax.swing.GroupLayout area_NameLayout = new javax.swing.GroupLayout(area_Name);
@@ -132,7 +141,6 @@ public class Shopping_Cart extends javax.swing.JDialog {
         area_NumOrder.setRoundTopRight(10);
 
         print_NumOrder.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        print_NumOrder.setForeground(new java.awt.Color(0, 0, 0));
         print_NumOrder.setText("0000");
 
         javax.swing.GroupLayout area_NumOrderLayout = new javax.swing.GroupLayout(area_NumOrder);
@@ -150,22 +158,6 @@ public class Shopping_Cart extends javax.swing.JDialog {
         );
 
         Product_Table.setBackground(new java.awt.Color(238, 238, 238));
-        Product_Table.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Pizza", "Borda", "Preço", ""
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, true, true, true
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
         Scrollpane_Table.setViewportView(Product_Table);
         if (Product_Table.getColumnModel().getColumnCount() > 0) {
             Product_Table.getColumnModel().getColumn(1).setMinWidth(80);
@@ -217,7 +209,6 @@ public class Shopping_Cart extends javax.swing.JDialog {
         lbl_ValueReceived.setForeground(new java.awt.Color(68, 68, 68));
         lbl_ValueReceived.setText("Valor recebido");
 
-        input_ValueReceived.setForeground(new java.awt.Color(0, 0, 0));
         input_ValueReceived.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         input_ValueReceived.setText("000,00");
         input_ValueReceived.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
@@ -225,6 +216,19 @@ public class Shopping_Cart extends javax.swing.JDialog {
         input_ValueReceived.setMinimumSize(new java.awt.Dimension(170, 40));
         input_ValueReceived.setPreferredSize(new java.awt.Dimension(170, 40));
         input_ValueReceived.setRound(8);
+        input_ValueReceived.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                input_ValueReceivedFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                input_ValueReceivedFocusLost(evt);
+            }
+        });
+        input_ValueReceived.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                input_ValueReceivedActionPerformed(evt);
+            }
+        });
 
         btn_CalculateChange.setBackground(new java.awt.Color(51, 51, 51));
         btn_CalculateChange.setBorder(null);
@@ -259,7 +263,6 @@ public class Shopping_Cart extends javax.swing.JDialog {
         area_Change.setRoundTopRight(10);
 
         print_Change.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        print_Change.setForeground(new java.awt.Color(0, 0, 0));
         print_Change.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         print_Change.setText("R$ 000,00");
 
@@ -400,16 +403,46 @@ public class Shopping_Cart extends javax.swing.JDialog {
     private void btnReturnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReturnMouseClicked
         this.dispose();
         Order o = new Order();
+        
         o.requestFocus();
     }//GEN-LAST:event_btnReturnMouseClicked
 
     private void btn_CalculateChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CalculateChangeActionPerformed
         //TODO: CALCULAR TROCO DO PEDIDO
+        
+        if(Float.parseFloat(this.print_OrderPrice.getText().replace(",", ".").substring(2)) > Float.parseFloat(this.input_ValueReceived.getText())){
+            JOptionPane.showMessageDialog(Cart_Panel, "Valor insuficiente");
+        }
+        else{
+            DecimalFormat df = new DecimalFormat("0.00");
+            String change = df.format(
+                    (Double.parseDouble(this.print_OrderPrice.getText().replace(",", ".").substring(2) )- 
+                            Double.parseDouble(this.input_ValueReceived.getText()))
+                    * (-1)
+                    );
+            change.replace(".", ",");
+            this.print_Change.setText("R$ "+ change);
+        }
     }//GEN-LAST:event_btn_CalculateChangeActionPerformed
 
     private void btn_FinishOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_FinishOrderActionPerformed
         //TODO: FINALIZAR PEDIDO
     }//GEN-LAST:event_btn_FinishOrderActionPerformed
+
+    private void input_ValueReceivedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_ValueReceivedActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_input_ValueReceivedActionPerformed
+
+    private void input_ValueReceivedFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_input_ValueReceivedFocusGained
+        this.input_ValueReceived.setText("");
+    }//GEN-LAST:event_input_ValueReceivedFocusGained
+
+    private void input_ValueReceivedFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_input_ValueReceivedFocusLost
+        // TODO add your handling code here:
+        if(this.input_ValueReceived.getText().isBlank()){
+            this.input_ValueReceived.setText("000,00");
+        }
+    }//GEN-LAST:event_input_ValueReceivedFocusLost
 
     public static void main(String args[]) {
 
@@ -430,7 +463,7 @@ public class Shopping_Cart extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Cart_Panel;
     private com.pdvtech.view.component.customPanel Menu_Panel;
-    private com.pdvtech.view.component.customTable Product_Table;
+    private static com.pdvtech.view.component.customTable Product_Table;
     private javax.swing.JScrollPane Scrollpane_Table;
     private com.pdvtech.view.component.customPanel area_Change;
     private com.pdvtech.view.component.customPanel area_Name;
@@ -456,10 +489,10 @@ public class Shopping_Cart extends javax.swing.JDialog {
     // End of variables declaration//GEN-END:variables
 
     private void initTable() {
-        
+         
         Product_Table.fixTable(Scrollpane_Table);
         DefaultTableModel model = (DefaultTableModel) Product_Table.getModel();
-        
+        Product_Table.setModel(OrderController.cartTable());
         TableActionEvent ev = new TableActionEvent() {
             @Override
             public void onDelete(int row) {
@@ -472,6 +505,9 @@ public class Shopping_Cart extends javax.swing.JDialog {
                 m.removeRow(row);
                 
                 //TODO: MÉTODO 'DELETE' PRODUTO
+                OrderController.pizzas.remove(row);
+                OrderController.values.remove(row);
+                Shopping_Cart.this.print_OrderPrice.setText("R$" + OrderController.actualPrice());
             }
 
             @Override
@@ -479,13 +515,11 @@ public class Shopping_Cart extends javax.swing.JDialog {
             
         };
         
-        Product_Table.getColumnModel().getColumn(3).setCellRenderer(new TableCellDeleteActionRenderer());
-        Product_Table.getColumnModel().getColumn(3).setCellEditor(new TableCellDeleteActionEditor(ev));
+        Product_Table.getColumnModel().getColumn(2).setCellRenderer(new TableCellDeleteActionRenderer());
+        Product_Table.getColumnModel().getColumn(2).setCellEditor(new TableCellDeleteActionEditor(ev));
          
         
         //TESTE: Dados teste na tabela
-        for (int i = 1; i <= 20; i++) {
-            model.addRow(new Object[] {"Teste", true, i});
-        }
+       
     }
 }

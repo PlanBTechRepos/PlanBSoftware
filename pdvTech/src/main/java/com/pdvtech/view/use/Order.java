@@ -1,9 +1,11 @@
 package com.pdvtech.view.use;
 
 import com.pdvtech.controller.OrderController;
-import com.pdvtech.controller.UsuarioController;
 import com.pdvtech.model.Usuario;
+import com.pdvtech.controller.UsuarioController;
 import java.awt.Toolkit;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -14,14 +16,15 @@ import javax.swing.table.DefaultTableModel;
 
 public class Order extends javax.swing.JFrame {
 
-    public Order() {
-        initComponents();
-        setExtendedState(MAXIMIZED_BOTH);
-        initTable();
-        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons/tech.png")));
-    }
+        public Order() {
+                initComponents();
+                setExtendedState(MAXIMIZED_BOTH);
+                initTable();
+                setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons/tech.png")));
+        }
 
-    @SuppressWarnings("unchecked")
+        @SuppressWarnings("unchecked")
+        // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -295,11 +298,13 @@ public class Order extends javax.swing.JFrame {
                         .addGroup(Ordering_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(Ordering_PanelLayout.createSequentialGroup()
                                 .addGap(59, 59, 59)
-                                .addGroup(Ordering_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(Ordering_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lbl_ClientName)
                                     .addComponent(lbl_NumOrder)
-                                    .addComponent(area_NumOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(input_ClientName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(area_NumOrder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(Ordering_PanelLayout.createSequentialGroup()
+                                        .addGap(6, 6, 6)
+                                        .addComponent(input_ClientName, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(Ordering_PanelLayout.createSequentialGroup()
                                 .addGap(8, 8, 8)
                                 .addComponent(cart_img)
@@ -344,9 +349,9 @@ public class Order extends javax.swing.JFrame {
                 .addComponent(area_NumOrder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(11, 11, 11)
                 .addComponent(lbl_ClientName)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(input_ClientName, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                 .addComponent(btn_InsertOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_DeleteOrder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -442,84 +447,103 @@ public class Order extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    List<String> cartProd = new ArrayList<String>();
-    private void btnReturnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReturnMouseClicked
-        Usuario user = new Usuario();
-        if (user.getAdm()) {
-            MenuAdmin adm = new MenuAdmin();
-            adm.requestFocus();
-        } else {
-            MenuEmployer emp = new MenuEmployer();
-            emp.requestFocus();
+        
+
+        private void btnReturnMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_btnReturnMouseClicked
+                Usuario user = new Usuario();
+                if (user.getAdm()) {
+                        MenuAdmin adm = new MenuAdmin();
+                        adm.requestFocus();
+                } else {
+                        MenuEmployer emp = new MenuEmployer();
+                        emp.requestFocus();
+                }
+                this.dispose();
+        }// GEN-LAST:event_btnReturnMouseClicked
+
+        private void btnMinimizeMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_btnMinimizeMousePressed
+                this.setExtendedState(JFrame.ICONIFIED);
+        }// GEN-LAST:event_btnMinimizeMousePressed
+
+        private void btnMaximizeMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_btnMaximizeMousePressed
+                this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        }// GEN-LAST:event_btnMaximizeMousePressed
+
+        private void btnExitMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_btnExitMousePressed
+                this.dispose();
+        }// GEN-LAST:event_btnExitMousePressed
+
+        private void btnAdd_to_OrderingActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnAdd_to_OrderingActionPerformed
+                if (input_ClientName.getText().isBlank())
+                        JOptionPane.showMessageDialog(rootPane, "Altere o nome do cliente");
+                else {
+                        int row = Product_Table.getSelectedRow();
+                        DefaultTableModel model = (DefaultTableModel) Product_Table.getModel();
+                        System.out.println(row);
+                        OrderController.pizzas.add((String) model.getValueAt(row, 0));
+                        OrderController.values.add(Float.parseFloat((String) model.getValueAt(row, 1)));
+                        sumItems(Float.parseFloat((String) model.getValueAt(row, 1)));
+                        numOrder.setText(String.valueOf(OrderController.pizzas.size()));
+                     System.out.println(OrderController.pizzas);  
+                     System.out.println(OrderController.values);
+                }
+        }// GEN-LAST:event_btnAdd_to_OrderingActionPerformed
+
+        private void btn_InsertOrderActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btn_InsertOrderActionPerformed
+                OrderController oc = new OrderController();
+                if (input_ClientName.getText().isBlank())
+                        JOptionPane.showMessageDialog(rootPane, "Altere o nome do cliente");
+                else {
+                        oc.setPedido(UsuarioController.user.getId(), input_ClientName.getText());
+                        print_numOrder
+                                        .setText(String.valueOf(oc.getPedido(UsuarioController.user.getId(),
+                                                        input_ClientName.getText())));
+                }
+        }// GEN-LAST:event_btn_InsertOrderActionPerformed
+
+        private void btn_DeleteOrderActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btn_DeleteOrderActionPerformed
+                // TODO: CANCELAR PEDIDO
+                OrderController.pizzas.clear();
+                OrderController.values.clear();
+                
+                this.input_ClientName.setText("");
+                this.numOrder.setText("0");
+                this.print_OrderPrice.setText("R$ 000,00");
+        }// GEN-LAST:event_btn_DeleteOrderActionPerformed
+
+        private void btn_seeCartActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btn_seeCartActionPerformed
+                Shopping_Cart sc = new Shopping_Cart(this, rootPaneCheckingEnabled);
+                sc.setInfo(this.input_ClientName.getText());
+                sc.addWindowListener(new WindowAdapter(){
+                    @Override
+                    public void windowClosed(WindowEvent ev){
+                        System.out.println("Fechado");
+                        Product_Table.setModel(OrderController.listarOrder());
+                    }
+                });
+                sc.setVisible(true);
+        }// GEN-LAST:event_btn_seeCartActionPerformed
+
+        private void Product_TableMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_Product_TableMousePressed
+
+        }// GEN-LAST:event_Product_TableMousePressed
+
+        private void sumItems(float item) {
+                DecimalFormat df = new DecimalFormat("0.00");
+                double valor = Float.parseFloat(print_OrderPrice.getText().substring(3).replace(',', '.'));
+                double soma = valor + item;
+                String res = df.format(soma);
+                print_OrderPrice.setText("R$ " + res);
         }
-        this.dispose();
-    }//GEN-LAST:event_btnReturnMouseClicked
 
-    private void btnMinimizeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMinimizeMousePressed
-        this.setExtendedState(JFrame.ICONIFIED);
-    }//GEN-LAST:event_btnMinimizeMousePressed
+        public static void main(String args[]) {
 
-    private void btnMaximizeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMaximizeMousePressed
-        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-    }//GEN-LAST:event_btnMaximizeMousePressed
-
-    private void btnExitMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMousePressed
-        this.dispose();
-    }//GEN-LAST:event_btnExitMousePressed
-
-    private void btnAdd_to_OrderingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd_to_OrderingActionPerformed
-        if (input_ClientName.getText().isBlank())
-            JOptionPane.showMessageDialog(rootPane, "Altere o nome do cliente");
-        else {
-            int row = Product_Table.getSelectedRow();
-            DefaultTableModel model = (DefaultTableModel) Product_Table.getModel();
-            cartProd.add((String) model.getValueAt(row, 0));
-            sumItems(Float.parseFloat((String) model.getValueAt(row, 1)));
-            model.removeRow(row);
-            numOrder.setText(String.valueOf(cartProd.size()));
-            System.out.println(cartProd);
+                java.awt.EventQueue.invokeLater(new Runnable() {
+                        public void run() {
+                                new Order().setVisible(true);
+                        }
+                });
         }
-    }//GEN-LAST:event_btnAdd_to_OrderingActionPerformed
-
-    private void btn_InsertOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_InsertOrderActionPerformed
-        OrderController oc = new OrderController();
-        if (input_ClientName.getText().isBlank())
-            JOptionPane.showMessageDialog(rootPane, "Altere o nome do cliente");
-        else {
-            oc.setPedido(UsuarioController.user.getId(), input_ClientName.getText());
-            print_numOrder.setText(String.valueOf(oc.getPedido(UsuarioController.user.getId(), input_ClientName.getText())));
-        }
-    }//GEN-LAST:event_btn_InsertOrderActionPerformed
-
-    private void btn_DeleteOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_DeleteOrderActionPerformed
-        //TODO: CANCELAR PEDIDO
-    }//GEN-LAST:event_btn_DeleteOrderActionPerformed
-
-    private void btn_seeCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_seeCartActionPerformed
-        Shopping_Cart sc = new Shopping_Cart(this, rootPaneCheckingEnabled);
-        sc.setVisible(true);
-    }//GEN-LAST:event_btn_seeCartActionPerformed
-
-    private void Product_TableMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Product_TableMousePressed
-
-    }//GEN-LAST:event_Product_TableMousePressed
-
-    private void sumItems(float item) {
-        DecimalFormat df = new DecimalFormat("0.00");
-        double valor = Float.parseFloat(print_OrderPrice.getText().substring(3).replace(',', '.'));
-        double soma = valor + item;
-        String res = df.format(soma);
-        print_OrderPrice.setText("R$ " + res);
-    }
-
-    public static void main(String args[]) {
-
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Order().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.pdvtech.view.component.customPanel OrderData_Panel;
@@ -551,11 +575,14 @@ public class Order extends javax.swing.JFrame {
     private javax.swing.JSeparator separator2;
     // End of variables declaration//GEN-END:variables
 
-    private void initTable() {
+        private void initTable() {
 
-        Product_Table.fixTable(Scrollpane_Table);
-        DefaultTableModel model = (DefaultTableModel) Product_Table.getModel();
+                Product_Table.fixTable(Scrollpane_Table);
+                Product_Table.setModel(OrderController.listarOrder());
+                DefaultTableModel model = (DefaultTableModel) Product_Table.getModel();
 
-    }
+                // TESTE: Dados teste na tabela
+
+        }
 
 }

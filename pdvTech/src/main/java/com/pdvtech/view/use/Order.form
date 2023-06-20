@@ -222,11 +222,14 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
                                       <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="lbl_ClientName" min="-2" max="-2" attributes="0"/>
                                           <Component id="lbl_NumOrder" min="-2" max="-2" attributes="0"/>
-                                          <Component id="area_NumOrder" max="32767" attributes="0"/>
-                                          <Component id="input_ClientName" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="area_NumOrder" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                                              <Component id="input_ClientName" min="-2" pref="170" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
@@ -288,9 +291,9 @@
                       <Component id="area_NumOrder" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                       <Component id="lbl_ClientName" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="input_ClientName" min="-2" pref="40" max="-2" attributes="0"/>
-                      <EmptySpace pref="13" max="32767" attributes="0"/>
+                      <EmptySpace pref="7" max="32767" attributes="0"/>
                       <Component id="btn_InsertOrder" min="-2" pref="50" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btn_DeleteOrder" min="-2" max="-2" attributes="0"/>

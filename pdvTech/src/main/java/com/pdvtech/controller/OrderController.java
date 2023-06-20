@@ -7,6 +7,8 @@ package com.pdvtech.controller;
 import com.pdvtech.util.MySQL;
 import com.pdvtech.model.Pizza;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -14,10 +16,25 @@ import javax.swing.table.DefaultTableModel;
  * @author limal
  */
 public class OrderController {
-
+    public static List<String> pizzas = new ArrayList<>();
+    public static List<Float> values = new ArrayList<>();
+ 
     static MySQL conn = new MySQL();
     public static Pizza pizza = new Pizza();
-
+    
+    public static  DefaultTableModel cartTable(){
+        String columNames[] = {"Pizza", "Valor", "Opções"};
+        DefaultTableModel model = new DefaultTableModel(columNames,0);
+        
+       for(int i= 0; i < pizzas.size();i++){
+           model.addRow(new String[]{
+               pizzas.get(i),
+               String.valueOf(values.get(i))
+               
+           });
+       }
+       return model;
+    }
     public static DefaultTableModel listarOrder() {
         String columNames[] = {"Nome", "Valor"};
         DefaultTableModel model = new DefaultTableModel(columNames, 0);
@@ -70,6 +87,15 @@ public class OrderController {
             conn.fechaBanco();
         }
         return idPedido;
+    }
+    
+    public static String actualPrice(){
+        float calc = 0;
+             for(Float v: OrderController.values){
+            calc += v;
+        }
+        String soma = String.valueOf(calc).replace(".", ",");
+        return soma;
     }
 
 }
